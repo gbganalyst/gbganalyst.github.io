@@ -12,7 +12,7 @@ execute:
   freeze: auto
   
 website:
-  title: "Fellow Ezekiel"
+  title: "Ezekiel Ogundepo"
   navbar:
     logo: /images/logo.png
     background: secondary
@@ -79,10 +79,10 @@ website:
   favicon: images/logo.png
   twitter-card: 
     creator: "@gbganalyst"
-   # image: "/img/website_thumbnail.png"
+    image: "/images/website_thumbnail.png"
     
   open-graph: 
-  #  image: "/img/website_thumbnail.png"
+    image: "/images/website_thumbnail.png"
     locale: en_US
 # Announcement Bar
   announcement:
