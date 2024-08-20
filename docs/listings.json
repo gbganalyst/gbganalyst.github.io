@@ -1,17 +1,17 @@
 [
   {
+    "listing": "/index.html",
+    "items": [
+      "/blog/api-in-r-and-python/index.html",
+      "/blog/website-tutorial-quarto/index.html"
+    ]
+  },
+  {
     "listing": "/blog/index.html",
     "items": [
       "/blog/export-r-dataframe-to-excel-workbook/index.html",
       "/blog/api-in-r-and-python/index.html",
       "/blog/scientists-should-have-a-website/index.html",
-      "/blog/website-tutorial-quarto/index.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/blog/api-in-r-and-python/index.html",
       "/blog/website-tutorial-quarto/index.html"
     ]
   }
