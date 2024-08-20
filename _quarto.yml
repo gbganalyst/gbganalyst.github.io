@@ -8,7 +8,9 @@ project:
 #    - "sitemap.xml"
 #    - "_redirects"
 #    - "speaking/pdf/**"
-
+execute:
+  freeze: auto
+  
 website:
   title: "Fellow Ezekiel"
   navbar:
