@@ -1,0 +1,129 @@
+---
+title: "Export Multiple Data Frames to Different Excel Worksheets in R"
+subtitle: "with openxlsx2::write_xlsx() function"
+description: |
+  In this tutoral you will learn how to export multiple dataframes in R to an Excel workbook, with each Excel worksheet corresponding to a distint dataframe.
+date: "08-19-2024"
+categories: 
+  - R
+  - Excel
+image: dataframe.png
+format:
+  html:
+    df_print: paged
+    fig-cap-location: bottom
+    include-before-body: ../../html/margin_image.html
+    include-after-body: ../../html/blog_footer.html
+    code-fold: false
+    code-tools: true
+editor: 
+  markdown: 
+    wrap: sentence
+resources: 
+  - "dataframe.png"
+---
+
+```{r}
+#| label: setup
+#| include: true
+#| echo: false
+#| message: false
+#| warning: false
+#| 
+# Document settings for R Markdown
+
+knitr::opts_chunk$set(out.width = "100%")
+```
+
+# Introduction
+
+The `openxlsx2` package provides an efficient way to export multiple data frames from R into an Excel workbook, where each worksheet in the workbook corresponds to a specific data frame in R.
+
+# Prerequisites
+
+This tutorial begins by ensuring that the necessary packages are installed and loaded.
+If they are not already present in your R environment, the following code will download and install them.
+Note that an internet connection is required for this step.
+
+```{r}
+#| label: Install-Package 
+#| 
+if (!require(install.load)) {
+  install.packages("install.load")
+}
+
+install.load::install_load(c("openxlsx2", "readxl", "purrr"))
+
+```
+
+# Preparing the Data
+
+In this example, we will export four commonly used datasets: `airquality`, `mtcars`, `iris`, and `diamonds`, each to a different worksheet within the same Excel workbook.
+
+```{r}
+#| label: data-preparation
+#| 
+dataframe1 <- datasets::airquality
+dataframe1 |> head()
+
+dataframe2 <- datasets::mtcars
+dataframe2 |> head()
+
+
+dataframe3 <- datasets::iris
+dataframe3 |> head()
+
+dataframe4 <- ggplot2::diamonds
+dataframe4 |> head()
+```
+
+# Exporting Data Frames to Excel
+
+Now that we have our data frames prepared, we will assign them to individual worksheets in an Excel workbook.
+The worksheet names will correspond to the names of the data frames in R.
+For example:
+
+-   sheet1- airquality
+-   sheet2- mtcars
+-   sheet3- iris
+-   sheet4- diamonds
+
+```{r}
+#| label: export-to-excel
+#| 
+list_of_datasets <- list("airquality" = dataframe1, 
+                         "mtcars" = dataframe2, 
+                         "iris" = dataframe3, 
+                         "diamonds" = dataframe4)
+
+write_xlsx(list_of_datasets, "Excel_workbook.xlsx")
+```
+
+After running the code, you will find the Excel_workbook.xlsx file in your working directory.
+
+# Verifying the Export
+
+You can verify the content of the Excel workbook either by opening it in `Excel` or by using `R`.
+Below, we'll check the worksheet names and inspect the contents of each worksheet using the `readxl` and `purrr` packages.
+
+```{r}
+#| label: verify-worksheets
+excel_sheets("Excel_workbook.xlsx")
+```
+
+To explore the content of each worksheet:
+
+```{r}
+#| label: inspect-worksheets
+path <- "Excel_workbook.xlsx"
+
+path |>
+  excel_sheets() |>
+  set_names() |>
+  map(read_excel, path = path)
+```
+
+# Conclusion
+
+This tutorial demonstrated how to efficiently export multiple data frames to separate worksheets in an Excel workbook using R.
+The approach is highly customizable, allowing for easy integration into your data analysis workflow.

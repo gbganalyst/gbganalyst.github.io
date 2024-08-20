@@ -1,0 +1,44 @@
+---
+title: "`GBG Analytics Blog`"
+author: ""
+title-block-banner: false
+page-layout: full
+description-meta: |
+  Welcome to my blog! I’m delighted to have you here. This space is dedicated to a diverse range of topics, offering insightful articles designed to inform and engage. Feel free to explore, and I look forward to hearing your thoughts. I hope you find the content both valuable and inspiring!
+
+listing:
+  - id: posts_2024
+    contents: 
+     # - "data-analysis-and-visualization/index.qmd"
+      - "api-in-r-and-python/index.qmd"
+      - "export-r-dataframe-to-excel-workbook/index.qmd"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+    categories: true
+
+  - id: posts_2023
+    contents: 
+      - "scientists-should-have-a-website/index.qmd"
+      - "website-tutorial-quarto/index.qmd"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+    categories: true
+toc-title: Year
+toc-location: right
+date-format: "MMMM D, YYYY"
+image: ""
+code-tools: false
+comments: false
+---
+
+**Welcome to my blog!** I am pleased to have you here. This platform is dedicated to a wide array of topics, providing insightful and engaging articles aimed at informing and inspiring. I invite you to explore the content, and I look forward to hearing your feedback. I trust that you will find the information both valuable and thought-provoking.
+
+## 2024
+
+::: {#posts_2024}
+:::
+
+## 2023
+
+::: {#posts_2023}
+:::

@@ -1,0 +1,116 @@
+project:
+  type: website
+  output-dir: docs
+
+  resources:
+    - "images/**"
+#    - "assets/**"
+#    - "sitemap.xml"
+#    - "_redirects"
+#    - "speaking/pdf/**"
+
+website:
+  title: "Fellow Ezekiel"
+  navbar:
+    logo: /images/logo.png
+    background: secondary
+    search: true
+    left:
+      - text: Home
+        href: index.qmd
+     # - talks.qmd
+     # - text: "More"
+     #   menu:
+     #   - talks.qmd
+    #    - about.qmd 
+      - text: CV
+        href: cv/index.qmd
+      - text: Blog
+        href: blog/index.qmd
+      - text: "Packages"
+        menu:
+          - text: "bulkreadr"
+            href: https://gbganalyst.github.io/bulkreadr
+          - text: "forstringr"
+            href: https://gbganalyst.github.io/forstringr
+    right:
+      - icon: twitter
+        href: https://twitter.com/gbganalyst
+      - icon: youtube
+        href: https://www.youtube.com/@gbganalytics
+      - icon: github
+        href: https://github.com/gbganalyst
+      - icon: linkedin
+        href: https://www.linkedin.com/in/gbganalyst/
+      - icon: envelope
+        aria-label: email
+        href: "mailto:gbganalyst@gmail.com"
+        
+#  page-footer: 
+#    border: true
+#    background: dark
+#    left: "Copyright 2024, Ezekiel Ogundepo" 
+#    right: 
+#      - icon: stopwatch
+#        text: " Updated on August 12, 2024"
+
+  page-footer: 
+    left: |
+      <span class="faux-block">{{< fa brands creative-commons >}} 2024 Ezekiel Ogundepo</span>
+      <span class="faux-block"><a href="https://github.com/gbganalyst/gbganalyst.github.io">{{< fa brands github >}} Source Code</a></span>
+    center: |
+      <span class="faux-block">{{< fa brands orcid >}} <strong>ORCID</strong> [0000-0003-3974-2733](https://orcid.org/0000-0003-3974-2733)</span>
+    right: |
+      <span class="faux-block"> Designed with {{< fa heart >}}</span>
+      <span class="faux-block"> Built with {{< fa brands r-project >}} and <a href="https://quarto.org/">Quarto</a></span>
+
+  page-navigation: true
+  back-to-top-navigation: true
+  bread-crumbs: true
+  
+#  body-header: |
+#    This page brought to you by <https://google.com>
+#  margin-header:  |
+#    ![Logo image](/images/logo.png)
+
+# Social Metadata
+  favicon: images/logo.png
+  twitter-card: 
+    creator: "@gbganalyst"
+   # image: "/img/website_thumbnail.png"
+    
+  open-graph: 
+  #  image: "/img/website_thumbnail.png"
+    locale: en_US
+# Announcement Bar
+  announcement:
+    icon: megaphone
+    dismissable: true
+    content: "The **bulkreadr** package, an ultimate tool for reading data in bulk is now on CRAN. [Read here](https://gbganalyst.github.io/bulkreadr/)"
+    type: info
+    position: above-navbar
+    
+# reader-mode: true
+# repo-url: https://github.com/quarto-dev/quarto-demo
+# repo-actions: [edit, issue]
+
+# To make a web link open in a new page
+filters:
+  - html/newpagelink.lua
+
+format:
+  html:
+#    include-in-header: html/seo.html
+    fontsize: 1.1em
+    theme: 
+      - flatly
+      - html/styles.scss
+    toc: false
+    anchor-sections: true
+    fig-cap-location: margin
+    reference-location: margin
+    footnotes-hover: true
+    highlight-style: monokai
+
+editor: visual
+

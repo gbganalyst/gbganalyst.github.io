@@ -1,0 +1,116 @@
+---
+comments: false
+page-layout: full
+format:
+  html: 
+    margin-top: 0em
+    margin-bottom: 0em
+    minimal: true
+    smooth-scroll: true
+    fig-responsive: true
+listing:
+  id: blog-listing
+  contents:   
+ #  - "blog/youtube-channel/index.qmd"
+    - "blog/website-tutorial-quarto/index.qmd"
+    - "blog/api-in-r-and-python/index.qmd"
+  sort: "date desc"
+  type: grid
+  max-items: 3
+  grid-columns: 3
+  fields: [image, date, title]
+
+editor_options: 
+  chunk_output_type: console
+---
+
+::: column-screen
+```{=html}
+<link rel="stylesheet" href="html/landing_page_styles.css">
+
+<div class="gradient_bg">
+    <div class="hero section_padding">
+        <div class="hero_content">
+            <h1>Hi, I'm <span class="gradient_text">Ezekiel</span>.</h1>
+            <p>I am a data science professional with over eight years of experience in statistical modeling, data analysis, and advanced analytics. I graduated with first-class honors in Statistics from the University of Ilorin, Nigeria, and hold a Master’s degree in Mathematical Sciences from the African Institute for Mathematical Sciences (AIMS), Rwanda, supported by a Mastercard scholarship.
+           </p> 
+            <p>
+I am honored to be a Mastercard Scholar, Federal Government of Nigeria (FSB) Scholar, UNLEASH Talent, Heidelberg Laureate Forum (HLF) Fellow, and Capacity Accelerator Network (CAN) Fellow of the Global Partnership for Sustainable Development Data.
+            </p>
+            <p>
+            My professional journey includes pivotal roles at the Rwanda Revenue Authority (RRA) as a Consultant Data Scientist, where I contributed to developing a dynamic taxpayers’ data portal, and at Data Science Nigeria (DSN), where I led data analytics projects, trained companies in data analytics, and organized major AI hackathons. As a former Senior Data Analytics Manager at 54gene, I implemented advanced data management and quality control procedures. As a <a href="https://www.data4sdgs.org/blog/data-science-health-and-climate-africa-meet-can-fellows" target="_blank"><span style='text-decoration: underline;text-decoration-color: #E6AA04;'>CAN Fellow</span></a> at eHealth Africa, I enhanced public health surveillance for cholera outbreaks in Yobe State, Nigeria, utilizing geospatial machine learning and data-driven approaches.
+            </p>
+            
+      <p>      
+  I am a passionate contributor to the data science community, having developed the <a href="https://gbganalyst.github.io/bulkreadr" target="_blank"><span style='text-decoration: underline;text-decoration-color: #E6AA04;'>bulkreadr</span></a> and 
+  <a href="https://gbganalyst.github.io/forstringr/" target="_blank"><span style='text-decoration: underline;text-decoration-color: #E6AA04;'>forstringr </span></a> CRAN R programming packages and contributed to the 'Big Book of R' and the 'ralger' package. I co-edited the "Beginners’ Artificial Intelligence & Python Programming Book" and helped create the Nigeria COVID-19 data repository for researchers.    
+      </p>
+           
+           <p>
+    As an active member of the Africa R programming community and a certified RStudio Tidyverse instructor, I have published ten research papers and provided consultancy to clients worldwide. I excel in data wrangling, analysis, tool-building, and process automation, and am dedicated to leveraging data to solve real-world problems and drive sustainable development.
+           </p>
+            
+
+        </div>
+        <div class="hero_image">
+            <img src="/images/photoshoot.jpg"/>
+        </div>
+        <div id="dot_container">
+        </div>
+    </div>
+ 
+    
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 150" opacity="1"><defs><linearGradient gradientTransform="rotate(270)" x1="50%" y1="0%" x2="50%" y2="100%" id="sssquiggly-grad"><stop stop-color="hsl(44, 97%, 46%)" stop-opacity="1" offset="0%"></stop><stop stop-color="hsl(44, 97%, 46%)" stop-opacity="1" offset="100%"></stop></linearGradient></defs><g stroke-width="1.5" stroke="url(#sssquiggly-grad)" fill="none" stroke-linecap="round" transform="matrix(1,0,0,1,-5,51.00748062133789)">
+<path d="M10,10C31.726190476190478,11.666666666666666,68.75,24.666666666666664,114.28571428571429,18C159.82142857142858,11.333333333333334,180.95238095238096,-22.833333333333332,228.57142857142858,-22C276.1904761904762,-21.166666666666668,295.2380952380953,19.916666666666668,342.8571428571429,22C390.4761904761905,24.083333333333332,409.5238095238095,-14.916666666666668,457.14285714285717,-12C504.7619047619048,-9.083333333333332,523.8095238095239,33.708333333333336,571.4285714285714,36C619.047619047619,38.291666666666664,638.0952380952382,-1.8333333333333333,685.7142857142858,-1C733.3333333333334,-0.16666666666666674,776.1904761904761,31.458333333333336,800,40" transform="matrix(1,0,0,1,0,50)"></path><path d="M10,10C31.726190476190478,11.666666666666666,68.75,24.666666666666664,114.28571428571429,18C159.82142857142858,11.333333333333334,180.95238095238096,-22.833333333333332,228.57142857142858,-22C276.1904761904762,-21.166666666666668,295.2380952380953,19.916666666666668,342.8571428571429,22C390.4761904761905,24.083333333333332,409.5238095238095,-14.916666666666668,457.14285714285717,-12C504.7619047619048,-9.083333333333332,523.8095238095239,33.708333333333336,571.4285714285714,36C619.047619047619,38.291666666666664,638.0952380952382,-1.8333333333333333,685.7142857142858,-1C733.3333333333334,-0.16666666666666674,776.1904761904761,31.458333333333336,800,40" transform="matrix(1,0,0,1,0,40)"></path><path d="M10,10C31.726190476190478,11.666666666666666,68.75,24.666666666666664,114.28571428571429,18C159.82142857142858,11.333333333333334,180.95238095238096,-22.833333333333332,228.57142857142858,-22C276.1904761904762,-21.166666666666668,295.2380952380953,19.916666666666668,342.8571428571429,22C390.4761904761905,24.083333333333332,409.5238095238095,-14.916666666666668,457.14285714285717,-12C504.7619047619048,-9.083333333333332,523.8095238095239,33.708333333333336,571.4285714285714,36C619.047619047619,38.291666666666664,638.0952380952382,-1.8333333333333333,685.7142857142858,-1C733.3333333333334,-0.16666666666666674,776.1904761904761,31.458333333333336,800,40" transform="matrix(1,0,0,1,0,30)"></path><path d="M10,10C31.726190476190478,11.666666666666666,68.75,24.666666666666664,114.28571428571429,18C159.82142857142858,11.333333333333334,180.95238095238096,-22.833333333333332,228.57142857142858,-22C276.1904761904762,-21.166666666666668,295.2380952380953,19.916666666666668,342.8571428571429,22C390.4761904761905,24.083333333333332,409.5238095238095,-14.916666666666668,457.14285714285717,-12C504.7619047619048,-9.083333333333332,523.8095238095239,33.708333333333336,571.4285714285714,36C619.047619047619,38.291666666666664,638.0952380952382,-1.8333333333333333,685.7142857142858,-1C733.3333333333334,-0.16666666666666674,776.1904761904761,31.458333333333336,800,40" transform="matrix(1,0,0,1,0,20)"></path><path d="M10,10C31.726190476190478,11.666666666666666,68.75,24.666666666666664,114.28571428571429,18C159.82142857142858,11.333333333333334,180.95238095238096,-22.833333333333332,228.57142857142858,-22C276.1904761904762,-21.166666666666668,295.2380952380953,19.916666666666668,342.8571428571429,22C390.4761904761905,24.083333333333332,409.5238095238095,-14.916666666666668,457.14285714285717,-12C504.7619047619048,-9.083333333333332,523.8095238095239,33.708333333333336,571.4285714285714,36C619.047619047619,38.291666666666664,638.0952380952382,-1.8333333333333333,685.7142857142858,-1C733.3333333333334,-0.16666666666666674,776.1904761904761,31.458333333333336,800,40" transform="matrix(1,0,0,1,0,10)"></path></g></svg>
+
+</div>
+
+
+<script src="html/jquery.min.js"></script>
+<script src="html/TweenMax.min.js"></script>
+<!--<script src="html/parallax.js"></script>-->
+```
+:::
+
+::: {#news}
+## News
+
+-   **May 25, 2024:** The `bulkreadr` package is now available on CRAN. `bulkreadr` is an R package that simplifies and streamlines the process of reading and processing large volumes of data. It allows users to efficiently read multiple sheets from Microsoft Excel/Google Sheets workbooks and multiple CSV files from a directory. [Learn more](https://gbganalyst.github.io/bulkreadr).
+
+![bulkreadr Concept Map](images/concept-map.png){fig-alt="bulkreadr concept map"}
+
+-   **November 7, 2023:** I had the privilege of participating as a Trust CAN Fellow at the Festival de Datos, sponsored by the United Nations, held in Punta del Este, Uruguay, from November 7 to 9, 2023.
+
+-   **October 15, 2023:** I am honored to have been [selected](https://www.data4sdgs.org/blog/data-science-health-and-climate-africa-meet-can-fellows) by the Global Partnership for Sustainable Development Data for the Capacity Accelerator Network (CAN) Fellowship. My project focuses on identifying environmental factors driving cholera outbreaks in Yobe State to enhance public health surveillance and response efforts.
+
+    ![](images/CAN.png)
+
+-   **September 24, 2023:** I attended the 10th Heidelberg Laureate Forum (HLF) in Germany as a young researcher. It was an incredible experience engaging with laureates and fellow researchers. [Learn more](https://www.heidelberg-laureate-forum.org/).
+
+-   **August 14, 2023:** I facilitated a session on reproducible research using version control (GitHub/GitLab) at the 2023 Data Science Nigeria Artificial Intelligence Bootcamp. [Learn more](https://www.datasciencenigeria.org/2023-bootcamp).
+
+-   **October 12, 2023:** The `forstringr` package is now available on CRAN. The goal of `forstringr` is to enable complex string manipulation in R, particularly for those familiar with LEFT(), RIGHT(), and MID() functions in Microsoft Excel. The package combines the power of `stringr` with other manipulation packages such as `dplyr` and `tidyr`. [Learn more](https://gbganalyst.r-universe.dev/forstringr).
+
+-   **September 30, 2023:** My article on fetching data from an API using R and Python is now complete. This tutorial will teach you how to fetch data from an external source using HTTP requests and parse it into a usable format. It is written in Quarto, a powerful tool for publishing reproducible research. [Read it here](https://gbganalyst.quarto.pub/api-in-r-and-python/).
+
+-   **November 28, 2022:** I was selected by UNESCO and The Abdus Salam International Centre for Theoretical Physics (ICTP) to attend the 9th Workshop on Collaborative Scientific Software Development and Management of Open-Source Scientific Packages at ICTP, Trieste, Italy, from November 28 to December 9, 2022. [Read the report](https://www.linkedin.com/feed/update/urn:li:activity:7009522843881234432/).
+
+-   **November 10, 2021:** I am excited to announce that I will be joining 54gene as a data specialist, where I will contribute to genomic data analysis aimed at equalizing precision medicine in Africa.
+
+-   **October 21, 2020:** Our data article "An Exploratory Assessment of a Multidimensional Healthcare and Economic Data on COVID-19 in Nigeria" has been published in the *Data in Brief*. A great collaboration among ten researchers from [Data Science Nigeria](https://datasciencenigeria.org/), [Olabisi Onabanjo University)](https://web.oouagoiwoye.edu.ng/) and [Federal University Lokoja](https://www.fulokoja.edu.ng/). Here's a [link to the paper](https://www.sciencedirect.com/science/article/pii/S2352340920313068).
+
+-   **October 22, 2020:** I became the first RStudio Tidyverse Certified Instructor from Nigeria on October 22, 2020.
+
+-   **May 27, 2020:** I received a grant to attend the European R users meeting (eRum) in Milan, Italy, from May 27 to May 30, 2020.
+
+-   **March 1, 2020:** I was honored to be invited as a guest at the Next Einstein Forum (NEF) Global Gathering 2020, which took place in Nairobi, Kenya, from December 8-10, 2020.
+
+-   **December, 2019:** I joined Data Science Nigeria as a Data Scientist on December 4, 2019.
+
+-   **May 30, 2018:** I was selected from a pool of more than 7,000 applicants to attend the UNLEASH Global Innovation Lab in Singapore from May 30 to June 6, 2018.
+:::
+
+## Featured Blog Posts
+
+::: {#blog-listing}
+:::
