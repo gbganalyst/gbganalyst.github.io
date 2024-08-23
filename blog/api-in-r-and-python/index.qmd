@@ -7,7 +7,9 @@ categories:
   - API
   - R
   - Python
-  
+
+lightbox: true
+
 image: how-api-work.jpg
 
 format: 

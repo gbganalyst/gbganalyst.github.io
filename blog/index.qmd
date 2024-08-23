@@ -9,7 +9,7 @@ description-meta: |
 listing:
   - id: posts_2024
     contents: 
-     # - "data-analysis-and-visualization/index.qmd"
+      - "data-analysis-and-visualization/index.qmd"
       - "api-in-r-and-python/index.qmd"
       - "export-r-dataframe-to-excel-workbook/index.qmd"
     sort: "date desc"

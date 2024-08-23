@@ -28,7 +28,6 @@ knitr:
     warning: false
     wrap: true
 
-
 format:   
   html:
     code-tools: true

@@ -11,7 +11,7 @@ format:
 listing:
   id: blog-listing
   contents:   
- #  - "blog/youtube-channel/index.qmd"
+    #- "blog/data-analysis-and-visualization/index.qmd"
     - "blog/website-tutorial-quarto/index.qmd"
     - "blog/api-in-r-and-python/index.qmd"
   sort: "date desc"
@@ -103,7 +103,7 @@ I am honored to be a Mastercard Scholar, Federal Government of Nigeria (FSB) Sch
 
 -   **March 1, 2020:** I was honored to be invited as a guest at the Next Einstein Forum (NEF) Global Gathering 2020, which took place in Nairobi, Kenya, from December 8-10, 2020.
 
--   **December, 2019:** I joined Data Science Nigeria as a Data Scientist on December 4, 2019.
+-   **December 4, 2019:** I joined Data Science Nigeria as a Data Scientist.
 
 -   **May 30, 2018:** I was selected from a pool of more than 7,000 applicants to attend the UNLEASH Global Innovation Lab in Singapore from May 30 to June 6, 2018.
 :::

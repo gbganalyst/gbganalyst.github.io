@@ -1,0 +1,514 @@
+---
+title: "Data Analysis and Visualization"
+subtitle: "A Question-and-Answer Approach"
+description: |
+  This project focuses on analyzing a modified autism dataset using R, with a specific emphasis on data preprocessing, univariate statistics, and visualizations. The dataset contains attributes of children who were tested for autism, and the project is structured as a question-and-answer tutorial. Each section addresses different analytical tasks, such as cleaning data, generating descriptive statistics, creating visualizations, and performing hypothesis testing. The tutorial is designed to guide users through the process of exploring the dataset, interpreting results, and applying statistical methods to answer key questions related to autism diagnosis and its associated factors.
+date: "08-06-2024"
+categories: 
+  - Data Analysis
+  - R
+  - Visualisatiom
+  
+lightbox: true
+
+image: autism.png
+format: 
+  html:
+    fig-cap-location: bottom
+    include-before-body: ../../html/margin_image.html
+    include-after-body: ../../html/blog_footer.html
+    page-layout: full # custom #article,
+    code-fold: false
+    code-tools: true
+    df-print: paged
+    smooth-scroll: true
+#editor: visual
+editor: 
+  markdown: 
+    wrap: sentence
+execute:
+  error: true
+#  eval: false
+  echo: true #fenced
+  freeze: auto
+resources: 
+  - "autism.png"
+twitter-card:
+  title: "Data Analysis and Visualization: A Question-and-Answer Approach"
+  image: "autism.png"
+  image-width: "1280"
+  image-height: "720"
+open-graph:
+  title: "Data Analysis and Visualization: A Question-and-Answer Approach"
+  image: "autism.png" 
+  image-width: "1280"
+  image-height: "720"    
+editor_options: 
+  chunk_output_type: console
+---
+
+# Project Instructions
+
+You will work with the `child.csv` file, which is a modified dataset adapted from the autism dataset available on [Kaggle](#).
+This dataset contains attributes/variables for several children who were tested for autism.
+
+Your task is to perform the following data analysis activities using R.
+If any data preparation steps cannot be accomplished using R, describe your alternative approach and complete the rest of the analysis in R.
+
+## Autism Data
+
+To follow along with this tutorial, you can download the dataset below:
+
+```{r}
+#| label: autism-dataset
+#| echo: false
+
+# Using the `DT` library to provide a downloadable data table
+DT::datatable(
+ readr::read_csv("child.csv"),
+  caption = "Autism Dataset",
+  extensions = "Buttons",
+  options = list(dom = "Bfrtip", buttons = c("csv", "excel"))
+)
+
+```
+
+## Import Required Packages
+
+```{r}
+#| label: r-packages
+
+# Ensure your computer is connected to the internet!
+
+packages_needed <- c(
+  "tidyverse", "vtable", "inspectdf", "knitr", 
+  "kableExtra", "gt", "patchwork", "treemap")
+
+if (!require(install.load)) {
+  install.packages("install.load")
+}
+
+install.load::install_load(packages_needed)
+
+theme_set(theme_bw())
+```
+
+# Data Preprocessing
+
+## Import the Dataset
+
+```{r}
+#| label: the-dataset
+#| 
+child_data <- read_csv("child.csv")
+```
+
+The code below cleans the dataset by removing any whitespace and apostrophes from character variables.
+
+```{r}
+#| label: data_cleaning
+#|   
+clean_data <- child_data %>%
+  mutate(across(where(is.character), ~str_squish(str_remove_all(., pattern = "'")))) %>%
+  mutate(across(5:11, as.factor))
+
+clean_data <- clean_data %>% mutate(autism = fct_relevel(autism, "YES"),
+                                    autismFH = fct_relevel(autismFH, "yes"))
+```
+
+# Descriptive Analysis
+
+You can generate a detailed summary of the dataset variables using `vtable`.
+
+```{r}
+#| label: vtable
+#| eval: false
+#| 
+label <- data.frame(
+  score = "A numeric value from the standard tests for autism",
+  score2 = "A numeric value from alternative (non-standard) tests for autism",
+  age = "The child’s age",
+  cost = "Total cost of testing the child (in pounds)",
+  gender = "Gender (male or female)",
+  ethnicity = "Child’s ethnicity",
+  jaundice = "Whether the child was born with jaundice",
+  autismFH = "Family history of autism",
+  residence = "Country of residence",
+  relation = "Who completed the test for the child",
+  autism = "Autism diagnosis (YES or NO)"
+)
+
+vtable(clean_data, labels = label, factor.limit = 5)
+```
+
+![](data_description.png)
+
+> **Autism Dataset Overview**
+
+```{r}
+#| label: kable1
+#| eval: true 
+#| echo: false
+#| 
+kable(
+ clean_data, 
+ caption = "Cleaned Data", 
+ align = rep("c", 15)
+) %>%
+ kable_styling(
+   bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+   fixed_thead = TRUE
+ ) %>%
+  scroll_box(width = "900px", height = "500px")
+```
+
+```{r}
+#| label: check_na
+#| fig-height: 4.5
+#| fig-width: 5
+#| 
+clean_data %>%
+  inspect_na() %>%
+  show_plot()
+```
+
+# Question 1
+
+
+Produce a plot showing the relative proportion of children residing in Australia, Germany, Italy, and India. Provide comments on your visualization and suggest an alternative plot that could represent this data, noting its advantages.
+There is no need to create the alternative plot.
+
+## Solution
+
+```{r}
+#| fig-height: 4.5
+#| fig-width: 5
+
+dat1 <- clean_data %>%
+  filter(residence %in% c("Australia", "Germany", "Italy", "India")) %>%
+  count(residence) %>%
+  mutate(prop = n / sum(n))
+
+dat1 %>%
+  gt() %>%
+  tab_spanner(label = "Statistics", columns = vars(n, prop))
+
+dat1 %>%
+  ggplot(aes(x = reorder(residence, prop), y = prop, fill = residence)) +
+  geom_col(width = 0.5, show.legend = FALSE) +
+  theme_bw() +
+  labs(x = "Residence", y = "Relative Proportion") +
+  scale_y_continuous(labels = scales::percent)
+```
+
+The visualization indicates that most children in this subset reside in India.
+An alternative visualization could be a pie chart.
+
+**Advantages of a Pie Chart:**
+
+-   Simple and easy to interpret
+-   Visually clear, especially with few categories
+-   Ideal for presenting proportions
+
+# Question 2
+
+Use univariate statistics to describe at least the first four attributes.
+Discuss any notable results, and use visualizations where appropriate.
+
+## Solution
+
+::: {.panel-tabset group="question2"}
+
+## Solution: Part 1
+
+```{r}
+plot_box <- function(df, cols, col_x = "autism") {
+  for (col in cols) {
+    p <- ggplot(df, aes(x = .data[[col_x]], y = .data[[col]], fill = .data[[col_x]])) + 
+      geom_boxplot(show.legend = FALSE, width = 0.2, outlier.size = 1, 
+                   outlier.shape = 5, outlier.colour = "purple") +
+      scale_fill_manual(values = c("YES" = "red", "NO" = "green")) +
+      labs(y = col, x = NULL, title = paste0('Boxplot of ', col, ' by autism status')) +
+      theme(axis.text.x = element_text(face = "bold"), 
+            axis.title.y = element_text(size = 12, face = "bold"))
+    print(p)
+  }
+}
+
+num_cols <- clean_data %>%
+  select_if(is.numeric) %>%
+  colnames()
+
+plot_box(clean_data, num_cols)
+```
+
+Box plots help assess whether a feature is useful in distinguishing between children with and without autism. Here, the cost of testing is higher for children diagnosed with autism, and both test scores are higher in children with autism.
+
+## Solution: Part 2
+
+```{r}
+plot_bars <- function(df, cat_cols, facet_var) {
+  for (col in cat_cols) {
+    p <- ggplot(df, aes(x = .data[[col]], fill = .data[[col]])) +
+      geom_bar(show.legend = FALSE, width = 0.3) +
+      labs(x = col, y = "Number of Children", 
+           title = str_c("Bar Plot of ", col), 
+           subtitle = paste0('Faceted by Autism Status')) +
+      facet_wrap(vars({{ facet_var }}), scales = "free_y") +
+      theme(axis.title.y = element_text(size = 12, face = "bold"), 
+            axis.title.x = element_text(size = 12, face = "bold"),
+            axis.text.x = element_text(angle = 45, hjust = 1, face = "bold"))
+    print(p)
+  }
+}
+
+cat_cols <- clean_data %>%
+  select_if(is.factor) %>%
+  colnames()
+
+cat_cols <- cat_cols[-c(5,7)] # Removing the class label
+
+plot_bars(clean_data, cat_cols, autism)
+```
+
+These plots show that features like `relation`, `autismFH`, `jaundice`, `ethnicity`, and `gender` have significant differences in their distribution based on autism status.
+:::
+
+# Question 3
+
+## Task 3a
+
+Apply data analysis techniques in order to answer each of the questions below, justifying the steps you have followed and the limitations (if any) of your analysis. If a question cannot be answered explain why.
+
+-   Is the mean score different for children with autism compared to those without, using a significance level of 0.05?
+
+-   Is there a difference of at least 1 in mean scores between children with a family history of autism and those without?
+
+## Solution 3a
+
+**Part 1: Testing Variance Homogeneity**
+
+One of the assumptions of t-test of independence of means is homogeneity of variance (equal variance between groups).
+
+The statistical hypotheses are:
+
+-   **Null Hypothesis** ($H_0$): The variances of the two groups are equal.
+
+-   **Alternative Hypothesis** ($H_a$): The variances are different.
+
+```{r}
+car::leveneTest(score ~ autism, data = clean_data)
+```
+
+**Interpretation**: The p-value is less than 0.05, indicating a significant difference in variances.
+
+```{r test_score}
+t.test(score ~ autism, data = clean_data, alternative = "two.sided", var.equal = FALSE)
+```
+
+There is a significant difference in mean scores between children with autism (M = 8.
+
+41, SD = 1.19) and those without (M = 4.51, SD = 1.54); t(280.24) = 24.242, p \< 0.05.
+
+**Part 2: Testing Family History**
+
+```{r}
+car::leveneTest(score ~ autismFH, data = clean_data)
+```
+
+**Interpretation**: The p-value is greater than 0.05, indicating no significant difference in variances.
+
+```{r}
+#| label: ttest_score4autismFH
+#| 
+t.test(score ~ autismFH, data = clean_data, alternative = "two.sided", var.equal = TRUE)
+```
+
+There is no significant difference in mean scores between children with a family history of autism (M = 5.98, SD = 2.60) and those without (M = 6.48, SD = 2.35); t(290) = -1.3311, p = 0.1842.
+
+
+## Task 3b
+
+-   Predict the alternative score (score2) for a child with a standard score of 7.
+-   Predict the alternative score (score2) for a child with a standard score of 12.
+
+## Solution 3b
+
+**Part 1:**
+
+```{r}
+model <- lm(score2 ~ score, data = clean_data)
+
+predict(model, data.frame(score = 7))
+```
+
+$score2 = 7.01$
+
+The predicted value of the alternative score (score2) for a child with a standard score of 7 is 7.01.
+
+**Part 2:**
+
+```{r}
+predict(model, data.frame(score = 12))
+```
+
+$score2 = 11.98$
+
+The predicted value of the alternative score (score2) for a child with a standard score of 12 is 11.98.
+
+# Question 4
+
+Create a dataset containing all the data in `child.csv` plus a new column `ageGroup` with values "Five and under" and "6 and over." Compare the standard score against the cost for each age group, and show whether there was a family history of autism.
+Comment on your visualizations.
+
+## Solution
+
+```{r}
+clean_data <- clean_data %>%
+  mutate(ageGroup = case_when(age >= 6 ~ "6 and over", TRUE ~ "Five and under"))
+
+clean_data %>%
+  ggplot(aes(x = cost, y = score, color = ageGroup)) +
+  geom_line() +
+  facet_grid(ageGroup ~ autismFH, scales = "free") +
+  labs(title = "Cost vs. Score by Age Group and Family History of Autism")
+```
+
+Children aged five years and under with a family history of autism tend to have lower costs associated with standard autism testing.
+
+# Question 5
+
+Discuss the following statement using a maximum of three plot examples to illustrate your explanations (Word limit: 300 words):
+
+There are different methods of displaying data, with no single method being suitable for all data types. Some visualizations effectively convey the intended information, while others fail. The data-ink ratio and lie factor also contribute to the quality of a visualization.
+
+**Note**: Your plot examples must relate to the `child.csv` dataset.
+
+::: {.panel-tabset}
+## Solution: Part 1
+
+```{r}
+#| eval: false
+p1 <- clean_data %>%
+  ggplot(aes(x = score)) +
+  geom_histogram(binwidth = 5, fill = "dark blue") +
+  labs(title = "Histogram")
+
+p2 <- clean_data %>%
+  ggplot(aes(y = score)) +
+  geom_boxplot(fill = "dark blue") +
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
+  labs(title = "Boxplot")
+
+p3 <- clean_data %>%
+  ggplot(aes(x = score)) +
+  geom_dotplot(binwidth = 0.23, stackratio = 1, fill = "blue", stroke = 2) +
+  scale_y_continuous(NULL, breaks = NULL) +
+  labs(title = "Dot Plot")
+
+p1 / (p2 + p3) + plot_annotation(title = 'Different Plots for Standard Test Scores')
+```
+
+![](Q5a.png)
+
+Histograms and boxplots are common for showing the distribution of continuous variables.
+Dot plots, though suitable for smaller datasets, can become cluttered with more data.
+When dealing with large datasets, boxplots or histograms are more effective.
+
+## Solution: Part 2
+
+```{r}
+#| eval: false
+#| 
+p1 <- clean_data %>%
+  count(relation) %>%
+  ggplot(aes(x = reorder(relation, n), y = n, fill = relation)) +
+  geom_col(width = 0.4, show.legend = FALSE) +
+  labs(title = "Bar Chart", x = "")
+
+p2 <- clean_data %>%
+  select(relation) %>%
+  count(relation) %>%
+  ggplot(aes(x = reorder(relation, n), y = n)) +
+  geom_segment(aes(xend = relation, yend = 0)) +
+  geom_point(size = 6, color = "orange") +
+  theme_bw() +
+  xlab("")
+
+p3 <- clean_data %>%
+  select(relation) %>%
+  count(relation) %>%
+  treemap(index = "relation", vSize = "n", title = "Treemap")
+
+p4 <- pie(
+  table(clean_data$relation), 
+  col = c("purple", "violetred1", "green3", "cornsilk"), 
+  radius = 0.9, 
+  main = "Pie Chart"
+)
+```
+
+![](Q5b.png)
+
+Pie charts can be less effective when dealing with multiple categories, as they require interpreting angles and comparing non-adjacent slices.
+Bar charts or treemaps may be more effective in such cases.
+:::
+
+# Question 6
+
+Assume you have an additional 19 independent datasets with the same number of observations about children tested for autism.
+Load the `independent_data.csv` dataset, which includes the distribution for the attribute `autism`, and demonstrate that the size of the confidence intervals for the average percentage of positive cases of autism increases as the confidence level increases (90%, 95%, 98%).
+Discuss any improvements that could enhance your demonstration.
+
+## Solution
+
+```{r}
+#| label: independent_data
+#| 
+another_dataset <- read_csv("independent_dataset.csv")
+```
+
+```{r}
+#| label: conf.size_function
+#| 
+# Function to calculate the size of confidence intervals
+conf.size <- function(dataset, level = 0.90) {
+  t_test <- t.test(dataset[, 2] %>% pull, conf.level = level)
+  print(t_test$conf.int)
+}
+```
+
+```{r}
+conf.size(another_dataset, level = 0.9)
+```
+
+The 90% confidence interval for the average percentage of positive cases of autism ranges from 48.42% to 50.42%.
+
+```{r}
+conf.size(another_dataset, level = 0.95)
+```
+
+The 95% confidence interval for the average percentage of positive cases of autism ranges from 48.20% to 50.64%.
+
+```{r}
+conf.size(another_dataset, level = 0.98)
+```
+
+The 98% confidence interval for the average percentage of positive cases of autism ranges from 47.94% to 50.90%.
+
+> **Overall Interpretation**
+
+As the confidence level increases, the confidence intervals become wider, making it harder to reject the null hypothesis.
+
+
+------------------------------------------------------------------------
+
+![Congratulations!](https://media2.giphy.com/media/LXiElF2dzvUmQ/giphy.gif)
+
+------------------------------------------------------------------------
+
+I hope you found this tutorial helpful.
+For more updates on data science with R, Python, and Excel, follow me on [Twitter](https://www.twitter.com/gbganalyst) and [LinkedIn](https://www.linkedin.com/in/ezekiel-ogundepo).
+The GitHub repository for this tutorial is available [here](https://github.com/gbganalyst/Data-Visualization-and-Analysis).
+
+![Cheers!](https://media2.giphy.com/media/Tw4z4MD34y11K/giphy.gif)

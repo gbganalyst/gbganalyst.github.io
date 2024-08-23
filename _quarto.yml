@@ -69,11 +69,6 @@ website:
   page-navigation: true
   back-to-top-navigation: true
   bread-crumbs: true
-  
-#  body-header: |
-#    This page brought to you by <https://google.com>
-#  margin-header:  |
-#    ![Logo image](/images/logo.png)
 
 # Social Metadata
   favicon: images/logo.png
