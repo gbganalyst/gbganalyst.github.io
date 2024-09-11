@@ -111,3 +111,6 @@ format:
 
 editor: visual
 
+#theme:
+#  light: cosmo
+#  dark: [cosmo, theme-dark.scss]#

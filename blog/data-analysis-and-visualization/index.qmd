@@ -7,7 +7,7 @@ date: "08-06-2024"
 categories: 
   - Data Analysis
   - R
-  - Visualisatiom
+  - Visualisation
   
 lightbox: true
 
@@ -174,8 +174,8 @@ clean_data %>%
 
 # Question 1
 
-
-Produce a plot showing the relative proportion of children residing in Australia, Germany, Italy, and India. Provide comments on your visualization and suggest an alternative plot that could represent this data, noting its advantages.
+Produce a plot showing the relative proportion of children residing in Australia, Germany, Italy, and India.
+Provide comments on your visualization and suggest an alternative plot that could represent this data, noting its advantages.
 There is no need to create the alternative plot.
 
 ## Solution
@@ -218,7 +218,6 @@ Discuss any notable results, and use visualizations where appropriate.
 ## Solution
 
 ::: {.panel-tabset group="question2"}
-
 ## Solution: Part 1
 
 ```{r}
@@ -242,7 +241,8 @@ num_cols <- clean_data %>%
 plot_box(clean_data, num_cols)
 ```
 
-Box plots help assess whether a feature is useful in distinguishing between children with and without autism. Here, the cost of testing is higher for children diagnosed with autism, and both test scores are higher in children with autism.
+Box plots help assess whether a feature is useful in distinguishing between children with and without autism.
+Here, the cost of testing is higher for children diagnosed with autism, and both test scores are higher in children with autism.
 
 ## Solution: Part 2
 
@@ -278,7 +278,8 @@ These plots show that features like `relation`, `autismFH`, `jaundice`, `ethnici
 
 ## Task 3a
 
-Apply data analysis techniques in order to answer each of the questions below, justifying the steps you have followed and the limitations (if any) of your analysis. If a question cannot be answered explain why.
+Apply data analysis techniques in order to answer each of the questions below, justifying the steps you have followed and the limitations (if any) of your analysis.
+If a question cannot be answered explain why.
 
 -   Is the mean score different for children with autism compared to those without, using a significance level of 0.05?
 
@@ -325,7 +326,6 @@ t.test(score ~ autismFH, data = clean_data, alternative = "two.sided", var.equal
 ```
 
 There is no significant difference in mean scores between children with a family history of autism (M = 5.98, SD = 2.60) and those without (M = 6.48, SD = 2.35); t(290) = -1.3311, p = 0.1842.
-
 
 ## Task 3b
 
@@ -380,11 +380,13 @@ Children aged five years and under with a family history of autism tend to have 
 
 Discuss the following statement using a maximum of three plot examples to illustrate your explanations (Word limit: 300 words):
 
-There are different methods of displaying data, with no single method being suitable for all data types. Some visualizations effectively convey the intended information, while others fail. The data-ink ratio and lie factor also contribute to the quality of a visualization.
+There are different methods of displaying data, with no single method being suitable for all data types.
+Some visualizations effectively convey the intended information, while others fail.
+The data-ink ratio and lie factor also contribute to the quality of a visualization.
 
 **Note**: Your plot examples must relate to the `child.csv` dataset.
 
-::: {.panel-tabset}
+::: panel-tabset
 ## Solution: Part 1
 
 ```{r}
@@ -499,7 +501,6 @@ The 98% confidence interval for the average percentage of positive cases of auti
 > **Overall Interpretation**
 
 As the confidence level increases, the confidence intervals become wider, making it harder to reject the null hypothesis.
-
 
 ------------------------------------------------------------------------
 
