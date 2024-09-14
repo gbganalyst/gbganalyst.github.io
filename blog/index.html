@@ -129,6 +129,34 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-posts_2022 .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-project','listing-execute','listing-website','listing-filters','listing-format','listing-editor','listing-language','listing-freeze','listing-description-meta','listing-title-block-banner','listing-toc','listing-toc-title','listing-toc-location','listing-knitr','listing-author','listing-title','listing-description','listing-date','listing-jupyter','listing-categories','listing-image','listing-resources','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      
+      searchColumns: ["listing-project","listing-execute","listing-website","listing-filters","listing-format","listing-editor","listing-language","listing-freeze","listing-description-meta","listing-title-block-banner","listing-toc","listing-toc-title","listing-toc-location","listing-knitr","listing-author","listing-title","listing-description","listing-date","listing-jupyter","listing-categories","listing-image","listing-resources","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-posts_2022'] = new List('listing-posts_2022', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
@@ -273,9 +301,10 @@ window.Quarto = {
   <ul>
   <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">2024</a></li>
   <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2023</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2022</a></li>
   </ul>
 </nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="API">API <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Academia">Academia <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Data Analysis">Data Analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Excel">Excel <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Quarto">Quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Tech">Tech <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Visualisation">Visualisation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Website">Website <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="API">API <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Academia">Academia <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Data Analysis">Data Analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Excel">Excel <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Quarto">Quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Tech">Tech <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Visualisation">Visualisation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Website">Website <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -304,7 +333,7 @@ window.Quarto = {
 <div id="listing-posts_2024" class="quarto-listing quarto-listing-container-custom">
 <div class="list blog">
     
-    <div class="blog-entry" data-index="0" data-categories="R,Excel" data-listing-date-sort="1724025600000" data-listing-file-modified-sort="1726054701823" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="394">
+    <div class="blog-entry" data-index="0" data-categories="R,Excel" data-listing-date-sort="1724025600000" data-listing-file-modified-sort="1726319536823" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="394">
         <div class="metadata">          
             <p class="date listing-date">August 19, 2024</p>
         </div>
@@ -333,7 +362,7 @@ window.Quarto = {
         
     </div>
     
-    <div class="blog-entry" data-index="1" data-categories="API,R,Python" data-listing-date-sort="1723593600000" data-listing-file-modified-sort="1726054701811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1536">
+    <div class="blog-entry" data-index="1" data-categories="API,R,Python" data-listing-date-sort="1723593600000" data-listing-file-modified-sort="1726319536803" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1536">
         <div class="metadata">          
             <p class="date listing-date">August 14, 2024</p>
         </div>
@@ -366,7 +395,7 @@ window.Quarto = {
         
     </div>
     
-    <div class="blog-entry" data-index="2" data-categories="Data Analysis,R,Visualisation" data-listing-date-sort="1722902400000" data-listing-file-modified-sort="1726054701811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2016">
+    <div class="blog-entry" data-index="2" data-categories="Data Analysis,R,Visualisation" data-listing-date-sort="1722902400000" data-listing-file-modified-sort="1726319536807" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2016">
         <div class="metadata">          
             <p class="date listing-date">August 6, 2024</p>
         </div>
@@ -410,7 +439,7 @@ No matching items
 <div id="listing-posts_2023" class="quarto-listing quarto-listing-container-custom">
 <div class="list blog">
     
-    <div class="blog-entry" data-index="0" data-categories="Website,Academia" data-listing-date-sort="1687305600000" data-listing-file-modified-sort="1726054701823" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="549">
+    <div class="blog-entry" data-index="0" data-categories="Website,Academia" data-listing-date-sort="1687305600000" data-listing-file-modified-sort="1726319536823" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="549">
         <div class="metadata">          
             <p class="date listing-date">June 21, 2023</p>
         </div>
@@ -438,7 +467,7 @@ No matching items
         
     </div>
     
-    <div class="blog-entry" data-index="1" data-categories="Tech,Website,Academia,Quarto" data-listing-date-sort="1679961600000" data-listing-file-modified-sort="1726054701827" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3508">
+    <div class="blog-entry" data-index="1" data-categories="Tech,Website,Academia,Quarto" data-listing-date-sort="1679961600000" data-listing-file-modified-sort="1726319536827" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3508">
         <div class="metadata">          
             <p class="date listing-date">March 28, 2023</p>
         </div>
@@ -470,6 +499,42 @@ No matching items
         
         <div class="thumbnail">
             <img src="../blog/website-tutorial-quarto/opengraph_thumbnail.png" alt="Create Your Website with Quarto: Complete Tutorial and Template" title="Create Your Website with Quarto: Complete Tutorial and Template">
+        </div>
+        
+    </div>
+    
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">2022</h2>
+<div id="listing-posts_2022" class="quarto-listing quarto-listing-container-custom">
+<div class="list blog">
+    
+    <div class="blog-entry" data-index="0" data-categories="Python" data-listing-date-sort="1666224000000" data-listing-file-modified-sort="1726319536807" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="558">
+        <div class="metadata">          
+            <p class="date listing-date">October 20, 2022</p>
+        </div>
+        <div class="body">
+            <p class="title listing-title"><a href="../blog/data-consolidation-part-1/index.html">Data Consolidation: How to Efficiently Merge Multiple CSV Files in Python</a></p>
+            
+            <div class="post-categories listing-categories">
+                
+                <div class="post-category listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+                    Python
+                </div>
+                
+            </div>
+            
+            <p class="description listing-description">In this quick tutorial, you'll learn how to easily merge several CSV files into one using Python. Whether you're working with a few small files or large datasets, this guide shows you how to use Pandas for simple tasks or `Dask` when your data is too big to handle. It's a practical, straightforward approach for anyone looking to combine CSV files efficiently.
+</p>
+        </div>
+        
+        <div class="thumbnail">
+            <img src="../blog/data-consolidation-part-1/pandas.png" alt="Data Consolidation: How to Efficiently Merge Multiple CSV Files in Python" title="Data Consolidation: How to Efficiently Merge Multiple CSV Files in Python">
         </div>
         
     </div>
