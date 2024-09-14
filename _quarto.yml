@@ -10,7 +10,7 @@ project:
 #    - "speaking/pdf/**"
 execute:
   freeze: auto
-  
+
 website:
   title: "Ezekiel Ogundepo"
   navbar:
@@ -87,6 +87,14 @@ website:
     type: info
     position: above-navbar
     
+# Google Analytics
+#  google-analytics: 
+#    tracking-id: "G-P8BBWMG8KG"
+#    anonymize-ip: true
+#  cookie-consent: 
+#    type: express
+#    style: headline
+#    palette: dark
 # reader-mode: true
 # repo-url: https://github.com/quarto-dev/quarto-demo
 # repo-actions: [edit, issue]
