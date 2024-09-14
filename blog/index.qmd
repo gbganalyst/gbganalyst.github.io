@@ -23,6 +23,13 @@ listing:
     sort: "date desc"
     template: ../html/blog/listing.ejs
     categories: true
+    
+  - id: posts_2022
+    contents: 
+      - "data-consolidation-part-1"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+    categories: true
 toc-title: Year
 toc-location: right
 date-format: "MMMM D, YYYY"
@@ -41,4 +48,9 @@ comments: false
 ## 2023
 
 ::: {#posts_2023}
+:::
+
+## 2022
+
+::: {#posts_2022}
 :::
