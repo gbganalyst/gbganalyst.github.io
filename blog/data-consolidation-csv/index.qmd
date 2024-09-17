@@ -54,6 +54,8 @@ import pandas as pd
 
 # List all files matching the pattern
 files = sorted(glob('data/Sales_Data_*.csv'))
+
+files
 ```
 
 Here, `glob()` finds all files with names matching the pattern `Sales_Data_*.csv` and sorts them for easier handling.
@@ -147,7 +149,8 @@ This gives you a detailed look at the memory usage of your dataset, which is par
 
 # Conclusion
 
-When consolidating data from multiple CSV files, Pandas is a fantastic option for small- to medium-sized datasets. However, when handling larger datasets that exceed your computer’s memory, Dask provides an efficient alternative by allowing parallel processing.
+When consolidating data from multiple CSV files, Pandas is a fantastic option for small- to medium-sized datasets.
+However, when handling larger datasets that exceed your computer’s memory, Dask provides an efficient alternative by allowing parallel processing.
 
 Understanding when to use Pandas or Dask depends largely on the size of the data you’re working with and your available system resources.
 Start with Pandas for small datasets, and switch to Dask as your data grows in complexity.
