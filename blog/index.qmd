@@ -26,7 +26,8 @@ listing:
     
   - id: posts_2022
     contents: 
-      - "data-consolidation-part-1"
+      - "data-consolidation-csv"
+      - "data-consolidation-excel"
     sort: "date desc"
     template: ../html/blog/listing.ejs
     categories: true

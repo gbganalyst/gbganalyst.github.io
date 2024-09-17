@@ -24,7 +24,9 @@ resources:
 
 # Introduction
 
-Data consolidation is a crucial step in data preprocessing, particularly when you are working with multiple data sources or large datasets. This tutorial will walk you through the process of merging multiple CSV files into a single dataframe using Python. We will explore two methods: one using `Pandas` and another using `Dask`, which is designed to handle larger datasets that may not fit into your computer's memory.
+Data consolidation is a crucial step in data preprocessing, particularly when you are working with multiple data sources or large datasets.
+This tutorial will walk you through the process of merging multiple CSV files into a single dataframe using Python.
+We will explore two methods: one using `Pandas` and another using `Dask`, which is designed to handle larger datasets that may not fit into your computer's memory.
 
 ## Pre-requisites
 
@@ -43,7 +45,8 @@ Additionally, you can follow along by downloading the sample dataset [here](http
 
 **Step 1: Load all CSV files**
 
-To begin, we will use the `glob` module to list all files matching a specific pattern. This pattern will allow us to target multiple CSV files at once:
+To begin, we will use the `glob` module to list all files matching a specific pattern.
+This pattern will allow us to target multiple CSV files at once:
 
 ```{python}
 from glob import glob
@@ -62,7 +65,7 @@ Once we have the list of files, the next step is to read and concatenate them us
 ```{python}
 # Concatenate all CSV files into a single dataframe
 
-sales_pandas = pd.concat([pd.read_csv(f) for f in files], ignore_index=True)
+sales_pandas = pd.concat([pd.read_csv(f) for f in files], ignore_index = True)
 ```
 
 This command reads each file in the list, creates a Pandas dataframe, and merges them into a single dataframe.
@@ -76,7 +79,6 @@ Finally, inspect the data to ensure it was properly loaded:
 sales_pandas.head() # Display the first few rows of the dataframe
 ```
 
-
 ```{python}
 
 sales_pandas.tail() # Display the last few rows of the dataframe
@@ -84,10 +86,10 @@ sales_pandas.tail() # Display the last few rows of the dataframe
 
 This step helps to confirm that the data has been successfully consolidated.
 
+## Method 2: Using Dask
 
-## Method 2: Using Dask 
-
-If you are working with datasets that are too large to fit in memory, `Dask` is a great alternative to Pandas. `Dask` allows you to work with larger-than-memory datasets by breaking them into manageable chunks and processing them in parallel.
+If you are working with datasets that are too large to fit in memory, `Dask` is a great alternative to Pandas.
+`Dask` allows you to work with larger-than-memory datasets by breaking them into manageable chunks and processing them in parallel.
 
 **Step 1: Install and import Dask**
 
@@ -107,7 +109,8 @@ import dask.dataframe as dd
 
 **Step 2: Read and load files into a Dask dataframe**
 
-Like Pandas, Dask can also load multiple CSV files. The difference is that Dask operates lazily, meaning it doesn’t load the data until it is necessary.
+Like Pandas, Dask can also load multiple CSV files.
+The difference is that Dask operates lazily, meaning it doesn’t load the data until it is necessary.
 
 ```{python}
 # Read CSV files with Dask
@@ -125,7 +128,8 @@ Once you've processed the data with Dask, you can compute the result and convert
 sales_pandas = sales_dask.compute()
 ```
 
-This will trigger the computation and load the data into memory as a Pandas dataframe. Be cautious with this step, as the dataset needs to fit into memory for Pandas to handle it.
+This will trigger the computation and load the data into memory as a Pandas dataframe.
+Be cautious with this step, as the dataset needs to fit into memory for Pandas to handle it.
 
 **Step 4: Analyze and verify the data**
 
@@ -135,9 +139,8 @@ As with Pandas, you can inspect the Dask dataframe or the resulting Pandas dataf
 sales_pandas.head()
 ```
 
-
 ```{python}
-sales_pandas.info(memory_usage='deep')
+sales_pandas.info(memory_usage = 'deep')
 ```
 
 This gives you a detailed look at the memory usage of your dataset, which is particularly helpful for large datasets.
@@ -146,4 +149,5 @@ This gives you a detailed look at the memory usage of your dataset, which is par
 
 When consolidating data from multiple CSV files, Pandas is a fantastic option for small- to medium-sized datasets. However, when handling larger datasets that exceed your computer’s memory, Dask provides an efficient alternative by allowing parallel processing.
 
-Understanding when to use Pandas or Dask depends largely on the size of the data you’re working with and your available system resources. Start with Pandas for small datasets, and switch to Dask as your data grows in complexity.
+Understanding when to use Pandas or Dask depends largely on the size of the data you’re working with and your available system resources.
+Start with Pandas for small datasets, and switch to Dask as your data grows in complexity.

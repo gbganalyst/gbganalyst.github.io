@@ -2,7 +2,7 @@
 title: "Data Analysis and Visualization"
 subtitle: "A Question-and-Answer Approach"
 description: |
-  This project focuses on analyzing a modified autism dataset using R, with a specific emphasis on data preprocessing, univariate statistics, and visualizations. The dataset contains attributes of children who were tested for autism, and the project is structured as a question-and-answer tutorial. Each section addresses different analytical tasks, such as cleaning data, generating descriptive statistics, creating visualizations, and performing hypothesis testing. The tutorial is designed to guide users through the process of exploring the dataset, interpreting results, and applying statistical methods to answer key questions related to autism diagnosis and its associated factors.
+  This R project analyzes a modified autism dataset of children's attributes, emphasizing data preprocessing, univariate statistics, and visualizations. Structured as a Q&A tutorial, it guides users through data cleaning, descriptive statistics, visualizations, and hypothesis testing to explore and interpret the dataset, addressing key questions about autism diagnosis and associated factors.
 date: "08-06-2024"
 categories: 
   - Data Analysis
