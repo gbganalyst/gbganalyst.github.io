@@ -1,0 +1,141 @@
+---
+title: "Data Consolidation: Automatically Merge Excel Sheets with Python"
+description: |
+  Learn how to dynamically consolidate data from multiple Excel sheets into a single pandas DataFrame using Python. This tutorial covers automating sheet retrieval, merging data efficiently, and tracking source sheets—all while simplifying your data processing workflow. Perfect for streamlining recurring reports and handling complex datasets!
+date: "11-10-2022"
+jupyter: python3
+categories: 
+  - Python
+image: pandas.jpg
+format:
+  html:
+    df_print: paged
+    fig-cap-location: bottom
+    include-before-body: ../../html/margin_image.html
+    include-after-body: ../../html/blog_footer.html
+    code-fold: false
+    code-tools: true
+editor: 
+  markdown: 
+    wrap: sentence
+resources: 
+  - "pandas.jpg"
+---
+
+# Introduction
+
+In this tutorial, we will demonstrate how to automatically consolidate data from multiple sheets of an Excel file into a single pandas DataFrame.
+This approach is particularly useful when working with large Excel files that contain several sheets, especially when the number of sheets is unknown or subject to change.
+
+By the end of this tutorial, you'll be able to:
+
+-   Dynamically retrieve all sheet names from an Excel file.
+
+-   Read data from each sheet and combine them into a single DataFrame.
+
+-   Add a column to the final DataFrame that tracks the source sheet for each row.
+
+We'll be using Python's popular libraries—`pandas` for data manipulation and `numpy` for numerical operations.
+
+Once you have the `numpy` and `pandas` libraries installed, start by importing them.
+We will import `numpy` for numerical operations and `pandas` for data handling.
+
+```{python}
+import numpy as np
+import pandas as pd
+```
+
+## Step 1: Loading the Excel File and Retrieving Sheet Names
+
+The first task is to load the Excel file and retrieve all available sheet names.
+We use the `pd.ExcelFile()` function to load the file, and the `sheet_names` attribute to dynamically retrieve the list of sheets.
+
+```{python}
+# Load the Excel file
+excel_file = pd.ExcelFile('Diamonds.xlsx')
+
+# Retrieve all sheet names
+sheet_names = excel_file.sheet_names
+
+```
+
+At this point, `sheet_names` will be a list of all the sheet names in the Excel file.
+For example,
+
+```{python}
+sheet_names
+```
+
+## Step 2: Reading and Concatenating Data from All Sheets
+
+With the sheet names available, the next step is to read the data from each sheet and concatenate it into a single DataFrame.
+We use a dictionary comprehension to load each sheet into a DataFrame, and then use the `concat()` function to combine them.
+We also add a column that records the name of the sheet from which each row originated.
+
+```{python}
+# Read all sheets and concatenate them into one DataFrame, adding a sheet_name column
+df_dict = {sheet: pd.read_excel(excel_file, sheet_name=sheet) for sheet in sheet_names}
+
+data = pd.concat(df.assign(sheet_name=name) for name, df in df_dict.items())
+```
+
+This code reads each sheet into a dictionary (`df_dict`), where the keys are sheet names and the values are DataFrames.
+The `concat()` function then merges all the DataFrames together into a single DataFrame, and the `sheet_name` column ensures that each row has a record of its original sheet.
+
+## Step 3: Inspecting the Combined Data
+
+Once the data has been successfully consolidated, it's always a good practice to inspect it and verify that everything was combined correctly.
+The `head()` and `tail()` functions are useful for this.
+
+```{python}
+# View the first few rows of the data
+data.head()
+```
+
+```{python}
+# View the last few rows of the data
+data.tail()
+```
+
+This allows you to verify that:
+
+1.  Data from all sheets has been loaded.
+
+2.  The `sheet_name` column contains the correct sheet names for each row.
+
+## Step 4: Saving the Consolidated Data
+
+If you want to save the consolidated data for further use, you can export it to a new Excel file or a CSV file using the following code:
+
+#### Saving to an Excel file:
+
+```{python}
+data.to_excel('Consolidated_Data.xlsx', index=False)
+```
+
+#### Saving to a CSV file:
+
+```{python}
+data.to_csv('Consolidated_Data.csv', index=False)
+```
+
+# Conclusion
+
+By following this tutorial, you’ve learned how to automatically load and consolidate data from multiple Excel sheets into a single pandas DataFrame.
+This approach dynamically retrieves sheet names, making it flexible and scalable.
+You can now easily manage datasets that are spread across multiple Excel sheets without needing to manually specify the sheet names each time.
+
+### Additional Tips:
+
+If the Excel sheets have varying structures (e.g., different column names), you might need to adjust how the sheets are concatenated, ensuring that data is aligned properly.
+
+```{python}
+
+# Read all sheets and concatenate them, aligning columns by name
+
+data = pd.concat([df_dict[sheet] for sheet in sheet_names], ignore_index=True, sort=False)
+
+
+```
+
+The `sort = False` parameter prevents pandas from automatically sorting the columns alphabetically, preserving their original order.
