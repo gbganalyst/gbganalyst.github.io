@@ -3,6 +3,7 @@ title: "Data Consolidation: How to Efficiently Merge Multiple CSV Files in Pytho
 description: |
   In this quick tutorial, you'll learn how to easily merge several CSV files into one using Python. Whether you're working with a few small files or large datasets, this guide shows you how to use Pandas for simple tasks or `Dask` when your data is too big to handle. It's a practical, straightforward approach for anyone looking to combine CSV files efficiently.
 date: "10-20-2022"
+date-modified: "09-10-2024"
 jupyter: python3
 categories: 
   - Python

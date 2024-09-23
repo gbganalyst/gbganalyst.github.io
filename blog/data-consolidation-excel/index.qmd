@@ -3,6 +3,7 @@ title: "Data Consolidation: Automatically Merge Excel Sheets with Python"
 description: |
   Learn how to dynamically consolidate data from multiple Excel sheets into a single pandas DataFrame using Python. This tutorial covers automating sheet retrieval, merging data efficiently, and tracking source sheets—all while simplifying your data processing workflow. Perfect for streamlining recurring reports and handling complex datasets!
 date: "11-10-2022"
+date-modified: "09-05-2024"
 jupyter: python3
 categories: 
   - Python
