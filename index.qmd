@@ -25,7 +25,6 @@ editor_options:
 ---
 
 ::: column-screen
-```{=html}
 <link rel="stylesheet" href="html/landing_page_styles.css">
 
 <div class="gradient_bg">
@@ -69,7 +68,6 @@ I am honored to be a Mastercard Scholar, Federal Government of Nigeria (FSB) Sch
 <script src="html/jquery.min.js"></script>
 <script src="html/TweenMax.min.js"></script>
 <!--<script src="html/parallax.js"></script>-->
-```
 :::
 
 ::: {#news}
