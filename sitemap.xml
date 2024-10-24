@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://gbganalyst.github.io/cv/index.html</loc>
-    <lastmod>2024-09-23T15:15:35.041Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gbganalyst.github.io/blog/scientists-should-have-a-website/index.html</loc>
-    <lastmod>2024-09-23T15:15:35.026Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gbganalyst.github.io/blog/data-analysis-and-visualization/index.html</loc>
-    <lastmod>2024-09-23T15:15:35.009Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gbganalyst.github.io/blog/website-tutorial-quarto/index.html</loc>
-    <lastmod>2024-09-23T15:15:35.029Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gbganalyst.github.io/blog/export-r-dataframe-to-excel-workbook/index.html</loc>
-    <lastmod>2024-09-23T15:15:35.026Z</lastmod>
-  </url>
-  <url>
     <loc>https://gbganalyst.github.io/index.html</loc>
-    <lastmod>2024-09-23T15:15:35.112Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gbganalyst.github.io/blog/index.html</loc>
-    <lastmod>2024-09-23T15:15:35.026Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gbganalyst.github.io/blog/data-consolidation-csv/index.html</loc>
-    <lastmod>2024-09-23T15:15:35.009Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gbganalyst.github.io/blog/data-consolidation-excel/index.html</loc>
-    <lastmod>2024-09-23T15:15:35.012Z</lastmod>
+    <lastmod>2024-10-24T11:41:18.733Z</lastmod>
   </url>
   <url>
     <loc>https://gbganalyst.github.io/blog/api-in-r-and-python/index.html</loc>
-    <lastmod>2024-09-23T15:15:35.007Z</lastmod>
+    <lastmod>2024-10-24T11:41:18.613Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gbganalyst.github.io/blog/index.html</loc>
+    <lastmod>2024-10-24T11:41:18.633Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gbganalyst.github.io/blog/data-consolidation-csv/index.html</loc>
+    <lastmod>2024-10-24T11:41:18.617Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gbganalyst.github.io/blog/scientists-should-have-a-website/index.html</loc>
+    <lastmod>2024-10-24T11:41:18.633Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gbganalyst.github.io/cv/index.html</loc>
+    <lastmod>2024-10-24T11:41:18.649Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gbganalyst.github.io/blog/data-analysis-and-visualization/index.html</loc>
+    <lastmod>2024-10-24T11:41:18.613Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gbganalyst.github.io/blog/website-tutorial-quarto/index.html</loc>
+    <lastmod>2024-10-24T11:41:18.637Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gbganalyst.github.io/blog/export-r-dataframe-to-excel-workbook/index.html</loc>
+    <lastmod>2024-10-24T11:41:18.633Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gbganalyst.github.io/blog/data-consolidation-excel/index.html</loc>
+    <lastmod>2024-10-24T11:41:18.621Z</lastmod>
   </url>
 </urlset>
