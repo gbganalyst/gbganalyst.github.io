@@ -9,7 +9,7 @@ project:
 #    - "_redirects"
 #    - "speaking/pdf/**"
 execute:
-  freeze: auto
+  freeze: true
 
 website:
   title: "Ezekiel Ogundepo"

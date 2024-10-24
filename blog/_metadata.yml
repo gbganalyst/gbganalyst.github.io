@@ -30,16 +30,19 @@ knitr:
 
 format:   
   html:
-    code-tools: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
     df-print: paged
     smooth-scroll: true
-    comments:
-      giscus:
-        repo: gbganalyst/gbganalyst.github.io
-        category: Announcements
-        loading: lazy
-        input-position: bottom
-        language: en
+#    comments:
+#      giscus:
+#        repo: gbganalyst/gbganalyst.github.io
+#        category: Announcements
+#        loading: lazy
+#        input-position: bottom
+#        language: en
     quarto-template-params:
       banner-header-class: "blog-post"
     include-after-body: ../html/blog_footer.html
