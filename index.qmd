@@ -31,7 +31,8 @@ editor_options:
 <div class="gradient_bg">
     <div class="hero section_padding">
         <div class="hero_content">
-            <h1>Hi, I'm <span class="gradient_text">Ezekiel</span>.</h1>
+      <p> <h1>Hi, I'm <span class="gradient_text">Ezekiel</span>.</h1>
+<!--<h1>Hi, I'm <span class="gradient_text">Ezekiel</span>.</h1>-->
             <p>I am a data science professional with over eight years of experience in statistical modelling, data analysis, and advanced analytics. I graduated with first-class honours in Statistics from the University of Ilorin, Nigeria, and hold a Master’s degree in Mathematical Sciences from the African Institute for Mathematical Sciences (AIMS), Rwanda, supported by a Mastercard scholarship.
            </p> 
             <p>
@@ -75,7 +76,7 @@ I am honoured to be a Mastercard Scholar, Federal Government of Nigeria (FSB) Sc
 ::: {#news}
 ## News
 
--  **October 8, 2024**: I participated in the Llama 3.1 Impact Sub-Saharan Africa Hackathon in Kigali, Rwanda (October 8–10), organized by AfriLabs in partnership with Meta and the Bill & Melinda Gates Foundation. Working with Testimony Adeyemi, Fareedah Okunade, Naheem Okunade, and Temitope Shokunle, we developed Prometheus 1.0: a WhatsApp chatbot that enables small business owners—especially women—to build and launch websites in under 40 seconds via simple text instructions. Our goal was to bridge the 37% gender digital divide, empowering African women who comprise over 40% of SMEs but often lack essential digital resources.
+-   **October 8, 2024**: I participated in the Llama 3.1 Impact Sub-Saharan Africa Hackathon in Kigali, Rwanda (October 8–10), organized by AfriLabs in partnership with Meta and the Bill & Melinda Gates Foundation. Working with Testimony Adeyemi, Fareedah Okunade, Naheem Okunade, and Temitope Shokunle, we developed Prometheus 1.0: a WhatsApp chatbot that enables small business owners—especially women—to build and launch websites in under 40 seconds via simple text instructions. Our goal was to bridge the 37% gender digital divide, empowering African women who comprise over 40% of SMEs but often lack essential digital resources.
 
     ![](images/llama.jpg)
 
