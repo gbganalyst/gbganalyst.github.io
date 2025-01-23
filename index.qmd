@@ -11,8 +11,8 @@ format:
 listing:
   id: blog-listing
   contents:   
-    #- "blog/data-analysis-and-visualization/index.qmd"
-    - "blog/website-tutorial-quarto/index.qmd"
+    - "blog/statistics-for-datascience-and-analytics/index.qmd"
+   # - "blog/website-tutorial-quarto/index.qmd"
     - "blog/api-in-r-and-python/index.qmd"
   sort: "date desc"
   type: grid
@@ -76,7 +76,7 @@ I am honoured to be a Mastercard Scholar, Federal Government of Nigeria (FSB) Sc
 ::: {#news}
 ## News
 
--   **October 8, 2024**: I participated in the Llama 3.1 Impact Sub-Saharan Africa Hackathon in Kigali, Rwanda (October 8–10), organized by AfriLabs in partnership with Meta and the Bill & Melinda Gates Foundation. Working with Testimony Adeyemi, Fareedah Okunade, Naheem Okunade, and Temitope Shokunle, we developed Prometheus 1.0: a WhatsApp chatbot that enables small business owners—especially women—to build and launch websites in under 40 seconds via simple text instructions. Our goal was to bridge the 37% gender digital divide, empowering African women who comprise over 40% of SMEs but often lack essential digital resources.  [Read the report](https://www.linkedin.com/feed/update/urn:li:activity:7252333215992926208/).
+-   **October 8, 2024**: I participated in the Llama 3.1 Impact Sub-Saharan Africa Hackathon in Kigali, Rwanda (October 8–10), organized by AfriLabs in partnership with Meta and the Bill & Melinda Gates Foundation. Working with Testimony Adeyemi, Fareedah Okunade, Naheem Okunade, and Temitope Shokunle, we developed Prometheus 1.0: a WhatsApp chatbot that enables small business owners—especially women—to build and launch websites in under 40 seconds via simple text instructions. Our goal was to bridge the 37% gender digital divide, empowering African women who comprise over 40% of SMEs but often lack essential digital resources. [Read the report](https://www.linkedin.com/feed/update/urn:li:activity:7252333215992926208/).
 
     ![](images/llama.jpg)
 
