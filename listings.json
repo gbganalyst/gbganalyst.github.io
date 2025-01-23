@@ -2,18 +2,16 @@
   {
     "listing": "/index.html",
     "items": [
-      "/blog/api-in-r-and-python/index.html",
-      "/blog/website-tutorial-quarto/index.html"
+      "/blog/statistics-for-datascience-and-analytics/index.html",
+      "/blog/api-in-r-and-python/index.html"
     ]
   },
   {
     "listing": "/blog/index.html",
     "items": [
-      "/blog/data-analysis-and-visualization/index.html",
+      "/blog/statistics-for-datascience-and-analytics/index.html",
       "/blog/export-r-dataframe-to-excel-workbook/index.html",
       "/blog/api-in-r-and-python/index.html",
-      "/blog/scientists-should-have-a-website/index.html",
-      "/blog/website-tutorial-quarto/index.html",
       "/blog/data-consolidation-excel/index.html",
       "/blog/data-consolidation-csv/index.html"
     ]
