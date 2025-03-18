@@ -1,51 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://gbganalyst.github.io/index.html</loc>
-    <lastmod>2025-01-23T18:35:41.847Z</lastmod>
+    <loc>gbganalyst.github.io/index.html</loc>
+    <lastmod>2025-03-18T10:59:42.243Z</lastmod>
   </url>
   <url>
-    <loc>https://gbganalyst.github.io/blog/data-consolidation-excel/index.html</loc>
-    <lastmod>2025-01-23T18:35:41.727Z</lastmod>
+    <loc>gbganalyst.github.io/blog/website-tutorial-quarto/index.html</loc>
+    <lastmod>2025-03-18T10:59:42.148Z</lastmod>
   </url>
   <url>
-    <loc>https://gbganalyst.github.io/blog/website-tutorial-quarto/index.html</loc>
-    <lastmod>2025-01-23T18:35:41.746Z</lastmod>
+    <loc>gbganalyst.github.io/blog/scientists-should-have-a-website/index.html</loc>
+    <lastmod>2025-03-18T10:59:42.144Z</lastmod>
   </url>
   <url>
-    <loc>https://gbganalyst.github.io/blog/money-market/money2.html</loc>
-    <lastmod>2025-01-23T18:35:41.742Z</lastmod>
+    <loc>gbganalyst.github.io/blog/export-r-dataframe-to-excel-workbook/index.html</loc>
+    <lastmod>2025-03-18T10:59:42.144Z</lastmod>
   </url>
   <url>
-    <loc>https://gbganalyst.github.io/blog/export-r-dataframe-to-excel-workbook/index.html</loc>
-    <lastmod>2025-01-23T18:35:41.742Z</lastmod>
+    <loc>gbganalyst.github.io/blog/data-consolidation-csv/index.html</loc>
+    <lastmod>2025-03-18T10:59:42.126Z</lastmod>
   </url>
   <url>
-    <loc>https://gbganalyst.github.io/blog/statistics-for-datascience-and-analytics/index.html</loc>
-    <lastmod>2025-01-23T18:35:41.746Z</lastmod>
+    <loc>gbganalyst.github.io/blog/api-in-r-and-python/index.html</loc>
+    <lastmod>2025-03-18T10:59:42.125Z</lastmod>
   </url>
   <url>
-    <loc>https://gbganalyst.github.io/blog/api-in-r-and-python/index.html</loc>
-    <lastmod>2025-01-23T18:35:41.723Z</lastmod>
+    <loc>gbganalyst.github.io/blog/data-consolidation-excel/index.html</loc>
+    <lastmod>2025-03-18T10:59:42.129Z</lastmod>
   </url>
   <url>
-    <loc>https://gbganalyst.github.io/blog/data-consolidation-csv/index.html</loc>
-    <lastmod>2025-01-23T18:35:41.724Z</lastmod>
+    <loc>gbganalyst.github.io/blog/index.html</loc>
+    <lastmod>2025-03-18T10:59:42.144Z</lastmod>
   </url>
   <url>
-    <loc>https://gbganalyst.github.io/blog/index.html</loc>
-    <lastmod>2025-01-23T18:35:41.742Z</lastmod>
+    <loc>gbganalyst.github.io/blog/statistics-for-datascience-and-analytics/index.html</loc>
+    <lastmod>2025-03-18T10:59:42.148Z</lastmod>
   </url>
   <url>
-    <loc>https://gbganalyst.github.io/blog/money-market/money1.html</loc>
-    <lastmod>2025-01-23T18:35:41.742Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gbganalyst.github.io/blog/scientists-should-have-a-website/index.html</loc>
-    <lastmod>2025-01-23T18:35:41.742Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gbganalyst.github.io/cv/index.html</loc>
-    <lastmod>2025-01-23T18:35:41.758Z</lastmod>
+    <loc>gbganalyst.github.io/cv/index.html</loc>
+    <lastmod>2025-03-18T10:59:42.159Z</lastmod>
   </url>
 </urlset>

@@ -1,1 +1,1 @@
-Sitemap: https://gbganalyst.github.io/sitemap.xml
+Sitemap: gbganalyst.github.io/sitemap.xml
