@@ -1,6 +1,10 @@
 ---
 comments: false
 page-layout: full
+include-in-header:
+  - text: |
+      <meta name="google-site-verification" content="8rY0f1D4Kcj6sX16Z9s31mOFuYdR4CLvHK09JWPMeYU" 
+      />
 format:
   html: 
     margin-top: 0em

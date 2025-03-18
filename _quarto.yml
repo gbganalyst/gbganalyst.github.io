@@ -1,18 +1,23 @@
 project:
   type: website
   output-dir: docs
-
+  preview:
+    port: 4200
   resources:
     - "images/**"
-#    - "assets/**"
+    - "!blog/money-market/*"
 #    - "sitemap.xml"
 #    - "_redirects"
 #    - "speaking/pdf/**"
+  render:
+    - "*.qmd"
+    - "!blog/money-market/*"
 execute:
   freeze: true
 
 website:
   title: "Ezekiel Ogundepo"
+  site-url: "gbganalyst.github.io"
   navbar:
     logo: /images/logo.png
     background: secondary
@@ -61,8 +66,8 @@ website:
       <span class="faux-block">{{< fa brands creative-commons >}} 2024 Ezekiel Ogundepo</span>
 #     <span class="faux-block"><a href="https://github.com/gbganalyst/gbganalyst.github.io">{{< fa brands github >}} Source Code</a></span>
     center: |
-      Adapted with appreciation from <a href="https://marvinschmitt.com">Marvin Schmitt's website</a>
-#     <span class="faux-block">{{< fa brands orcid >}} <strong>ORCID</strong> [0000-0003-3974-2733](https://orcid.org/0000-0003-3974-2733)</span>
+     <span class="faux-block">{{< fa brands orcid >}} <strong>ORCID</strong> [0000-0003-3974-2733](https://orcid.org/0000-0003-3974-2733)</span>
+#      Adapted with appreciation from <a href="https://marvinschmitt.com">Marvin Schmitt's website</a>
     right: |
       <span class="faux-block"> Built with {{< fa brands r-project >}} and <a href="https://quarto.org/">Quarto</a></span>
 
@@ -83,7 +88,7 @@ website:
   announcement:
     icon: megaphone
     dismissable: true
-    content: "The **bulkreadr** package, an ultimate tool for reading data in bulk is now on CRAN. [Read here](https://gbganalyst.github.io/bulkreadr/)"
+    content: "Our customised [Data Science](https://tauniversity.github.io/cohort2025webpage/) training, exclusively for the graduating students of Thomas Adewumi University is underway."
     type: info
     position: above-navbar
     
