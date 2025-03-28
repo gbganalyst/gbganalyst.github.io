@@ -31,7 +31,7 @@ execute:
 #  eval: false
   
   echo: true #fenced
-  freeze: auto
+  freeze: true
 knitr:
   opts_chunk:
    # comment: "#>"
@@ -73,12 +73,11 @@ To follow along with this tutorial, you can download the dataset in either Excel
 
 # Using the `DT` library to provide a downloadable data table
 DT::datatable(
- readr::read_csv("child.csv"),
+  readr::read_csv("child.csv"),
   caption = "Autism Dataset",
   extensions = "Buttons",
   options = list(dom = "Bfrtip", buttons = c("csv", "excel"))
 )
-
 ```
 
 \
@@ -101,7 +100,7 @@ knitr::include_graphics("data_description.png")
 #| label: vtable
 #| eval: false
 #| echo: false
-#| 
+#|
 label <- data.frame(
   score = "A numeric value from the standard tests for autism",
   score2 = "A numeric value from alternative (non-standard) tests for autism",
@@ -123,15 +122,17 @@ vtable(clean_data, labels = label, factor.limit = 5)
 
 If you are following either the R or Python track, please ensure that the following packages are installed.
 When you see the 🐍 symbol, it indicates that Python is being used.
-The 🔵 symbol represents examples where we use R.
+The Ⓡ symbol represents examples where we use R.
 
 ::: {.panel-tabset group="language"}
-## R🔵
+## R Ⓡ 
 
 ```{r}
 #| include: false
-install.load::install_load(c("reticulate",
-   "vtable",  "knitr", "kableExtra", "gt"))
+install.load::install_load(c(
+  "reticulate",
+  "vtable", "knitr", "kableExtra", "gt"
+))
 ```
 
 ```{r}
@@ -170,18 +171,20 @@ Finally, the levels of certain categorical variables, such as "autism" and "auti
 This cleaning process ensures that the dataset is well-structured and ready for analysis.
 
 ::: {.panel-tabset group="language"}
-## R🔵
+## R Ⓡ 
 
 ```{r}
 child_data <- read_csv("child.csv")
 
 clean_data <- child_data %>%
-  mutate(across(where(is.character), ~str_squish(str_remove_all(., pattern = "'")))) %>%
+  mutate(across(where(is.character), ~ str_squish(str_remove_all(., pattern = "'")))) %>%
   mutate(across(5:11, as.factor))
 
-clean_data <- clean_data %>% 
-  mutate(autism = fct_relevel(autism, "YES"),
-         autismFH = fct_relevel(autismFH, "yes"))
+clean_data <- clean_data %>%
+  mutate(
+    autism = fct_relevel(autism, "YES"),
+    autismFH = fct_relevel(autismFH, "yes")
+  )
 ```
 
 ## Python🐍
@@ -217,21 +220,21 @@ The cleaned dataset for both Python and R is shown below:
 ```{r}
 #| label: kable1
 #| echo: false
-#| 
+#|
 kable(
- clean_data, 
- caption = "Cleaned Data", 
- align = rep("c", 15)
+  clean_data,
+  caption = "Cleaned Data",
+  align = rep("c", 15)
 ) %>%
- kable_styling(
-   bootstrap_options = c("striped", "hover", "condensed", "responsive"),
-   fixed_thead = TRUE
- ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+    fixed_thead = TRUE
+  ) %>%
   scroll_box(width = "900px", height = "500px")
 ```
 
 ::: {.panel-tabset group="language"}
-## R🔵
+## R Ⓡ 
 
 ```{r}
 clean_data %>%
@@ -259,7 +262,7 @@ There is no need to create the alternative plot.
 ## Solution
 
 ::: {.panel-tabset group="language"}
-## R🔵
+## R Ⓡ 
 
 ```{r}
 question1 <- clean_data %>%
@@ -324,7 +327,7 @@ Discuss any notable results, and use visualizations where appropriate.
 ## Solution
 
 ::: {.panel-tabset group="language"}
-## R🔵
+## R Ⓡ 
 
 ```{r}
 # Univariate statistics for score, age, cost, gender, jaundice, and autism
@@ -372,7 +375,6 @@ grid.arrange(g4, g5, g6, ncol = 3)
 
 # Display the summary statistics for interpretation
 print(summary_stats)
-
 ```
 
 ## Python 🐍
@@ -486,7 +488,7 @@ The statistical hypotheses are:
 -   **Alternative Hypothesis** ($H_a$): The variances are different.
 
 ::: {.panel-tabset group="language"}
-## R🔵
+## R Ⓡ 
 
 ```{r}
 car::leveneTest(score ~ autism, data = clean_data)
@@ -525,7 +527,7 @@ The statistical hypotheses are:
 -   **Alternative Hypothesis** ($H_a$): The means of the two groups are different (there is a difference in mean scores).
 
 ::: {.panel-tabset group="language"}
-## R🔵
+## R Ⓡ 
 
 ```{r}
 t.test(score ~ autism, data = clean_data, alternative = "two.sided", var.equal = FALSE)
@@ -554,7 +556,7 @@ We will first test for equality of variance using Levene's test between the two 
 After testing for equality of variance, we will perform a one-sided t-test to check if there is at least a 1-unit difference in the mean scores between the groups.
 
 ::: {.panel-tabset group="language"}
-## R🔵
+## R Ⓡ 
 
 ```{r}
 car::leveneTest(score ~ autismFH, data = clean_data)
@@ -587,18 +589,22 @@ The hypothesis being tested is whether there is at least a difference of 1 unit 
 This requires adjusting the t-test for the specified difference.
 
 ::: {.panel-tabset group="language"}
-## R🔵
+## R Ⓡ 
 
 ```{r}
-fh_yes <- clean_data %>% filter(autismFH == "yes") %>% pull(score)
-fh_no <- clean_data %>% filter(autismFH == "no") %>% pull(score)
+fh_yes <- clean_data %>%
+  filter(autismFH == "yes") %>%
+  pull(score)
+fh_no <- clean_data %>%
+  filter(autismFH == "no") %>%
+  pull(score)
 
 # Perform a one-sided t-test for difference of 1
 t_test2 <- t.test(fh_yes, fh_no, alternative = "greater")
 
 # Adjust for the difference of at least 1
 mean_diff <- mean(fh_yes) - mean(fh_no)
-t_stat2_adj <- (mean_diff - 1) / sqrt(var(fh_yes)/length(fh_yes) + var(fh_no)/length(fh_no))
+t_stat2_adj <- (mean_diff - 1) / sqrt(var(fh_yes) / length(fh_yes) + var(fh_no) / length(fh_no))
 
 # Interpretation
 if (t_stat2_adj > 0 && t_test2$p.value / 2 < 0.05) {
@@ -649,16 +655,18 @@ Thus, we fail to reject the null hypothesis and conclude that there is no suffic
 Before any predictions could be made, it's essential to visualize the relationship between score and score2 to show the linear relationship between the variables.
 
 ::: {.panel-tabset group="language"}
-## R🔵
+## R Ⓡ 
 
 ```{r}
 # Create a scatter plot with a fitted regression line
 ggplot(clean_data, aes(x = score, y = score2)) +
-  geom_point(color = "blue") +                  # Scatter plot points
-  geom_smooth(method = "lm", color = "red", se = FALSE) +  # Fitted regression line
-  labs(title = "Scatter plot of Score vs Score2 with Fitted Line",
-       x = "Score",
-       y = "Score2") +
+  geom_point(color = "blue") + # Scatter plot points
+  geom_smooth(method = "lm", color = "red", se = FALSE) + # Fitted regression line
+  labs(
+    title = "Scatter plot of Score vs Score2 with Fitted Line",
+    x = "Score",
+    y = "Score2"
+  ) +
   theme_minimal()
 ```
 
@@ -690,7 +698,7 @@ This strong correlation suggests that a linear regression model would be a good 
 Next, we can proceed with predicting `score2` for a child with a standard score of 7 and 12 using the linear model.
 
 ::: {.panel-tabset group="language"}
-## R🔵
+## R Ⓡ 
 
 ```{r}
 # Fit a linear regression model
@@ -747,7 +755,7 @@ Comment on your visualizations.
 ## Solution
 
 ::: {.panel-tabset group="language"}
-## R🔵
+## R Ⓡ 
 
 ```{r}
 clean_data <- clean_data %>%
@@ -819,7 +827,7 @@ p3 <- clean_data %>%
   scale_y_continuous(NULL, breaks = NULL) +
   labs(title = "Dot Plot")
 
-p1 / (p2 + p3) + plot_annotation(title = 'Different Plots for Standard Test Scores')
+p1 / (p2 + p3) + plot_annotation(title = "Different Plots for Standard Test Scores")
 ```
 
 ![](Q5a.png)
@@ -832,7 +840,7 @@ When dealing with large datasets, boxplots or histograms are more effective.
 
 ```{r}
 #| eval: false
-#| 
+#|
 p1 <- clean_data %>%
   count(relation) %>%
   ggplot(aes(x = reorder(relation, n), y = n, fill = relation)) +
@@ -854,9 +862,9 @@ p3 <- clean_data %>%
   treemap(index = "relation", vSize = "n", title = "Treemap")
 
 p4 <- pie(
-  table(clean_data$relation), 
-  col = c("purple", "violetred1", "green3", "cornsilk"), 
-  radius = 0.9, 
+  table(clean_data$relation),
+  col = c("purple", "violetred1", "green3", "cornsilk"),
+  radius = 0.9,
   main = "Pie Chart"
 )
 ```
@@ -876,14 +884,14 @@ Discuss any improvements that could enhance your demonstration.
 ## Solution
 
 ::: {.panel-tabset group="language"}
-## R🔵
+## R Ⓡ 
 
 ```{r}
 another_dataset <- read_csv("independent_dataset.csv")
 
 # Function to calculate the size of confidence intervals
 conf.size <- function(dataset, level = 0.90) {
-  t_test <- t.test(dataset[, 2] %>% pull, conf.level = level)
+  t_test <- t.test(dataset[, 2] %>% pull(), conf.level = level)
   print(t_test$conf.int)
 }
 

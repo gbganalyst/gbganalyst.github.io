@@ -74,7 +74,6 @@ This allows you to focus on the unique aspects of your app, without worrying abo
 knitr::include_graphics("image-849919650.png")
 
 library(reticulate)
-
 ```
 
 As shown in @fig-api-method, the most common type of API request method is `GET`.
@@ -98,7 +97,7 @@ To use an API to extract data, you will need to follow these steps:
 
 ## How to fetch API data using a programming language
 
-### with R {#sec-api-r}
+### with R Ⓡ {#sec-api-r}
 
 There are several packages available in R for consuming APIs.
 Some of the most commonly used packages are:
@@ -116,8 +115,7 @@ To get data from an API in R, you need to follow these steps:
 ```{r}
 #| code-summary: "installation of packages"
 
-install.packages(c("httr", "jsonlite", "RCurl")) 
-
+install.packages(c("httr", "jsonlite", "RCurl"))
 ```
 
 2.  Load the packages by running the following command:
@@ -125,29 +123,25 @@ install.packages(c("httr", "jsonlite", "RCurl"))
 ```{r}
 #| code-summary: "Loading of packages"
 
-library(httr) 
+library(httr)
 
-library(jsonlite) 
+library(jsonlite)
 
-library(RCurl) 
-
+library(RCurl)
 ```
 
 3.  Make an API request by using the GET function from the httr package. The API endpoint should be passed as an argument to this function.
 
 ```{r}
-
-response <- GET("https://api.example.com/endpoint") 
-
+response <- GET("https://api.example.com/endpoint")
 ```
 
 4.  Check the status code of the response to see if the request was successful. A status code of `200` indicates a successful request.
 
 ```{r}
 #| code-summary: "Request status"
-#| 
-status_code <- status_code(response) 
-
+#|
+status_code <- status_code(response)
 ```
 
 5.  Extract the data from the response. If the API returns data in JSON format, you can use the `fromJSON` function from the `jsonlite` package to parse the data. Store the data in a variable for later use.
@@ -155,7 +149,7 @@ status_code <- status_code(response)
 ```{r}
 #| code-summary: "Resulting dataframe"
 
-api_data <- fromJSON(content(response, as = "text")) 
+api_data <- fromJSON(content(response, as = "text"))
 ```
 
 These are the basic steps to get data from an API in R.
@@ -165,15 +159,17 @@ For example,
 ```{r}
 #| code-summary: "API with access key"
 
-response <- GET("https://api.example.com/endpoint",
-            authenticate(
-                          user = "API_KEY_HERE",
-                          password = "API_PASSWORD_HERE",
-                          type = "basic")) 
-
+response <- GET(
+  "https://api.example.com/endpoint",
+  authenticate(
+    user = "API_KEY_HERE",
+    password = "API_PASSWORD_HERE",
+    type = "basic"
+  )
+)
 ```
 
-### with Python {#sec-api-py}
+### with Python 🐍 {#sec-api-py}
 
 To use an API in Python, you can use a library such as `requests` or `urllib` to send HTTP requests to the API and receive responses.
 Here's an example of how to use an API in Python using the requests library:
@@ -221,11 +217,10 @@ In this case, we will be using a `GET` request to fetch the API data at the **fo
 Please follow the steps in @sec-api-r for R and @sec-api-py for Python.
 
 ::: {.panel-tabset group="language"}
-## R
+## R Ⓡ 
 
 ```{r}
 #| eval: true
-#| 
 
 library(httr)
 
@@ -239,14 +234,14 @@ status_code(response)
 
 food_dataframe <- fromJSON(content(response, as = "text"), flatten = TRUE)
 
-food_dataframe %>% 
+food_dataframe %>%
   dim()
 
-food_dataframe %>% 
+food_dataframe %>%
   head()
 ```
 
-## Python
+## Python 🐍
 
 ```{python}
 #| eval: true
@@ -283,21 +278,21 @@ The resulting dataframe has columns for each key in the JSON objects.
 In this example, we will use an API from [![](image-874061681.png){width="156" height="30"}](https://www.reed.co.uk/developers/Jobseeker) that uses an API key.
 In this case, we will use a `GET` request to fetch data for analyst jobs based in London from the [Jobseeker](https://www.reed.co.uk/api/1.0/search?keywords=analyst&location=london&distancefromlocation=15) API. Please follow the steps in @sec-api-r for R and @sec-api-py for Python, and sign up for the API key at the Jobseeker [website](https://www.reed.co.uk/developers/Jobseeker).
 
-::: {.panel-tabset group="language"}
-## R
+:::: {.panel-tabset group="language"}
+## R Ⓡ 
 
 ```{r}
 #| include: false
 #| eval: true
-#| 
+#|
 dotenv::load_dot_env()
 
-# In the .env file, make sure you add a blank line by pressing a return key to avoid incomplete final line found on '.env' warning 
+# In the .env file, make sure you add a blank line by pressing a return key to avoid incomplete final line found on '.env' warning
 ```
 
 ```{r}
 #| eval: true
-#| 
+#|
 
 library(httr)
 
@@ -307,9 +302,13 @@ library(dplyr)
 
 # Create a GET response to call the API
 
-response <- GET("https://www.reed.co.uk/api/1.0/search?keywords=analyst&location=london&distancefromlocation=15",
-authenticate(user = Sys.getenv("putyourapikeyhere"),
-password = "")) 
+response <- GET(
+  "https://www.reed.co.uk/api/1.0/search?keywords=analyst&location=london&distancefromlocation=15",
+  authenticate(
+    user = Sys.getenv("putyourapikeyhere"),
+    password = ""
+  )
+)
 ```
 
 ::: callout-tip
@@ -327,14 +326,14 @@ job_dataframe <- fromJSON(content(response, as = "text"), flatten = TRUE)
 
 # The job dataframe is inside the results
 
-job_dataframe$results %>% 
+job_dataframe$results %>%
   dim()
 
-job_dataframe$results %>% 
+job_dataframe$results %>%
   head()
 ```
 
-## Python
+## Python 🐍
 
 ```{python}
 #| eval: true
@@ -415,7 +414,7 @@ job_dataframe.shape
 
 job_dataframe.head()
 ```
-:::
+::::
 
 You can now use the data for your data science.
 
