@@ -41,7 +41,7 @@ jobs:
       - name: Install additional Python packages from requirements.txt
         run: |
           if [ -f requirements.txt ]; then
-            python -m pip install -r requirements.txt
+            grep -v 'pywin32' requirements.txt | python -m pip install -r /dev/stdin
           else
             echo "requirements.txt not found."
           fi
@@ -55,3 +55,4 @@ jobs:
           target: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
