@@ -13,7 +13,7 @@ project:
     - "*.qmd"
     - "!blog/money-market/*"
 execute:
-  freeze: true
+  freeze: auto
 
 website:
   title: "Ezekiel Ogundepo"

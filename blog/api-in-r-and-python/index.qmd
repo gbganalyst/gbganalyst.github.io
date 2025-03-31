@@ -206,9 +206,9 @@ We can then process the data as needed, for example by printing it to the consol
 Of course, the exact API endpoint and parameters will depend on the specific API that you are using, and you'll need to consult the API documentation to learn how to construct your request correctly.
 But this example should give you a sense of the general process involved in using an API in Python.
 
-## Practical example in R and Python
+## Practical Examples in R and Python
 
-We will use R and Python to fetch the API data without and with the key.
+We will use R and Python to fetch the API data with and without the key.
 
 ### Without the key
 
