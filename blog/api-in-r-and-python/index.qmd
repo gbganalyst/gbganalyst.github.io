@@ -144,7 +144,7 @@ response <- GET("https://api.example.com/endpoint")
 
 ```{r}
 #| code-summary: "Request status"
-#|
+
 status_code <- status_code(response)
 ```
 
@@ -288,7 +288,7 @@ In this case, we will use a `GET` request to fetch data for analyst jobs based i
 ```{r}
 #| include: false
 #| eval: true
-#|
+
 dotenv::load_dot_env()
 
 # In the .env file, make sure you add a blank line by pressing a return key to avoid incomplete final line found on '.env' warning
@@ -296,7 +296,6 @@ dotenv::load_dot_env()
 
 ```{r}
 #| eval: true
-#|
 
 library(httr)
 
