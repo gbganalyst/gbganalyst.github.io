@@ -40,7 +40,7 @@
         "\n",
         "Before proceeding, make sure you have the following libraries installed:\n"
       ],
-      "id": "8c57983c"
+      "id": "9a8cdbe6"
     },
     {
       "cell_type": "code",
@@ -49,7 +49,7 @@
         "#| eval: false\n",
         "pip install pandas dask"
       ],
-      "id": "bf25ac14",
+      "id": "b5c993b9",
       "execution_count": null,
       "outputs": []
     },
@@ -68,7 +68,7 @@
         "To begin, we will use the `glob` module to list all files matching a specific pattern.\n",
         "This pattern will allow us to target multiple CSV files at once:\n"
       ],
-      "id": "a658050d"
+      "id": "e4622886"
     },
     {
       "cell_type": "code",
@@ -82,7 +82,7 @@
         "\n",
         "files"
       ],
-      "id": "77f87613",
+      "id": "89d67fd0",
       "execution_count": null,
       "outputs": []
     },
@@ -96,7 +96,7 @@
         "\n",
         "Once we have the list of files, the next step is to read and concatenate them using Pandas:\n"
       ],
-      "id": "f43e1409"
+      "id": "693fbb06"
     },
     {
       "cell_type": "code",
@@ -106,7 +106,7 @@
         "\n",
         "sales_pandas = pd.concat([pd.read_csv(f) for f in files], ignore_index = True)"
       ],
-      "id": "e5457cc6",
+      "id": "655d6718",
       "execution_count": null,
       "outputs": []
     },
@@ -120,7 +120,7 @@
         "\n",
         "Finally, inspect the data to ensure it was properly loaded:\n"
       ],
-      "id": "ad5fd71f"
+      "id": "fc2a02bf"
     },
     {
       "cell_type": "code",
@@ -128,7 +128,7 @@
       "source": [
         "sales_pandas.head() # Display the first few rows of the dataframe"
       ],
-      "id": "77aa038f",
+      "id": "5c647808",
       "execution_count": null,
       "outputs": []
     },
@@ -138,7 +138,7 @@
       "source": [
         "sales_pandas.tail() # Display the last few rows of the dataframe"
       ],
-      "id": "b06efd24",
+      "id": "562fac87",
       "execution_count": null,
       "outputs": []
     },
@@ -157,7 +157,7 @@
         "\n",
         "First, ensure `Dask` is installed:\n"
       ],
-      "id": "4f8b8843"
+      "id": "486a76d7"
     },
     {
       "cell_type": "code",
@@ -167,7 +167,7 @@
         "#| \n",
         "pip install dask"
       ],
-      "id": "9e7692c0",
+      "id": "176e3674",
       "execution_count": null,
       "outputs": []
     },
@@ -177,7 +177,7 @@
       "source": [
         "Then, import Dask alongside Pandas:\n"
       ],
-      "id": "1670e99c"
+      "id": "4700e4c1"
     },
     {
       "cell_type": "code",
@@ -185,7 +185,7 @@
       "source": [
         "import dask.dataframe as dd"
       ],
-      "id": "ae32962d",
+      "id": "069ac283",
       "execution_count": null,
       "outputs": []
     },
@@ -198,7 +198,7 @@
         "Like Pandas, Dask can also load multiple CSV files.\n",
         "The difference is that Dask operates lazily, meaning it doesn’t load the data until it is necessary.\n"
       ],
-      "id": "977df537"
+      "id": "4e5c05d9"
     },
     {
       "cell_type": "code",
@@ -208,7 +208,7 @@
         "\n",
         "sales_dask = dd.read_csv('data/Sales_Data_*.csv')"
       ],
-      "id": "15c4ef3b",
+      "id": "27299518",
       "execution_count": null,
       "outputs": []
     },
@@ -222,7 +222,7 @@
         "\n",
         "Once you've processed the data with Dask, you can compute the result and convert it to a Pandas dataframe, if needed:\n"
       ],
-      "id": "b7a5b41a"
+      "id": "549d2dcc"
     },
     {
       "cell_type": "code",
@@ -230,7 +230,7 @@
       "source": [
         "sales_pandas = sales_dask.compute()"
       ],
-      "id": "b1ed12ee",
+      "id": "c0a3eda3",
       "execution_count": null,
       "outputs": []
     },
@@ -245,7 +245,7 @@
         "\n",
         "As with Pandas, you can inspect the Dask dataframe or the resulting Pandas dataframe:\n"
       ],
-      "id": "99db7c10"
+      "id": "9d99d165"
     },
     {
       "cell_type": "code",
@@ -253,7 +253,7 @@
       "source": [
         "sales_pandas.head()"
       ],
-      "id": "4a3619da",
+      "id": "356f1a0c",
       "execution_count": null,
       "outputs": []
     },
@@ -263,7 +263,7 @@
       "source": [
         "sales_pandas.info(memory_usage = 'deep')"
       ],
-      "id": "bdf514bc",
+      "id": "b8f25ad1",
       "execution_count": null,
       "outputs": []
     },
@@ -281,7 +281,7 @@
         "Understanding when to use Pandas or Dask depends largely on the size of the data you’re working with and your available system resources.\n",
         "Start with Pandas for small datasets, and switch to Dask as your data grows in complexity."
       ],
-      "id": "ad332587"
+      "id": "e54cbdbf"
     }
   ],
   "metadata": {

@@ -48,7 +48,7 @@
         "Once you have the `numpy` and `pandas` libraries installed, start by importing them.\n",
         "We will import `numpy` for numerical operations and `pandas` for data handling.\n"
       ],
-      "id": "61da6cd3"
+      "id": "2288c4bd"
     },
     {
       "cell_type": "code",
@@ -57,7 +57,7 @@
         "import numpy as np\n",
         "import pandas as pd"
       ],
-      "id": "a5c4ec15",
+      "id": "578307a3",
       "execution_count": null,
       "outputs": []
     },
@@ -70,7 +70,7 @@
         "The first task is to load the Excel file and retrieve all available sheet names.\n",
         "We use the `pd.ExcelFile()` function to load the file, and the `sheet_names` attribute to dynamically retrieve the list of sheets.\n"
       ],
-      "id": "12c61924"
+      "id": "29641635"
     },
     {
       "cell_type": "code",
@@ -82,7 +82,7 @@
         "# Retrieve all sheet names\n",
         "sheet_names = excel_file.sheet_names"
       ],
-      "id": "13fa8c96",
+      "id": "bbac23ce",
       "execution_count": null,
       "outputs": []
     },
@@ -93,7 +93,7 @@
         "At this point, `sheet_names` will be a list of all the sheet names in the Excel file.\n",
         "For example,\n"
       ],
-      "id": "1353bb21"
+      "id": "8d7b8f6f"
     },
     {
       "cell_type": "code",
@@ -101,7 +101,7 @@
       "source": [
         "sheet_names"
       ],
-      "id": "bc70bcdc",
+      "id": "b259a8c8",
       "execution_count": null,
       "outputs": []
     },
@@ -115,7 +115,7 @@
         "We use a dictionary comprehension to load each sheet into a DataFrame, and then use the `concat()` function to combine them.\n",
         "We also add a column that records the name of the sheet from which each row originated.\n"
       ],
-      "id": "3bed70d0"
+      "id": "5fc9607d"
     },
     {
       "cell_type": "code",
@@ -126,7 +126,7 @@
         "\n",
         "data = pd.concat(df.assign(sheet_name=name) for name, df in df_dict.items())"
       ],
-      "id": "798ad7f5",
+      "id": "deddd9d3",
       "execution_count": null,
       "outputs": []
     },
@@ -142,7 +142,7 @@
         "Once the data has been successfully consolidated, it's always a good practice to inspect it and verify that everything was combined correctly.\n",
         "The `head()` and `tail()` functions are useful for this.\n"
       ],
-      "id": "b5afa8d6"
+      "id": "2969c323"
     },
     {
       "cell_type": "code",
@@ -151,7 +151,7 @@
         "# View the first few rows of the data\n",
         "data.head()"
       ],
-      "id": "dfe93669",
+      "id": "8edd4f8f",
       "execution_count": null,
       "outputs": []
     },
@@ -162,7 +162,7 @@
         "# View the last few rows of the data\n",
         "data.tail()"
       ],
-      "id": "adf057ae",
+      "id": "f774aa3a",
       "execution_count": null,
       "outputs": []
     },
@@ -182,7 +182,7 @@
         "\n",
         "#### Saving to an Excel file:\n"
       ],
-      "id": "bbba44e0"
+      "id": "0c9ee3f7"
     },
     {
       "cell_type": "code",
@@ -190,7 +190,7 @@
       "source": [
         "data.to_excel('Consolidated_Data.xlsx', index=False)"
       ],
-      "id": "f3b5f067",
+      "id": "50f7c096",
       "execution_count": null,
       "outputs": []
     },
@@ -200,7 +200,7 @@
       "source": [
         "#### Saving to a CSV file:\n"
       ],
-      "id": "651946e9"
+      "id": "1cdc623c"
     },
     {
       "cell_type": "code",
@@ -208,7 +208,7 @@
       "source": [
         "data.to_csv('Consolidated_Data.csv', index=False)"
       ],
-      "id": "e2d3d9b7",
+      "id": "2b8ad927",
       "execution_count": null,
       "outputs": []
     },
@@ -226,7 +226,7 @@
         "\n",
         "If the Excel sheets have varying structures (e.g., different column names), you might need to adjust how the sheets are concatenated, ensuring that data is aligned properly.\n"
       ],
-      "id": "76dea77f"
+      "id": "76dcb52e"
     },
     {
       "cell_type": "code",
@@ -236,7 +236,7 @@
         "\n",
         "data = pd.concat([df_dict[sheet] for sheet in sheet_names], ignore_index=True, sort=False)\n"
       ],
-      "id": "1d09885c",
+      "id": "9b9f52d1",
       "execution_count": null,
       "outputs": []
     },
@@ -246,7 +246,7 @@
       "source": [
         "The `sort = False` parameter prevents pandas from automatically sorting the columns alphabetically, preserving their original order."
       ],
-      "id": "38094d17"
+      "id": "d7da732c"
     }
   ],
   "metadata": {
