@@ -73,6 +73,10 @@ This allows you to focus on the unique aspects of your app, without worrying abo
 
 knitr::include_graphics("image-849919650.png")
 
+
+
+library(reticulate)
+
 library(reticulate)
 ```
 

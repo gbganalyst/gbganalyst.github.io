@@ -133,12 +133,15 @@ install.load::install_load(c(
   "reticulate",
   "vtable", "knitr", "kableExtra", "gt"
 ))
+
+Sys.setenv(RETICULATE_PYTHON = here::here("renv/python"))
 ```
 
 ```{r}
 # Ensure your computer is connected to the internet!
 
 packages_needed <- c("tidyverse", "inspectdf", "gt", "patchwork", "gridExtra", "treemap")
+
 
 if (!require(install.load)) {
   install.packages("install.load")
