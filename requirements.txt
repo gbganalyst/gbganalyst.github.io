@@ -1,3 +1,5 @@
+pyyaml 
+jupyter
 requests
 pandas
 seaborn
@@ -9,3 +11,5 @@ pyarrow
 dask
 numpy
 matplotlib
+dask
+pyarrow
