@@ -80,6 +80,11 @@ I am honoured to be a Mastercard Scholar, Federal Government of Nigeria (FSB) Sc
 ::: {#news}
 ## News
 
+-   **March 27, 2025: Using Machine Learning to Model the Drivers of Cholera**\
+    As a CAN Fellow, I used data science and machine learning to assess and address cholera outbreaks in Yobe State, Nigeria. [Click here](https://unfoundation.us13.list-manage.com/track/click?u=6d0e0f41c3f080faa26e03822&id=fbd251d4f4&e=f15d4e2ed3) to read more about my work.
+
+    ![](images/photoshoot-2.jpg){width="95%" height="40%"}
+
 -   **October 8, 2024**: I participated in the Llama 3.1 Impact Sub-Saharan Africa Hackathon in Kigali, Rwanda (October 8–10), organized by AfriLabs in partnership with Meta and the Bill & Melinda Gates Foundation. Working with Testimony Adeyemi, Fareedah Okunade, Naheem Okunade, and Temitope Shokunle, we developed Prometheus 1.0: a WhatsApp chatbot that enables small business owners—especially women—to build and launch websites in under 40 seconds via simple text instructions. Our goal was to bridge the 37% gender digital divide, empowering African women who comprise over 40% of SMEs but often lack essential digital resources. [Read the report](https://www.linkedin.com/feed/update/urn:li:activity:7252333215992926208/).
 
     ![](images/llama.jpg)
@@ -90,7 +95,7 @@ I am honoured to be a Mastercard Scholar, Federal Government of Nigeria (FSB) Sc
 
 -   **October 15, 2023:** I am honoured to have been [selected](https://www.data4sdgs.org/blog/data-science-health-and-climate-africa-meet-can-fellows) by the Global Partnership for Sustainable Development Data for the Capacity Accelerator Network (CAN) Fellowship. My project focuses on identifying environmental factors driving cholera outbreaks in Yobe State to enhance public health surveillance and response efforts.
 
-    ![](images/CAN.png)
+    ![](images/CAN.png){width="95%" height="40%"}
 
 -   **September 24, 2023:** I attended the 10th Heidelberg Laureate Forum (HLF) in Germany as a young researcher. It was an incredible experience engaging with laureates and fellow researchers. [Learn more](https://www.heidelberg-laureate-forum.org/).
 
