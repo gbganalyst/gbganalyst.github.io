@@ -4,4 +4,8 @@ seaborn
 scipy
 missingno
 scikit-learn
-
+openpyxl
+pyarrow
+dask
+numpy
+matplotlib
