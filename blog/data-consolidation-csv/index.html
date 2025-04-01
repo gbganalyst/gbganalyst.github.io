@@ -304,7 +304,7 @@ background-size: cover;
 <section id="pre-requisites" class="level2">
 <h2 class="anchored" data-anchor-id="pre-requisites">Pre-requisites</h2>
 <p>Before proceeding, make sure you have the following libraries installed:</p>
-<div id="06f261f0" class="cell" data-execution_count="1">
+<div id="e27a3ae6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install pandas dask</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Additionally, you can follow along by downloading the sample dataset <a href="https://drive.google.com/open?id=1sFL2MMELasLHEYtoxK1ian4dTxS7UV7S" target="_blank">here</a>.</p>
@@ -316,7 +316,7 @@ background-size: cover;
 <h2 class="anchored" data-anchor-id="method-1-using-pandas">Method 1: Using Pandas</h2>
 <p><strong>Step 1: Load all CSV files</strong></p>
 <p>To begin, we will use the <code>glob</code> module to list all files matching a specific pattern. This pattern will allow us to target multiple CSV files at once:</p>
-<div id="d1522fac" class="cell" data-execution_count="2">
+<div id="57fb21e4" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> glob <span class="im">import</span> glob</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -350,7 +350,7 @@ background-size: cover;
 <p>Here, <code>glob()</code> finds all files with names matching the pattern <code>Sales_Data_*.csv</code> and sorts them for easier handling.</p>
 <p><strong>Step 2: Load and merge CSV files into a single dataframe</strong></p>
 <p>Once we have the list of files, the next step is to read and concatenate them using Pandas:</p>
-<div id="62e470c5" class="cell" data-execution_count="3">
+<div id="1be7cfd9" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Concatenate all CSV files into a single dataframe</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sales_pandas <span class="op">=</span> pd.concat([pd.read_csv(f) <span class="cf">for</span> f <span class="kw">in</span> files], ignore_index <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -358,7 +358,7 @@ background-size: cover;
 <p>This command reads each file in the list, creates a Pandas dataframe, and merges them into a single dataframe.</p>
 <p><strong>Step 3: Verify the consolidated data</strong></p>
 <p>Finally, inspect the data to ensure it was properly loaded:</p>
-<div id="73bb73b5" class="cell" data-execution_count="4">
+<div id="2968f1e6" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sales_pandas.head() <span class="co"># Display the first few rows of the dataframe</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -416,7 +416,7 @@ background-size: cover;
 </div>
 </div>
 </div>
-<div id="2f85cfaf" class="cell" data-execution_count="5">
+<div id="7ae41bf3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sales_pandas.tail() <span class="co"># Display the last few rows of the dataframe</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -481,16 +481,16 @@ background-size: cover;
 <p>If you are working with datasets that are too large to fit in memory, <code>Dask</code> is a great alternative to Pandas. <code>Dask</code> allows you to work with larger-than-memory datasets by breaking them into manageable chunks and processing them in parallel.</p>
 <p><strong>Step 1: Install and import Dask</strong></p>
 <p>First, ensure <code>Dask</code> is installed:</p>
-<div id="7cba7d56" class="cell" data-execution_count="6">
+<div id="af0b884f" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pip install dask</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then, import Dask alongside Pandas:</p>
-<div id="9f9d6dae" class="cell" data-execution_count="7">
+<div id="35465ff5" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dask.dataframe <span class="im">as</span> dd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Step 2: Read and load files into a Dask dataframe</strong></p>
 <p>Like Pandas, Dask can also load multiple CSV files. The difference is that Dask operates lazily, meaning it doesn’t load the data until it is necessary.</p>
-<div id="74ef6e35" class="cell" data-execution_count="8">
+<div id="8107907b" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read CSV files with Dask</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sales_dask <span class="op">=</span> dd.read_csv(<span class="st">'data/Sales_Data_*.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -498,13 +498,13 @@ background-size: cover;
 <p>This command will load all CSV files matching the pattern into a Dask dataframe.</p>
 <p><strong>Step 3: Convert the Dask dataframe into a Pandas dataframe (if needed)</strong></p>
 <p>Once you’ve processed the data with Dask, you can compute the result and convert it to a Pandas dataframe, if needed:</p>
-<div id="f5c94a3e" class="cell" data-execution_count="9">
+<div id="78600647" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sales_pandas <span class="op">=</span> sales_dask.compute()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This will trigger the computation and load the data into memory as a Pandas dataframe. Be cautious with this step, as the dataset needs to fit into memory for Pandas to handle it.</p>
 <p><strong>Step 4: Analyze and verify the data</strong></p>
 <p>As with Pandas, you can inspect the Dask dataframe or the resulting Pandas dataframe:</p>
-<div id="413fa0c8" class="cell" data-execution_count="10">
+<div id="3b1d4bce" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sales_pandas.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
@@ -562,7 +562,7 @@ background-size: cover;
 </div>
 </div>
 </div>
-<div id="cafd9074" class="cell" data-execution_count="11">
+<div id="50e31460" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sales_pandas.info(memory_usage <span class="op">=</span> <span class="st">'deep'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
