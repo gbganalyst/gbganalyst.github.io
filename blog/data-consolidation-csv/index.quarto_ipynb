@@ -1,0 +1,296 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Data Consolidation: How to Efficiently Merge Multiple CSV Files in Python\"\n",
+        "description: |\n",
+        "  In this quick tutorial, you'll learn how to easily merge several CSV files into one using Python. Whether you're working with a few small files or large datasets, this guide shows you how to use Pandas for simple tasks or `Dask` when your data is too big to handle. It's a practical, straightforward approach for anyone looking to combine CSV files efficiently.\n",
+        "date: \"10-20-2022\"\n",
+        "date-modified: \"09-10-2024\"\n",
+        "jupyter: python3\n",
+        "categories: \n",
+        "  - Python\n",
+        "image: pandas.png\n",
+        "format:\n",
+        "  html:\n",
+        "    df_print: paged\n",
+        "    fig-cap-location: bottom\n",
+        "    include-before-body: ../../html/margin_image.html\n",
+        "    include-after-body: ../../html/blog_footer.html\n",
+        "    code-fold: false\n",
+        "    code-tools: true\n",
+        "editor: \n",
+        "  markdown: \n",
+        "    wrap: sentence\n",
+        "resources: \n",
+        "  - \"pandas.png\"\n",
+        "---\n",
+        "\n",
+        "\n",
+        "# Introduction\n",
+        "\n",
+        "Data consolidation is a crucial step in data preprocessing, particularly when you are working with multiple data sources or large datasets.\n",
+        "This tutorial will walk you through the process of merging multiple CSV files into a single dataframe using Python.\n",
+        "We will explore two methods: one using `Pandas` and another using `Dask`, which is designed to handle larger datasets that may not fit into your computer's memory.\n",
+        "\n",
+        "## Pre-requisites\n",
+        "\n",
+        "Before proceeding, make sure you have the following libraries installed:\n"
+      ],
+      "id": "7f67299c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: false\n",
+        "pip install pandas dask"
+      ],
+      "id": "b7dfacf2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Additionally, you can follow along by downloading the sample dataset [here](https://drive.google.com/open?id=1sFL2MMELasLHEYtoxK1ian4dTxS7UV7S).\n",
+        "\n",
+        "# Methods\n",
+        "\n",
+        "## Method 1: Using Pandas\n",
+        "\n",
+        "**Step 1: Load all CSV files**\n",
+        "\n",
+        "To begin, we will use the `glob` module to list all files matching a specific pattern.\n",
+        "This pattern will allow us to target multiple CSV files at once:\n"
+      ],
+      "id": "92bdf8f2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from glob import glob\n",
+        "import pandas as pd\n",
+        "\n",
+        "# List all files matching the pattern\n",
+        "files = sorted(glob('data/Sales_Data_*.csv'))\n",
+        "\n",
+        "files"
+      ],
+      "id": "0925821e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Here, `glob()` finds all files with names matching the pattern `Sales_Data_*.csv` and sorts them for easier handling.\n",
+        "\n",
+        "**Step 2: Load and merge CSV files into a single dataframe**\n",
+        "\n",
+        "Once we have the list of files, the next step is to read and concatenate them using Pandas:\n"
+      ],
+      "id": "cdaeb90a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Concatenate all CSV files into a single dataframe\n",
+        "\n",
+        "sales_pandas = pd.concat([pd.read_csv(f) for f in files], ignore_index = True)"
+      ],
+      "id": "64e980ff",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "This command reads each file in the list, creates a Pandas dataframe, and merges them into a single dataframe.\n",
+        "\n",
+        "**Step 3: Verify the consolidated data**\n",
+        "\n",
+        "Finally, inspect the data to ensure it was properly loaded:\n"
+      ],
+      "id": "4690fde3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "sales_pandas.head() # Display the first few rows of the dataframe"
+      ],
+      "id": "14ff3772",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "sales_pandas.tail() # Display the last few rows of the dataframe"
+      ],
+      "id": "bd482ee8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "This step helps to confirm that the data has been successfully consolidated.\n",
+        "\n",
+        "## Method 2: Using Dask\n",
+        "\n",
+        "If you are working with datasets that are too large to fit in memory, `Dask` is a great alternative to Pandas.\n",
+        "`Dask` allows you to work with larger-than-memory datasets by breaking them into manageable chunks and processing them in parallel.\n",
+        "\n",
+        "**Step 1: Install and import Dask**\n",
+        "\n",
+        "First, ensure `Dask` is installed:\n"
+      ],
+      "id": "a0bdec9a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: false\n",
+        "#| \n",
+        "pip install dask"
+      ],
+      "id": "6413346b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Then, import Dask alongside Pandas:\n"
+      ],
+      "id": "dfa73409"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import dask.dataframe as dd"
+      ],
+      "id": "281a5f9a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "**Step 2: Read and load files into a Dask dataframe**\n",
+        "\n",
+        "Like Pandas, Dask can also load multiple CSV files.\n",
+        "The difference is that Dask operates lazily, meaning it doesn’t load the data until it is necessary.\n"
+      ],
+      "id": "eb015fa9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Read CSV files with Dask\n",
+        "\n",
+        "sales_dask = dd.read_csv('data/Sales_Data_*.csv')"
+      ],
+      "id": "63af7c06",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "This command will load all CSV files matching the pattern into a Dask dataframe.\n",
+        "\n",
+        "**Step 3: Convert the Dask dataframe into a Pandas dataframe (if needed)**\n",
+        "\n",
+        "Once you've processed the data with Dask, you can compute the result and convert it to a Pandas dataframe, if needed:\n"
+      ],
+      "id": "f189a669"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "sales_pandas = sales_dask.compute()"
+      ],
+      "id": "1ff8f3ce",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "This will trigger the computation and load the data into memory as a Pandas dataframe.\n",
+        "Be cautious with this step, as the dataset needs to fit into memory for Pandas to handle it.\n",
+        "\n",
+        "**Step 4: Analyze and verify the data**\n",
+        "\n",
+        "As with Pandas, you can inspect the Dask dataframe or the resulting Pandas dataframe:\n"
+      ],
+      "id": "90cec7b0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "sales_pandas.head()"
+      ],
+      "id": "3c6d619b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "sales_pandas.info(memory_usage = 'deep')"
+      ],
+      "id": "ca4bb025",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "This gives you a detailed look at the memory usage of your dataset, which is particularly helpful for large datasets.\n",
+        "\n",
+        "# Conclusion\n",
+        "\n",
+        "When consolidating data from multiple CSV files, Pandas is a fantastic option for small- to medium-sized datasets.\n",
+        "However, when handling larger datasets that exceed your computer’s memory, Dask provides an efficient alternative by allowing parallel processing.\n",
+        "\n",
+        "Understanding when to use Pandas or Dask depends largely on the size of the data you’re working with and your available system resources.\n",
+        "Start with Pandas for small datasets, and switch to Dask as your data grows in complexity."
+      ],
+      "id": "997087b3"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
