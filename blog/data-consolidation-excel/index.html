@@ -306,14 +306,14 @@ background-size: cover;
 </ul>
 <p>We’ll be using Python’s popular libraries—<code>pandas</code> for data manipulation and <code>numpy</code> for numerical operations.</p>
 <p>Once you have the <code>numpy</code> and <code>pandas</code> libraries installed, start by importing them. We will import <code>numpy</code> for numerical operations and <code>pandas</code> for data handling.</p>
-<div id="8ca5a133" class="cell" data-execution_count="1">
+<div id="64923e2b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="step-1-loading-the-excel-file-and-retrieving-sheet-names" class="level2">
 <h2 class="anchored" data-anchor-id="step-1-loading-the-excel-file-and-retrieving-sheet-names">Step 1: Loading the Excel File and Retrieving Sheet Names</h2>
 <p>The first task is to load the Excel file and retrieve all available sheet names. We use the <code>pd.ExcelFile()</code> function to load the file, and the <code>sheet_names</code> attribute to dynamically retrieve the list of sheets.</p>
-<div id="6bf45e6d" class="cell" data-execution_count="2">
+<div id="ecee0ec6" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the Excel file</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>excel_file <span class="op">=</span> pd.ExcelFile(<span class="st">'Diamonds.xlsx'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -321,7 +321,7 @@ background-size: cover;
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sheet_names <span class="op">=</span> excel_file.sheet_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>At this point, <code>sheet_names</code> will be a list of all the sheet names in the Excel file. For example,</p>
-<div id="e0a69206" class="cell" data-execution_count="3">
+<div id="433a5dcc" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sheet_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>['Fair', 'Good', 'Very Good', 'Premium', 'Ideal']</code></pre>
@@ -331,7 +331,7 @@ background-size: cover;
 <section id="step-2-reading-and-concatenating-data-from-all-sheets" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-reading-and-concatenating-data-from-all-sheets">Step 2: Reading and Concatenating Data from All Sheets</h2>
 <p>With the sheet names available, the next step is to read the data from each sheet and concatenate it into a single DataFrame. We use a dictionary comprehension to load each sheet into a DataFrame, and then use the <code>concat()</code> function to combine them. We also add a column that records the name of the sheet from which each row originated.</p>
-<div id="013f738c" class="cell" data-execution_count="4">
+<div id="9c93d25a" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read all sheets and concatenate them into one DataFrame, adding a sheet_name column</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_dict <span class="op">=</span> {sheet: pd.read_excel(excel_file, sheet_name<span class="op">=</span>sheet) <span class="cf">for</span> sheet <span class="kw">in</span> sheet_names}</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -342,7 +342,7 @@ background-size: cover;
 <section id="step-3-inspecting-the-combined-data" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-inspecting-the-combined-data">Step 3: Inspecting the Combined Data</h2>
 <p>Once the data has been successfully consolidated, it’s always a good practice to inspect it and verify that everything was combined correctly. The <code>head()</code> and <code>tail()</code> functions are useful for this.</p>
-<div id="35c272be" class="cell" data-execution_count="5">
+<div id="e1cdf8ea" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first few rows of the data</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -437,7 +437,7 @@ background-size: cover;
 </div>
 </div>
 </div>
-<div id="07136632" class="cell" data-execution_count="6">
+<div id="2183db4c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the last few rows of the data</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -543,13 +543,13 @@ background-size: cover;
 <p>If you want to save the consolidated data for further use, you can export it to a new Excel file or a CSV file using the following code:</p>
 <section id="saving-to-an-excel-file" class="level4">
 <h4 class="anchored" data-anchor-id="saving-to-an-excel-file">Saving to an Excel file:</h4>
-<div id="aba48b20" class="cell" data-execution_count="7">
+<div id="0a34a045" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data.to_excel(<span class="st">'Consolidated_Data.xlsx'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="saving-to-a-csv-file" class="level4">
 <h4 class="anchored" data-anchor-id="saving-to-a-csv-file">Saving to a CSV file:</h4>
-<div id="87b38ed0" class="cell" data-execution_count="8">
+<div id="db2584aa" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">'Consolidated_Data.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -561,7 +561,7 @@ background-size: cover;
 <section id="additional-tips" class="level3">
 <h3 class="anchored" data-anchor-id="additional-tips">Additional Tips:</h3>
 <p>If the Excel sheets have varying structures (e.g., different column names), you might need to adjust how the sheets are concatenated, ensuring that data is aligned properly.</p>
-<div id="4f0af4fd" class="cell" data-execution_count="9">
+<div id="6e097ac6" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read all sheets and concatenate them, aligning columns by name</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.concat([df_dict[sheet] <span class="cf">for</span> sheet <span class="kw">in</span> sheet_names], ignore_index<span class="op">=</span><span class="va">True</span>, sort<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
