@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,8 +24,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -36,7 +37,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -68,15 +69,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../images/logo.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-17c909d5fd25ae21b861c0c7a49b2096.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e4fbaa5b9575d7f6de7c906568c40117.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1c28d6f2270918acf8318ed0cfe25109.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-238ed7a6aa2c97d32c29e86bf42f0d6c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
@@ -133,7 +135,7 @@ background-size: cover;
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="floating nav-fixed slimcontent">
+<body class="floating nav-fixed slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -468,7 +470,7 @@ Figure&nbsp;2: Types of request method
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["alt_name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["slug"],"name":[3],"type":["chr"],"align":["left"]},{"label":["phone"],"name":[4],"type":["chr"],"align":["left"]},{"label":["secondary_phone"],"name":[5],"type":["chr"],"align":["left"]},{"label":["email"],"name":[6],"type":["chr"],"align":["left"]},{"label":["address"],"name":[7],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[8],"type":["chr"],"align":["left"]},{"label":["closed"],"name":[9],"type":["lgl"],"align":["right"]},{"label":["country"],"name":[10],"type":["chr"],"align":["left"]},{"label":["lat_lng"],"name":[11],"type":["chr"],"align":["left"]},{"label":["network"],"name":[12],"type":["chr"],"align":["left"]},{"label":["created"],"name":[13],"type":["chr"],"align":["left"]},{"label":["urls.self"],"name":[14],"type":["chr"],"align":["left"]},{"label":["urls.html"],"name":[15],"type":["chr"],"align":["left"]},{"label":["urls.homepage"],"name":[16],"type":["chr"],"align":["left"]},{"label":["urls.shopping_list"],"name":[17],"type":["chr"],"align":["left"]},{"label":["charity.registration_id"],"name":[18],"type":["chr"],"align":["left"]},{"label":["charity.register_url"],"name":[19],"type":["chr"],"align":["left"]},{"label":["politics.parliamentary_constituency"],"name":[20],"type":["chr"],"align":["left"]},{"label":["politics.mp"],"name":[21],"type":["chr"],"align":["left"]},{"label":["politics.mp_party"],"name":[22],"type":["chr"],"align":["left"]},{"label":["politics.mp_parl_id"],"name":[23],"type":["int"],"align":["right"]},{"label":["politics.ward"],"name":[24],"type":["chr"],"align":["left"]},{"label":["politics.district"],"name":[25],"type":["chr"],"align":["left"]},{"label":["politics.urls.self"],"name":[26],"type":["chr"],"align":["left"]},{"label":["politics.urls.html"],"name":[27],"type":["chr"],"align":["left"]}],"data":[{"1":"Edenbridge Food Bank","2":"NA","3":"edenbridge","4":"07756238063","5":"NA","6":"info@edenbridge.foodbank.org.uk","7":"Rickards Hall\\r\\n72a High Street\\r\\nEdenbridge\\r\\nTN8 5AR","8":"TN8 5AR","9":"FALSE","10":"England","11":"51.1961285,0.0646653","12":"Trussell","13":"2021-05-11T14:44:17.788","14":"https://www.givefood.org.uk/api/2/foodbank/edenbridge/","15":"https://www.givefood.org.uk/needs/at/edenbridge/","16":"https://edenbridge.foodbank.org.uk","17":"https://edenbridge.foodbank.org.uk/give-help/donate-food/","18":"1181051","19":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regid=1181051&subid=0","20":"Tonbridge","21":"Thomas Tugendhat","22":"Conservative","23":"4462","24":"Edenbridge South and West","25":"Sevenoaks","26":"https://www.givefood.org.uk/api/2/constituency/tonbridge/","27":"https://www.givefood.org.uk/needs/in/constituency/tonbridge/","_rn_":"1"},{"1":"Cleckheaton Food Bank","2":"NA","3":"cleckheaton","4":"07955732598","5":"NA","6":"cleckheatonfoodbank@gmail.com","7":"Methodist Church\\r\\nMortimer Street\\r\\nCleckheaton\\r\\nBD19 5AR","8":"BD19 5AR","9":"FALSE","10":"England","11":"53.7228745,-1.7134936","12":"Independent","13":"2023-05-04T07:45:14.617","14":"https://www.givefood.org.uk/api/2/foodbank/cleckheaton/","15":"https://www.givefood.org.uk/needs/at/cleckheaton/","16":"https://cleckheatonfoodbank.weebly.com","17":"https://cleckheatonfoodbank.weebly.com/donate.html","18":"1198915","19":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regid=1198915&subid=0","20":"Spen Valley","21":"Kim Leadbeater","22":"Labour","23":"4923","24":"Cleckheaton","25":"Kirklees","26":"https://www.givefood.org.uk/api/2/constituency/spen-valley/","27":"https://www.givefood.org.uk/needs/in/constituency/spen-valley/","_rn_":"2"},{"1":"Cirencester Food Bank","2":"NA","3":"cirencester","4":"01285896360","5":"NA","6":"info@cirencester.foodbank.org.uk","7":"Unit 15\\r\\nInner Courtyard\\r\\nWhiteway Court\\r\\nCirencester\\r\\nGL7 7BA","8":"GL7 7BA","9":"FALSE","10":"England","11":"51.7252574,-1.9621244","12":"Trussell","13":"2020-01-13T11:50:59.257","14":"https://www.givefood.org.uk/api/2/foodbank/cirencester/","15":"https://www.givefood.org.uk/needs/at/cirencester/","16":"https://cirencester.foodbank.org.uk","17":"https://cirencester.foodbank.org.uk/give-help/donate-food/","18":"1159810","19":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regid=1159810&subid=0","20":"South Cotswolds","21":"Geoffrey Clifton-Brown","22":"Conservative","23":"249","24":"Abbey","25":"Cotswold","26":"https://www.givefood.org.uk/api/2/constituency/south-cotswolds/","27":"https://www.givefood.org.uk/needs/in/constituency/south-cotswolds/","_rn_":"3"},{"1":"Poole Food Bank","2":"NA","3":"poole","4":"01202672694","5":"NA","6":"poolefood@faith-works.org.uk","7":"Jimmy's Place\\r\\nSt James' Church Centre\\r\\nChurch Street\\r\\nPoole\\r\\nBH15 1JN","8":"BH15 1JN","9":"FALSE","10":"England","11":"50.7134672,-1.9897421","12":"IFAN","13":"2020-02-29T11:33:14.567","14":"https://www.givefood.org.uk/api/2/foodbank/poole/","15":"https://www.givefood.org.uk/needs/at/poole/","16":"https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/","17":"https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/","18":"1108714","19":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regid=1108714&subid=0","20":"Poole","21":"Robert Syms","22":"Conservative","23":"245","24":"Poole Town","25":"Bournemouth, Christchurch and Poole","26":"https://www.givefood.org.uk/api/2/constituency/poole/","27":"https://www.givefood.org.uk/needs/in/constituency/poole/","_rn_":"4"},{"1":"Littlehampton & District Food Bank","2":"NA","3":"littlehampton-district","4":"07925862289","5":"NA","6":"info@littlehamptondistrict.foodbank.org.uk","7":"Littlehampton Baptist Church\\r\\nFitzalan Road\\r\\nLittlehampton\\r\\nBN17 5NY","8":"BN17 5NY","9":"FALSE","10":"England","11":"50.80834350000001,-0.5370465999999999","12":"Trussell","13":"2020-01-14T15:49:51.252","14":"https://www.givefood.org.uk/api/2/foodbank/littlehampton-district/","15":"https://www.givefood.org.uk/needs/at/littlehampton-district/","16":"https://littlehamptondistrict.foodbank.org.uk","17":"https://littlehamptondistrict.foodbank.org.uk/give-help/donate-food/","18":"1160455","19":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regid=1160455&subid=0","20":"Bognor Regis and Littlehampton","21":"Nick Gibb","22":"Conservative","23":"111","24":"River","25":"Arun","26":"https://www.givefood.org.uk/api/2/constituency/bognor-regis-and-littlehampton/","27":"https://www.givefood.org.uk/needs/in/constituency/bognor-regis-and-littlehampton/","_rn_":"5"},{"1":"Chiltern Food Bank","2":"NA","3":"chiltern","4":"01494775668","5":"NA","6":"info@chiltern.foodbank.org.uk","7":"71 Broadway\\r\\nChesham\\r\\nBuckinghamshire\\r\\nHP5 1BX","8":"HP5 1BX","9":"FALSE","10":"England","11":"51.7060815,-0.6119340999999999","12":"Trussell","13":"2019-12-20T08:53:36.944","14":"https://www.givefood.org.uk/api/2/foodbank/chiltern/","15":"https://www.givefood.org.uk/needs/at/chiltern/","16":"https://chiltern.foodbank.org.uk","17":"https://chiltern.foodbank.org.uk/give-help/donate-food/","18":"1146699","19":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regid=1146699&subid=0","20":"Chesham and Amersham","21":"Sarah Green","22":"Liberal Democrats","23":"4918","24":"Chess Valley","25":"Buckinghamshire","26":"https://www.givefood.org.uk/api/2/constituency/chesham-and-amersham/","27":"https://www.givefood.org.uk/needs/in/constituency/chesham-and-amersham/","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["alt_name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["slug"],"name":[3],"type":["chr"],"align":["left"]},{"label":["phone"],"name":[4],"type":["chr"],"align":["left"]},{"label":["secondary_phone"],"name":[5],"type":["chr"],"align":["left"]},{"label":["email"],"name":[6],"type":["chr"],"align":["left"]},{"label":["address"],"name":[7],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[8],"type":["chr"],"align":["left"]},{"label":["closed"],"name":[9],"type":["lgl"],"align":["right"]},{"label":["country"],"name":[10],"type":["chr"],"align":["left"]},{"label":["lat_lng"],"name":[11],"type":["chr"],"align":["left"]},{"label":["network"],"name":[12],"type":["chr"],"align":["left"]},{"label":["created"],"name":[13],"type":["chr"],"align":["left"]},{"label":["urls.self"],"name":[14],"type":["chr"],"align":["left"]},{"label":["urls.html"],"name":[15],"type":["chr"],"align":["left"]},{"label":["urls.homepage"],"name":[16],"type":["chr"],"align":["left"]},{"label":["urls.shopping_list"],"name":[17],"type":["chr"],"align":["left"]},{"label":["charity.registration_id"],"name":[18],"type":["chr"],"align":["left"]},{"label":["charity.register_url"],"name":[19],"type":["chr"],"align":["left"]},{"label":["politics.parliamentary_constituency"],"name":[20],"type":["chr"],"align":["left"]},{"label":["politics.mp"],"name":[21],"type":["chr"],"align":["left"]},{"label":["politics.mp_party"],"name":[22],"type":["chr"],"align":["left"]},{"label":["politics.mp_parl_id"],"name":[23],"type":["int"],"align":["right"]},{"label":["politics.ward"],"name":[24],"type":["chr"],"align":["left"]},{"label":["politics.district"],"name":[25],"type":["chr"],"align":["left"]},{"label":["politics.urls.self"],"name":[26],"type":["chr"],"align":["left"]},{"label":["politics.urls.html"],"name":[27],"type":["chr"],"align":["left"]}],"data":[{"1":"Melksham Food Bank","2":"NA","3":"melksham","4":"NA","5":"NA","6":"melkshamfoodbank@gmail.com","7":"c/o Melksham Baptist Church\\r\\nOld Broughton Road\\r\\nMelksham\\r\\nSN12 8BX","8":"SN12 8BX","9":"FALSE","10":"England","11":"51.37732279999999,-2.1418465","12":"Independent","13":"2020-08-16T16:04:14.767","14":"https://www.givefood.org.uk/api/2/foodbank/melksham/","15":"https://www.givefood.org.uk/needs/at/melksham/","16":"http://melkshamfoodbank.org.uk","17":"http://melkshamfoodbank.org.uk/foodbox-contents/","18":"NA","19":"NA","20":"Melksham and Devizes","21":"Michelle Donelan","22":"Conservative","23":"4530","24":"Melksham Without North & Shurnhold","25":"Wiltshire","26":"https://www.givefood.org.uk/api/2/constituency/melksham-and-devizes/","27":"https://www.givefood.org.uk/needs/in/constituency/melksham-and-devizes/","_rn_":"1"},{"1":"Stowmarket & Area Food Bank","2":"NA","3":"stowmarket-area","4":"01449774000","5":"NA","6":"office@livingit.org.uk","7":"Stowmarket Scout Centre\\r\\nMilton Road North\\r\\nStowmarket\\r\\nSuffolk\\r\\nIP14 1EX","8":"IP14 1EX","9":"FALSE","10":"England","11":"52.1875553,0.9985788999999999","12":"Independent","13":"2023-03-07T09:42:14.072","14":"https://www.givefood.org.uk/api/2/foodbank/stowmarket-area/","15":"https://www.givefood.org.uk/needs/at/stowmarket-area/","16":"https://www.livingit.org.uk/foodbank/","17":"https://www.livingit.org.uk/foodbank/","18":"NA","19":"NA","20":"Bury St Edmunds and Stowmarket","21":"Jo Churchill","22":"Conservative","23":"4380","24":"St Peter's","25":"Mid Suffolk","26":"https://www.givefood.org.uk/api/2/constituency/bury-st-edmunds-and-stowmarket/","27":"https://www.givefood.org.uk/needs/in/constituency/bury-st-edmunds-and-stowmarket/","_rn_":"2"},{"1":"LauderLarder Food Bank","2":"NA","3":"lauderlarder","4":"01578722833","5":"NA","6":"laudercommunityleisurecentre@hotmail.com","7":"Lauder Community and Leisure Centre\\r\\nOld Causewayside\\r\\nEast High Street\\r\\nLauder\\r\\nTD2 6SX","8":"TD2 6SX","9":"FALSE","10":"Scotland","11":"55.7186,-2.747356","12":"Independent","13":"2025-05-20T16:45:36.634","14":"https://www.givefood.org.uk/api/2/foodbank/lauderlarder/","15":"https://www.givefood.org.uk/needs/at/lauderlarder/","16":"https://www.facebook.com/groups/416782742925520/","17":"https://www.facebook.com/groups/416782742925520/","18":"NA","19":"NA","20":"Berwickshire, Roxburgh and Selkirk","21":"NA","22":"NA","23":"NA","24":"Leaderdale and Melrose","25":"Scottish Borders","26":"https://www.givefood.org.uk/api/2/constituency/berwickshire-roxburgh-and-selkirk/","27":"https://www.givefood.org.uk/needs/in/constituency/berwickshire-roxburgh-and-selkirk/","_rn_":"3"},{"1":"Ammanford Food Bank","2":"NA","3":"ammanford","4":"07804189830","5":"NA","6":"info@ammanford.foodbank.org.uk","7":"Y Llusern\\r\\nWind Street\\r\\nCarmarthenshire\\r\\nAmmanford\\r\\nSA18 3DR","8":"SA18 3DR","9":"FALSE","10":"Wales","11":"51.7910477,-3.9909419","12":"Trussell","13":"2020-01-16T09:54:57.797","14":"https://www.givefood.org.uk/api/2/foodbank/ammanford/","15":"https://www.givefood.org.uk/needs/at/ammanford/","16":"https://ammanford.foodbank.org.uk","17":"https://ammanford.foodbank.org.uk/give-help/donate-food/","18":"1088525","19":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regid=1088525&subid=0","20":"Caerfyrddin","21":"Jonathan Edwards","22":"Plaid Cymru","23":"3943","24":"Ammanford","25":"Carmarthenshire","26":"https://www.givefood.org.uk/api/2/constituency/caerfyrddin/","27":"https://www.givefood.org.uk/needs/in/constituency/caerfyrddin/","_rn_":"4"},{"1":"Time for the Homeless Food Bank","2":"NA","3":"time-for-the-homeless","4":"07496108583","5":"NA","6":"timeforthehomeless@outlook.com","7":"44a Chancery Road\\r\\nCliffe\\r\\nME3 7TL","8":"ME3 7TL","9":"FALSE","10":"England","11":"51.4591606,0.5010049","12":"IFAN","13":"2020-03-19T10:48:53.902","14":"https://www.givefood.org.uk/api/2/foodbank/time-for-the-homeless/","15":"https://www.givefood.org.uk/needs/at/time-for-the-homeless/","16":"https://www.facebook.com/pages/category/Charity-Organization/Time-For-The-Homeless-250523678990484/","17":"https://www.facebook.com/pages/category/Charity-Organization/Time-For-The-Homeless-250523678990484/","18":"NA","19":"NA","20":"Rochester and Strood","21":"Kelly Tolhurst","22":"Conservative","23":"4487","24":"Strood Rural","25":"Medway","26":"https://www.givefood.org.uk/api/2/constituency/rochester-and-strood/","27":"https://www.givefood.org.uk/needs/in/constituency/rochester-and-strood/","_rn_":"5"},{"1":"Dalbeattie Food Bank","2":"NA","3":"dalbeattie","4":"01556288030","5":"NA","6":"info71.dci@gmail.com","7":"The Initiative Community Pantry\\r\\n73 High Street\\r\\nDalbeattie\\r\\nDG5 4HA","8":"DG5 4HA","9":"FALSE","10":"Scotland","11":"54.9315632,-3.820392","12":"Independent","13":"2025-05-20T07:58:46.976","14":"https://www.givefood.org.uk/api/2/foodbank/dalbeattie/","15":"https://www.givefood.org.uk/needs/at/dalbeattie/","16":"https://theinitiative.scot/","17":"https://theinitiative.scot/","18":"NA","19":"NA","20":"Dumfries and Galloway","21":"NA","22":"NA","23":"NA","24":"Abbey","25":"Dumfries and Galloway","26":"https://www.givefood.org.uk/api/2/constituency/dumfries-and-galloway/","27":"https://www.givefood.org.uk/needs/in/constituency/dumfries-and-galloway/","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -502,12 +504,12 @@ Figure&nbsp;2: Types of request method
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>food_dataframe.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;                                  name  ...                                 politics.urls.html
-#&gt; 0                Edenbridge Food Bank  ...  https://www.givefood.org.uk/needs/in/constitue...
-#&gt; 1               Cleckheaton Food Bank  ...  https://www.givefood.org.uk/needs/in/constitue...
-#&gt; 2               Cirencester Food Bank  ...  https://www.givefood.org.uk/needs/in/constitue...
-#&gt; 3                     Poole Food Bank  ...  https://www.givefood.org.uk/needs/in/constitue...
-#&gt; 4  Littlehampton &amp; District Food Bank  ...  https://www.givefood.org.uk/needs/in/constitue...
+<pre><code>#&gt;                               name  ...                                 politics.urls.html
+#&gt; 0               Melksham Food Bank  ...  https://www.givefood.org.uk/needs/in/constitue...
+#&gt; 1      Stowmarket &amp; Area Food Bank  ...  https://www.givefood.org.uk/needs/in/constitue...
+#&gt; 2           LauderLarder Food Bank  ...  https://www.givefood.org.uk/needs/in/constitue...
+#&gt; 3              Ammanford Food Bank  ...  https://www.givefood.org.uk/needs/in/constitue...
+#&gt; 4  Time for the Homeless Food Bank  ...  https://www.givefood.org.uk/needs/in/constitue...
 #&gt; 
 #&gt; [5 rows x 27 columns]</code></pre>
 </div>
@@ -575,7 +577,7 @@ Tip
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["jobId"],"name":[1],"type":["int"],"align":["right"]},{"label":["employerId"],"name":[2],"type":["int"],"align":["right"]},{"label":["employerName"],"name":[3],"type":["chr"],"align":["left"]},{"label":["employerProfileId"],"name":[4],"type":["lgl"],"align":["right"]},{"label":["employerProfileName"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["jobTitle"],"name":[6],"type":["chr"],"align":["left"]},{"label":["locationName"],"name":[7],"type":["chr"],"align":["left"]},{"label":["minimumSalary"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["maximumSalary"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["currency"],"name":[10],"type":["chr"],"align":["left"]},{"label":["expirationDate"],"name":[11],"type":["chr"],"align":["left"]},{"label":["date"],"name":[12],"type":["chr"],"align":["left"]},{"label":["jobDescription"],"name":[13],"type":["chr"],"align":["left"]},{"label":["applications"],"name":[14],"type":["int"],"align":["right"]},{"label":["jobUrl"],"name":[15],"type":["chr"],"align":["left"]}],"data":[{"1":"54635503","2":"685291","3":"Smart4Sciences","4":"NA","5":"NA","6":"QC Analyst","7":"Hull","8":"30000","9":"32000","10":"GBP","11":"23/04/2025","12":"12/03/2025","13":"Role: QC Analyst Location: Hull Full time Salary: Around 30,000 - 32,000 A fantastic opportunity has arisen for Senior QC Analysts to join a sterile manufacturing facility in Hull. The role: QC Analyst As an Analyst you will: Design and carry out HPLC/UPLC/UV/GC analytical method validation and/or verification Support the department to monitor the quality of components, raw materials, products and production processes by inspection, sampling and...","14":"47","15":"https://www.reed.co.uk/jobs/qc-analyst/54635503","_rn_":"1"},{"1":"54582039","2":"685291","3":"Smart4Sciences","4":"NA","5":"NA","6":"QC Analyst","7":"Preston","8":"NA","9":"NA","10":"NA","11":"15/04/2025","12":"04/03/2025","13":"Role: QC Analyst Location: Preston Full time Salary: Up to 28,000 A fantastic opportunity has arisen for a QC Analysts to join a sterile manufacturing facility in North Wales. We offer a fantastic package plus benefits such as: 7 % matched pension Discounts on common retail outlets through our rewards platform Generous holidays Salary sacrifice scheme Subsidised canteen Free parking The role: QC Analyst As an Analyst you will: Design and carry o...","14":"74","15":"https://www.reed.co.uk/jobs/qc-analyst/54582039","_rn_":"2"},{"1":"54707674","2":"675418","3":"WEA","4":"NA","5":"NA","6":"Systems Analyst","7":"LS11AZ","8":"27693","9":"29746","10":"GBP","11":"11/04/2025","12":"25/03/2025","13":"People Systems Analyst Salary: 27,693 - 29,746 (pro rata) Location: Leeds, with hybrid working Hours 21 hours a week, 3 days a week The WEA is the UK’s largest voluntary sector provider of adult education, a charity dedicated to bringing high quality, professional education into the heart of communities. We believe that all adults, regardless of their situation, should have access to education. Job Description WEA are looking for talented indivi...","14":"8","15":"https://www.reed.co.uk/jobs/systems-analyst/54707674","_rn_":"3"},{"1":"54678487","2":"442552","3":"Peoples Partnership","4":"NA","5":"NA","6":"Financial Analyst","7":"RH109AD","8":"65000","9":"80000","10":"GBP","11":"01/05/2025","12":"20/03/2025","13":"About People’s Partnership: At the heart of our not-for-profit organisation is a commitment and a motivation to make the future-saving experience a simple one for our members. We champion fairness and simplicity, not profit-chasing. Imagine a financial adventure where everyone's a winner, fueled by our exceptional service and brought to life by the fantastic individuals who work for us. We're a diverse employer with a flexible, hybrid working ap...","14":"33","15":"https://www.reed.co.uk/jobs/financial-analyst/54678487","_rn_":"4"},{"1":"54603602","2":"581421","3":"Fletchers Solicitors","4":"NA","5":"NA","6":"Reconciliation Analyst","7":"PR90PY","8":"23000","9":"26000","10":"GBP","11":"18/04/2025","12":"07/03/2025","13":"Role: Reconciliation Analyst Location: Southport/ Hybrid Join Our Finance Team as a Reconciliation Analyst at Fletchers! Are you a detail-oriented professional with a passion for accuracy and process improvement? Fletchers is looking for a Reconciliation Analyst to become an integral part of our dynamic Finance department. In this role, you’ll lead reconciliation reporting efforts, safeguarding against bad debts and ensuring data consistency. Yo...","14":"35","15":"https://www.reed.co.uk/jobs/reconciliation-analyst/54603602","_rn_":"5"},{"1":"54736805","2":"409610","3":"Teleperformance Ltd","4":"NA","5":"NA","6":"WFM Analyst","7":"Bristol","8":"NA","9":"NA","10":"NA","11":"09/05/2025","12":"28/03/2025","13":"Job Title: WFM Analyst Department: Workforce Management Management Responsibility for: WFM, MI, and General Account and business Stakeholders Travel Required : ( On-site travels may be required as per business needs). Reports to : Resource Planning Manager Location: UK Remote Contract Type: Permanent Salary: 25,000 Grade: Analyst Job Summary / Overview As a valued member of Workforce Management team, you will have a key role in the planning, Sho...","14":"15","15":"https://www.reed.co.uk/jobs/wfm-analyst/54736805","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["jobId"],"name":[1],"type":["int"],"align":["right"]},{"label":["employerId"],"name":[2],"type":["int"],"align":["right"]},{"label":["employerName"],"name":[3],"type":["chr"],"align":["left"]},{"label":["employerProfileId"],"name":[4],"type":["lgl"],"align":["right"]},{"label":["employerProfileName"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["jobTitle"],"name":[6],"type":["chr"],"align":["left"]},{"label":["locationName"],"name":[7],"type":["chr"],"align":["left"]},{"label":["minimumSalary"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["maximumSalary"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["currency"],"name":[10],"type":["chr"],"align":["left"]},{"label":["expirationDate"],"name":[11],"type":["chr"],"align":["left"]},{"label":["date"],"name":[12],"type":["chr"],"align":["left"]},{"label":["jobDescription"],"name":[13],"type":["chr"],"align":["left"]},{"label":["applications"],"name":[14],"type":["int"],"align":["right"]},{"label":["jobUrl"],"name":[15],"type":["chr"],"align":["left"]}],"data":[{"1":"55036756","2":"404552","3":"Machine Mart","4":"NA","5":"NA","6":"Analyst Programmer","7":"NG11GN","8":"39000","9":"45000","10":"GBP","11":"01/07/2025","12":"20/05/2025","13":"About The Role We have an exciting position for an Analyst Programmer to join our busy IT Department at our Nottingham Head Office. We are looking for someone who can contribute to the development of Unidata and D3 based systems to fulfil the requirements of both our Nottingham Head Office and our network of retail stores. The role includes the design, development, testing, documentation and implementation of business applications for the compan...","14":"0","15":"https://www.reed.co.uk/jobs/analyst-programmer/55036756","_rn_":"1"},{"1":"54972637","2":"429055","3":"UBT","4":"NA","5":"NA","6":"Pricing Analyst","7":"Coulsdon","8":"30000","9":"30000","10":"GBP","11":"20/06/2025","12":"09/05/2025","13":"Description Pricing Analyst Coulsdon 30,000 Drive Profit. Shape Strategy. Influence Growth. We’re on the lookout for a sharp-minded Commercial / Pricing Analyst to join our team in Coulsdon. This is an exciting opportunity for someone who thrives on turning data into direction, and pricing into profit. In this pivotal role, you'll work closely with colleagues to optimise our pricing strategy, drive business growth, and support performance across...","14":"50","15":"https://www.reed.co.uk/jobs/pricing-analyst/54972637","_rn_":"2"},{"1":"53358077","2":"616491","3":"Sopra Steria","4":"NA","5":"NA","6":"SOC Analyst","7":"HP27AH","8":"NA","9":"NA","10":"NA","11":"18/06/2025","12":"22/08/2024","13":"Are you in a Security Operations Centre and every day is the same? We can assure you that there is no boredom in our role. We have a growing Cyber practice in our Defence sector and support enterprise scale clients. Now we have opportunities for L2 SOC Analysts to join in our success and work with multiple, high profile clients. You must have proven experience working in a busy SOC with a tech-first approach and be able to lead from the front. F...","14":"115","15":"https://www.reed.co.uk/jobs/soc-analyst/53358077","_rn_":"3"},{"1":"54950688","2":"328885","3":"esure Group","4":"NA","5":"NA","6":"Finance Analyst","7":"RH20SG","8":"NA","9":"NA","10":"NA","11":"17/06/2025","12":"06/05/2025","13":"Ready to join a team that's leading the way in reshaping the future of insurance? Here at esure Group, we are on a mission to revolutionise insurance for good! We’ve been providing Home and Motor Insurance since 2000, with over 2 million customers trusting us to keep them covered through our esure and Sheilas’ Wheels brands. With a bold commitment for digital innovation, we're transforming the way the industry operates and putting customers at t...","14":"43","15":"https://www.reed.co.uk/jobs/finance-analyst/54950688","_rn_":"4"},{"1":"55031071","2":"688996","3":"Environmental Essentials Limited","4":"NA","5":"NA","6":"Asbestos Analyst","7":"Oxford","8":"27000","9":"37000","10":"GBP","11":"30/06/2025","12":"19/05/2025","13":"Job Title: Asbestos Analyst Location: Central Region Salary: 28K - 37K DOE Overtime rates Hours: Full time 42.5 hours per week 1 in 5 weekends (Paid at Overtime rates) Environmental Essentials are a well-established asbestos company with 3 offices across the UK and an excellent reputation for delivering a first class, quality focused service to a number of very high-profile clients. Due to expansion, continued growth and recent major contract wi...","14":"0","15":"https://www.reed.co.uk/jobs/asbestos-analyst/55031071","_rn_":"5"},{"1":"55029699","2":"514667","3":"Greencore","4":"NA","5":"NA","6":"Functional Analyst","7":"S802RS","8":"NA","9":"NA","10":"NA","11":"09/06/2025","12":"19/05/2025","13":"Why Greencore? We're a leading manufacturer of convenience food in the UK and our purpose is to make everyday taste better. We're a vibrant, fast-paced leading food manufacturer. Employing around 13,600 colleagues across 16 manufacturing units and 17 distribution depots across the UK. We supply all the UK's food retailers with everything from Sandwiches, soups and sushi to cooking sauces, pickles and ready meals, and in FY23, we generated revenu...","14":"9","15":"https://www.reed.co.uk/jobs/functional-analyst/55029699","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -623,11 +625,11 @@ Tip
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>job_dataframe.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;       jobId  ...                                             jobUrl
-#&gt; 0  54635503  ...    https://www.reed.co.uk/jobs/qc-analyst/54635503
-#&gt; 1  54582039  ...    https://www.reed.co.uk/jobs/qc-analyst/54582039
-#&gt; 2  54707674  ...  https://www.reed.co.uk/jobs/systems-analyst/54...
-#&gt; 3  54678487  ...  https://www.reed.co.uk/jobs/financial-analyst/...
-#&gt; 4  54603602  ...  https://www.reed.co.uk/jobs/reconciliation-ana...
+#&gt; 0  55036756  ...  https://www.reed.co.uk/jobs/analyst-programmer...
+#&gt; 1  54972637  ...  https://www.reed.co.uk/jobs/pricing-analyst/54...
+#&gt; 2  53358077  ...   https://www.reed.co.uk/jobs/soc-analyst/53358077
+#&gt; 3  54950688  ...  https://www.reed.co.uk/jobs/finance-analyst/54...
+#&gt; 4  55031071  ...  https://www.reed.co.uk/jobs/asbestos-analyst/5...
 #&gt; 
 #&gt; [5 rows x 15 columns]</code></pre>
 </div>
@@ -677,287 +679,293 @@ Tip
   <div class=".d-none .d-md-block g-col-md-1"></div>
 </div>
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("gbganalyst\.github\.io");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
         }
-        return container.innerHTML
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("gbganalyst\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -965,185 +973,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb33" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "How to fetch API data in R and Python"</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> | </span></span>
