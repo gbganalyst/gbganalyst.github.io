@@ -2,7 +2,7 @@
 layout: page
 title: Curriculum vitae
 excerpt: My current CV
-date: 2024-09-15
+date: last-modified
 published-title: CV last updated
 comments: false
 execute:
