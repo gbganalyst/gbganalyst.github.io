@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>How to fetch API data in R and Python – Ezekiel Ogundepo</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -75,10 +78,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6c1d4747946d1be0d0588e27238c39f9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e19f81c97bc45f6835df6be9cce9fdc9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e2cec68849d11d5052e7d199a40c444a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c783f8512dffcfaf7a3efa53c69cd381.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
@@ -146,7 +149,8 @@ background-size: cover;
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../images/logo.png" alt="" class="navbar-logo">
+    <img src="../../images/logo.png" alt="" class="navbar-logo light-content">
+    <img src="../../images/logo.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Ezekiel Ogundepo</span>
@@ -364,53 +368,53 @@ Figure&nbsp;2: Types of request method
 <li>Install the required packages by running the following command in the R console:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"httr"</span>, <span class="st">"jsonlite"</span>, <span class="st">"RCurl"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"httr"</span>, <span class="st">"jsonlite"</span>, <span class="st">"RCurl"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="2" type="1">
 <li>Load the packages by running the following command:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RCurl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RCurl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="3" type="1">
 <li>Make an API request by using the GET function from the httr package. The API endpoint should be passed as an argument to this function.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="st">"https://api.example.com/endpoint"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="st">"https://api.example.com/endpoint"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="4" type="1">
 <li>Check the status code of the response to see if the request was successful. A status code of <code>200</code> indicates a successful request.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>status_code <span class="ot">&lt;-</span> <span class="fu">status_code</span>(response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>status_code <span class="ot">&lt;-</span> <span class="fu">status_code</span>(response)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="5" type="1">
 <li>Extract the data from the response. If the API returns data in JSON format, you can use the <code>fromJSON</code> function from the <code>jsonlite</code> package to parse the data. Store the data in a variable for later use.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>api_data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="fu">content</span>(response, <span class="at">as =</span> <span class="st">"text"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>api_data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="fu">content</span>(response, <span class="at">as =</span> <span class="st">"text"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>These are the basic steps to get data from an API in R. Depending on the API, you may need to pass additional parameters or authentication information in your request. For example,</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">GET</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">GET</span>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://api.example.com/endpoint"</span>,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">authenticate</span>(</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">user =</span> <span class="st">"API_KEY_HERE"</span>,</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">password =</span> <span class="st">"API_PASSWORD_HERE"</span>,</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"basic"</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="sec-api-py" class="level3">
 <h3 class="anchored" data-anchor-id="sec-api-py">with Python 🐍</h3>
 <p>To use an API in Python, you can use a library such as <code>requests</code> or <code>urllib</code> to send HTTP requests to the API and receive responses. Here’s an example of how to use an API in Python using the requests library:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the API endpoint URL and parameters</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>endpoint <span class="op">=</span> <span class="st">'https://api.example.com/data'</span></span>
@@ -428,7 +432,7 @@ Figure&nbsp;2: Types of request method
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Process the data, for example by printing it to the console</span></span>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(data)</span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Error: </span><span class="sc">{</span>response<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Error: </span><span class="sc">{</span>response<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>In this example, we’re using the <code>requests</code> library to send a GET request to an API endpoint at <code>https://api.example.com/data</code>, passing two parameters (<code>param1</code> and <code>param2</code>) in the request. The <code>requests.get()</code> method returns a <code>Response</code> object, which we can use to check the response status code and parse the response data.</p>
 <p>If the status code is <code>200</code>, we can assume the request was successful, and we can parse the response data using the <code>response.json()</code> method, which converts the JSON-formatted response to a Python object. We can then process the data as needed, for example by printing it to the console.</p>
@@ -442,11 +446,11 @@ Figure&nbsp;2: Types of request method
 <h3 class="anchored" data-anchor-id="without-the-key">Without the key</h3>
 <p>In this example, we will use an API from a site called <a href="https://www.givefood.org.uk/api/2/docs/" target="_blank"><img src="give_food.png" height="30"></a> that uses an API without an API key. In this case, we will be using a <code>GET</code> request to fetch the API data at the <strong>food banks</strong> using this link: <a href="https://www.givefood.org.uk/api/2/foodbanks" class="uri" target="_blank">https://www.givefood.org.uk/api/2/foodbanks</a>. Please follow the steps in <a href="#sec-api-r" class="quarto-xref">Section&nbsp;4.1</a> for R and <a href="#sec-api-py" class="quarto-xref">Section&nbsp;4.2</a> for Python.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">R Ⓡ</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Python 🐍</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R Ⓡ</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python 🐍</a></li></ul>
 <div class="tab-content" data-group="language">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -454,23 +458,23 @@ Figure&nbsp;2: Types of request method
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="st">"https://www.givefood.org.uk/api/2/foodbanks"</span>)</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">status_code</span>(response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">status_code</span>(response)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] 200</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>food_dataframe <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="fu">content</span>(response, <span class="at">as =</span> <span class="st">"text"</span>), <span class="at">flatten =</span> <span class="cn">TRUE</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>food_dataframe <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="fu">content</span>(response, <span class="at">as =</span> <span class="st">"text"</span>), <span class="at">flatten =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>food_dataframe <span class="sc">%&gt;%</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 996  28</code></pre>
+<pre><code>#&gt; [1] 1028   28</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>food_dataframe <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>food_dataframe <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["alt_name"],"name":[3],"type":["chr"],"align":["left"]},{"label":["slug"],"name":[4],"type":["chr"],"align":["left"]},{"label":["phone"],"name":[5],"type":["chr"],"align":["left"]},{"label":["secondary_phone"],"name":[6],"type":["chr"],"align":["left"]},{"label":["email"],"name":[7],"type":["chr"],"align":["left"]},{"label":["address"],"name":[8],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[9],"type":["chr"],"align":["left"]},{"label":["closed"],"name":[10],"type":["lgl"],"align":["right"]},{"label":["country"],"name":[11],"type":["chr"],"align":["left"]},{"label":["lat_lng"],"name":[12],"type":["chr"],"align":["left"]},{"label":["network"],"name":[13],"type":["chr"],"align":["left"]},{"label":["created"],"name":[14],"type":["chr"],"align":["left"]},{"label":["urls.self"],"name":[15],"type":["chr"],"align":["left"]},{"label":["urls.html"],"name":[16],"type":["chr"],"align":["left"]},{"label":["urls.homepage"],"name":[17],"type":["chr"],"align":["left"]},{"label":["urls.shopping_list"],"name":[18],"type":["chr"],"align":["left"]},{"label":["charity.registration_id"],"name":[19],"type":["chr"],"align":["left"]},{"label":["charity.register_url"],"name":[20],"type":["chr"],"align":["left"]},{"label":["politics.parliamentary_constituency"],"name":[21],"type":["chr"],"align":["left"]},{"label":["politics.mp"],"name":[22],"type":["chr"],"align":["left"]},{"label":["politics.mp_party"],"name":[23],"type":["chr"],"align":["left"]},{"label":["politics.mp_parl_id"],"name":[24],"type":["int"],"align":["right"]},{"label":["politics.ward"],"name":[25],"type":["chr"],"align":["left"]},{"label":["politics.district"],"name":[26],"type":["chr"],"align":["left"]},{"label":["politics.urls.self"],"name":[27],"type":["chr"],"align":["left"]},{"label":["politics.urls.html"],"name":[28],"type":["chr"],"align":["left"]}],"data":[{"1":"5b85b8b9-4d05-4c4e-b81f-9de90c63e59c","2":"Upper Eden Foodbank","3":"NA","4":"upper-eden","5":"07596690902","6":"NA","7":"upperedenfoodbank@gmail.com","8":"Methodist Church\\r\\nThe Sands\\r\\nAppleby-in-Westmorland\\r\\nCA16 6XR","9":"CA16 6XR","10":"FALSE","11":"England","12":"54.5776763,-2.4884843","13":"Independent","14":"2023-07-20T20:44:58.707","15":"https://www.givefood.org.uk/api/2/foodbank/upper-eden/","16":"https://www.givefood.org.uk/needs/at/upper-eden/","17":"https://upperedenfoodbank.org.uk","18":"https://upperedenfoodbank.org.uk/give-help-2/","19":"NA","20":"NA","21":"Westmorland and Lonsdale","22":"Neil Hudson","23":"Conservative","24":"4853","25":"Appleby and Brough","26":"Westmorland and Furness","27":"https://www.givefood.org.uk/api/2/constituency/westmorland-and-lonsdale/","28":"https://www.givefood.org.uk/needs/in/constituency/westmorland-and-lonsdale/","_rn_":"1"},{"1":"4edf808d-0b44-4dfb-ac47-80132d71bda2","2":"LauderLarder Foodbank","3":"NA","4":"lauderlarder","5":"01578722833","6":"NA","7":"laudercommunityleisurecentre@hotmail.com","8":"Lauder Community and Leisure Centre\\r\\nOld Causewayside\\r\\nEast High Street\\r\\nLauder\\r\\nTD2 6SX","9":"TD2 6SX","10":"FALSE","11":"Scotland","12":"55.7186,-2.747356","13":"Independent","14":"2025-05-20T16:45:36.634","15":"https://www.givefood.org.uk/api/2/foodbank/lauderlarder/","16":"https://www.givefood.org.uk/needs/at/lauderlarder/","17":"https://www.facebook.com/groups/416782742925520/","18":"https://www.facebook.com/groups/416782742925520/","19":"NA","20":"NA","21":"Berwickshire, Roxburgh and Selkirk","22":"NA","23":"NA","24":"NA","25":"Leaderdale and Melrose","26":"Scottish Borders","27":"https://www.givefood.org.uk/api/2/constituency/berwickshire-roxburgh-and-selkirk/","28":"https://www.givefood.org.uk/needs/in/constituency/berwickshire-roxburgh-and-selkirk/","_rn_":"2"},{"1":"9a9fadec-4193-445a-bed5-6e71e48ffc8b","2":"Clifton Road Foodbank","3":"NA","4":"clifton-road","5":"NA","6":"NA","7":"cliftonroadfoodbank@gmail.com","8":"220 Gooch Street\\r\\nBirmingham\\r\\nB5 7HY","9":"B5 7HY","10":"FALSE","11":"England","12":"52.4675972,-1.8934534","13":"Independent","14":"2025-06-15T10:15:38.567","15":"https://www.givefood.org.uk/api/2/foodbank/clifton-road/","16":"https://www.givefood.org.uk/needs/at/clifton-road/","17":"https://www.facebook.com/profile.php?id=100067159630392","18":"https://www.facebook.com/profile.php?id=100067159630392","19":"NA","20":"NA","21":"Birmingham Ladywood","22":"NA","23":"NA","24":"NA","25":"Bordesley & Highgate","26":"Birmingham","27":"https://www.givefood.org.uk/api/2/constituency/birmingham-ladywood/","28":"https://www.givefood.org.uk/needs/in/constituency/birmingham-ladywood/","_rn_":"3"},{"1":"65660a6e-b6ed-4fd2-81fb-e2de87306455","2":"Helping Hands Foodbank","3":"NA","4":"helping-hands","5":"07936110424","6":"NA","7":"basildonhhfb@hotmail.com","8":"Lee Chapel North\\r\\nLee Chapel North Community Centre\\r\\nBallards Walk\\r\\nBasildon\\r\\nSS15 5HL","9":"SS15 5HL","10":"FALSE","11":"England","12":"51.5734176,0.4419983","13":"Independent","14":"2023-11-15T12:21:06.662","15":"https://www.givefood.org.uk/api/2/foodbank/helping-hands/","16":"https://www.givefood.org.uk/needs/at/helping-hands/","17":"https://www.facebook.com/helpinghandsbasildon/","18":"https://www.facebook.com/helpinghandsbasildon/","19":"NA","20":"NA","21":"Basildon and Billericay","22":"John Baron","23":"Conservative","24":"1390","25":"Lee Chapel North","26":"Basildon","27":"https://www.givefood.org.uk/api/2/constituency/basildon-and-billericay/","28":"https://www.givefood.org.uk/needs/in/constituency/basildon-and-billericay/","_rn_":"4"},{"1":"1cfca02c-ad34-4b32-924b-e3c88020d9af","2":"Time for the Homeless Foodbank","3":"NA","4":"time-for-the-homeless","5":"07496108583","6":"NA","7":"timeforthehomeless@outlook.com","8":"44a Chancery Road\\r\\nCliffe\\r\\nME3 7TL","9":"ME3 7TL","10":"FALSE","11":"England","12":"51.4591606,0.5010049","13":"IFAN","14":"2020-03-19T10:48:53.902","15":"https://www.givefood.org.uk/api/2/foodbank/time-for-the-homeless/","16":"https://www.givefood.org.uk/needs/at/time-for-the-homeless/","17":"https://www.facebook.com/pages/category/Charity-Organization/Time-For-The-Homeless-250523678990484/","18":"https://www.facebook.com/pages/category/Charity-Organization/Time-For-The-Homeless-250523678990484/","19":"NA","20":"NA","21":"Rochester and Strood","22":"Kelly Tolhurst","23":"Conservative","24":"4487","25":"Strood Rural","26":"Medway","27":"https://www.givefood.org.uk/api/2/constituency/rochester-and-strood/","28":"https://www.givefood.org.uk/needs/in/constituency/rochester-and-strood/","_rn_":"5"},{"1":"996874d8-0001-4a40-8ef4-c1d331250a35","2":"Old Kilpatrick Food Parcels Foodbank","3":"NA","4":"old-kilpatrick-food-parcels","5":"01389717792","6":"07368496836","7":"contact@okfp.org.uk","8":"Napier Hall\\r\\n312 Dumbarton Road\\r\\nOld Kilpatrick\\r\\nG60 5JH","9":"G60 5JH","10":"FALSE","11":"Scotland","12":"55.92554579999999,-4.457730499999999","13":"Independent","14":"2021-03-04T08:39:12.840","15":"https://www.givefood.org.uk/api/2/foodbank/old-kilpatrick-food-parcels/","16":"https://www.givefood.org.uk/needs/at/old-kilpatrick-food-parcels/","17":"https://okfp.org.uk","18":"https://okfp.org.uk/","19":"NA","20":"NA","21":"West Dunbartonshire","22":"Martin Docherty-Hughes","23":"Scottish National","24":"4374","25":"Clydebank Waterfront","26":"West Dunbartonshire","27":"https://www.givefood.org.uk/api/2/constituency/west-dunbartonshire/","28":"https://www.givefood.org.uk/needs/in/constituency/west-dunbartonshire/","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["alt_name"],"name":[3],"type":["chr"],"align":["left"]},{"label":["slug"],"name":[4],"type":["chr"],"align":["left"]},{"label":["phone"],"name":[5],"type":["chr"],"align":["left"]},{"label":["secondary_phone"],"name":[6],"type":["chr"],"align":["left"]},{"label":["email"],"name":[7],"type":["chr"],"align":["left"]},{"label":["address"],"name":[8],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[9],"type":["chr"],"align":["left"]},{"label":["closed"],"name":[10],"type":["lgl"],"align":["right"]},{"label":["country"],"name":[11],"type":["chr"],"align":["left"]},{"label":["lat_lng"],"name":[12],"type":["chr"],"align":["left"]},{"label":["network"],"name":[13],"type":["chr"],"align":["left"]},{"label":["created"],"name":[14],"type":["chr"],"align":["left"]},{"label":["urls.self"],"name":[15],"type":["chr"],"align":["left"]},{"label":["urls.html"],"name":[16],"type":["chr"],"align":["left"]},{"label":["urls.homepage"],"name":[17],"type":["chr"],"align":["left"]},{"label":["urls.shopping_list"],"name":[18],"type":["chr"],"align":["left"]},{"label":["charity.registration_id"],"name":[19],"type":["chr"],"align":["left"]},{"label":["charity.register_url"],"name":[20],"type":["chr"],"align":["left"]},{"label":["politics.parliamentary_constituency"],"name":[21],"type":["chr"],"align":["left"]},{"label":["politics.mp"],"name":[22],"type":["chr"],"align":["left"]},{"label":["politics.mp_party"],"name":[23],"type":["chr"],"align":["left"]},{"label":["politics.mp_parl_id"],"name":[24],"type":["int"],"align":["right"]},{"label":["politics.ward"],"name":[25],"type":["chr"],"align":["left"]},{"label":["politics.district"],"name":[26],"type":["chr"],"align":["left"]},{"label":["politics.urls.self"],"name":[27],"type":["chr"],"align":["left"]},{"label":["politics.urls.html"],"name":[28],"type":["chr"],"align":["left"]}],"data":[{"1":"175f4599-3bea-4b0b-a040-cd0a001e88bc","2":"Lewisham Foodbank","3":"NA","4":"lewisham","5":"07938071854","6":"NA","7":"info@lewisham.foodbank.org.uk","8":"New Hope Centre\\r\\n353H Bromley Road\\r\\nLondon\\r\\nSE6 2RP","9":"SE6 2RP","10":"FALSE","11":"England","12":"51.4282276,-0.0111046","13":"Trussell","14":"2019-09-28T20:11:55.766","15":"https://www.givefood.org.uk/api/2/foodbank/lewisham/","16":"https://www.givefood.org.uk/needs/at/lewisham/","17":"https://lewisham.foodbank.org.uk","18":"https://lewisham.foodbank.org.uk/give-help/donate-food/","19":"1103431","20":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regid=1103431&subid=0","21":"Lewisham East","22":"Janet Daby","23":"Labour","24":"4698","25":"Catford South","26":"Lewisham","27":"https://www.givefood.org.uk/api/2/constituency/lewisham-east/","28":"https://www.givefood.org.uk/needs/in/constituency/lewisham-east/","_rn_":"1"},{"1":"6ff98df1-e826-45cc-a8ea-e9525f179a93","2":"River of Life Church Foodbank","3":"NA","4":"river-of-life-church","5":"01387264646","6":"NA","7":"food@riveroflife.org.uk","8":"Lovers Walk\\r\\nDumfries\\r\\nDG1 1LU","9":"DG1 1LU","10":"FALSE","11":"Scotland","12":"55.07030169999999,-3.6056783","13":"Independent","14":"2023-03-07T13:55:14.869","15":"https://www.givefood.org.uk/api/2/foodbank/river-of-life-church/","16":"https://www.givefood.org.uk/needs/at/river-of-life-church/","17":"https://riveroflife.org.uk/food-project/","18":"https://riveroflife.org.uk/food-project/","19":"NA","20":"NA","21":"Dumfries and Galloway","22":"Alister Jack","23":"Conservative","24":"4619","25":"Nith","26":"Dumfries and Galloway","27":"https://www.givefood.org.uk/api/2/constituency/dumfries-and-galloway/","28":"https://www.givefood.org.uk/needs/in/constituency/dumfries-and-galloway/","_rn_":"2"},{"1":"c588b396-069f-4979-b97b-7670d929e652","2":"Handsworth Birmingham Foodbank","3":"NA","4":"handsworth-birmingham","5":"01215070734","6":"NA","7":"info@handsworthbirmingham.foodbank.org.uk","8":"New Life Wesleyan Church\\r\\nHolyhead Road\\r\\nHandsworth\\r\\nBirmingham\\r\\nB21 0LA","9":"B21 0LA","10":"FALSE","11":"England","12":"52.5051227,-1.9447376","13":"Trussell","14":"2021-05-11T16:06:35.063","15":"https://www.givefood.org.uk/api/2/foodbank/handsworth-birmingham/","16":"https://www.givefood.org.uk/needs/at/handsworth-birmingham/","17":"https://handsworthbirmingham.foodbank.org.uk","18":"https://handsworthbirmingham.foodbank.org.uk/give-help/donate-food/","19":"1162103","20":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regid=1162103&subid=0","21":"Birmingham Perry Barr","22":"Shabana Mahmood","23":"Labour","24":"3914","25":"Holyhead","26":"Birmingham","27":"https://www.givefood.org.uk/api/2/constituency/birmingham-perry-barr/","28":"https://www.givefood.org.uk/needs/in/constituency/birmingham-perry-barr/","_rn_":"3"},{"1":"e325747e-de33-4955-831f-d268595c7600","2":"Lord's Larder Foodbank","3":"NA","4":"lords-larder","5":"01531821641","6":"07944590520","7":"contact@thelordslarder.org.uk","8":"Basement\\r\\n8-10 Church Street\\r\\nNewent\\r\\nGL18 1PP","9":"GL18 1PP","10":"FALSE","11":"England","12":"51.9306034,-2.4045824","13":"Independent","14":"2023-04-24T11:51:33.323","15":"https://www.givefood.org.uk/api/2/foodbank/lords-larder/","16":"https://www.givefood.org.uk/needs/at/lords-larder/","17":"https://thelordslarder.org.uk","18":"https://thelordslarder.org.uk","19":"1213443","20":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regid=1213443&subid=0","21":"Forest of Dean","22":"Mark Harper","23":"Conservative","24":"1520","25":"Newent & Taynton","26":"Forest of Dean","27":"https://www.givefood.org.uk/api/2/constituency/forest-of-dean/","28":"https://www.givefood.org.uk/needs/in/constituency/forest-of-dean/","_rn_":"4"},{"1":"d5053c61-121d-4fc0-9e9b-20bcc75e5872","2":"Cornerstone Foodbank","3":"NA","4":"cornerstone","5":"01228549796","6":"NA","7":"manager@cornerstonecarlisle.org","8":"62-66 Denton Street\\r\\nCarlisle\\r\\nCumbria\\r\\nCA2 5EH","9":"CA2 5EH","10":"FALSE","11":"England","12":"54.887237,-2.940223","13":"Independent","14":"2023-04-21T14:52:40.559","15":"https://www.givefood.org.uk/api/2/foodbank/cornerstone/","16":"https://www.givefood.org.uk/needs/at/cornerstone/","17":"https://www.cornerstonecarlisle.org","18":"https://www.cornerstonecarlisle.org","19":"1129996","20":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regid=1129996&subid=0","21":"Carlisle","22":"John Stevenson","23":"Conservative","24":"3942","25":"Denton Holme","26":"Cumberland","27":"https://www.givefood.org.uk/api/2/constituency/carlisle/","28":"https://www.givefood.org.uk/needs/in/constituency/carlisle/","_rn_":"5"},{"1":"84c699bd-fae0-42b7-9e9f-a1169a1fa5df","2":"Gillingham Street Angels Foodbank","3":"NA","4":"gillingham-street-angels","5":"07437657982","6":"NA","7":"info@thestreet-angels.org","8":"Unit A\\r\\nJenkins Dale\\r\\nChatham\\r\\nKent\\r\\nME4 5RD","9":"ME4 5RD","10":"FALSE","11":"England","12":"51.3766824,0.5272589","13":"Independent","14":"2020-08-21T14:53:42.714","15":"https://www.givefood.org.uk/api/2/foodbank/gillingham-street-angels/","16":"https://www.givefood.org.uk/needs/at/gillingham-street-angels/","17":"https://thestreet-angels.org.uk/","18":"https://thestreet-angels.org.uk/","19":"1184311","20":"https://register-of-charities.charitycommission.gov.uk/charity-details/?regid=1184311&subid=0","21":"Chatham and Aylesford","22":"Tracey Crouch","23":"Conservative","24":"3950","25":"Chatham Central & Brompton","26":"Medway","27":"https://www.givefood.org.uk/api/2/constituency/chatham-and-aylesford/","28":"https://www.givefood.org.uk/needs/in/constituency/chatham-and-aylesford/","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -478,7 +482,7 @@ Figure&nbsp;2: Types of request method
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -486,11 +490,11 @@ Figure&nbsp;2: Types of request method
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the request was successful</span></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.status_code)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.status_code)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 200</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parse the response JSON data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parse the response JSON data</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>food_json <span class="op">=</span> response.json()</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -498,18 +502,18 @@ Figure&nbsp;2: Types of request method
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>food_dataframe <span class="op">=</span> pd.json_normalize(food_json)</span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>food_dataframe.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>food_dataframe.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; (996, 28)</code></pre>
+<pre><code>#&gt; (1028, 28)</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>food_dataframe.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>food_dataframe.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;                                      id  ...                                 politics.urls.html
-#&gt; 0  5b85b8b9-4d05-4c4e-b81f-9de90c63e59c  ...  https://www.givefood.org.uk/needs/in/constitue...
-#&gt; 1  4edf808d-0b44-4dfb-ac47-80132d71bda2  ...  https://www.givefood.org.uk/needs/in/constitue...
-#&gt; 2  9a9fadec-4193-445a-bed5-6e71e48ffc8b  ...  https://www.givefood.org.uk/needs/in/constitue...
-#&gt; 3  65660a6e-b6ed-4fd2-81fb-e2de87306455  ...  https://www.givefood.org.uk/needs/in/constitue...
-#&gt; 4  1cfca02c-ad34-4b32-924b-e3c88020d9af  ...  https://www.givefood.org.uk/needs/in/constitue...
+#&gt; 0  175f4599-3bea-4b0b-a040-cd0a001e88bc  ...  https://www.givefood.org.uk/needs/in/constitue...
+#&gt; 1  6ff98df1-e826-45cc-a8ea-e9525f179a93  ...  https://www.givefood.org.uk/needs/in/constitue...
+#&gt; 2  c588b396-069f-4979-b97b-7670d929e652  ...  https://www.givefood.org.uk/needs/in/constitue...
+#&gt; 3  e325747e-de33-4955-831f-d268595c7600  ...  https://www.givefood.org.uk/needs/in/constitue...
+#&gt; 4  d5053c61-121d-4fc0-9e9b-20bcc75e5872  ...  https://www.givefood.org.uk/needs/in/constitue...
 #&gt; 
 #&gt; [5 rows x 28 columns]</code></pre>
 </div>
@@ -523,11 +527,11 @@ Figure&nbsp;2: Types of request method
 <h3 class="anchored" data-anchor-id="with-the-key">With the key</h3>
 <p>In this example, we will use an API from <a href="https://www.reed.co.uk/developers/Jobseeker" target="_blank"><img src="image-874061681.png" width="156" height="30"></a> that uses an API key. In this case, we will use a <code>GET</code> request to fetch data for analyst jobs based in London from the <a href="https://www.reed.co.uk/api/1.0/search?keywords=analyst&amp;location=london&amp;distancefromlocation=15" target="_blank">Jobseeker</a> API. Please follow the steps in <a href="#sec-api-r" class="quarto-xref">Section&nbsp;4.1</a> for R and <a href="#sec-api-py" class="quarto-xref">Section&nbsp;4.2</a> for Python, and sign up for the API key at the Jobseeker <a href="https://www.reed.co.uk/developers/Jobseeker" target="_blank">website</a>.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">R Ⓡ</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Python 🐍</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R Ⓡ</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Python 🐍</a></li></ul>
 <div class="tab-content" data-group="language">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -541,7 +545,7 @@ Figure&nbsp;2: Types of request method
 <span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">user =</span> <span class="fu">Sys.getenv</span>(<span class="st">"putyourapikeyhere"</span>),</span>
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">password =</span> <span class="st">""</span></span>
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -557,27 +561,27 @@ Tip
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">status_code</span>(response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">status_code</span>(response)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] 200</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the JSON string to a dataframe and view data in a table</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the JSON string to a dataframe and view data in a table</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>job_dataframe <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="fu">content</span>(response, <span class="at">as =</span> <span class="st">"text"</span>), <span class="at">flatten =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The job dataframe is inside the results</span></span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>job_dataframe<span class="sc">$</span>results <span class="sc">%&gt;%</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] 100  15</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>job_dataframe<span class="sc">$</span>results <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>job_dataframe<span class="sc">$</span>results <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["jobId"],"name":[1],"type":["int"],"align":["right"]},{"label":["employerId"],"name":[2],"type":["int"],"align":["right"]},{"label":["employerName"],"name":[3],"type":["chr"],"align":["left"]},{"label":["employerProfileId"],"name":[4],"type":["lgl"],"align":["right"]},{"label":["employerProfileName"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["jobTitle"],"name":[6],"type":["chr"],"align":["left"]},{"label":["locationName"],"name":[7],"type":["chr"],"align":["left"]},{"label":["minimumSalary"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["maximumSalary"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["currency"],"name":[10],"type":["chr"],"align":["left"]},{"label":["expirationDate"],"name":[11],"type":["chr"],"align":["left"]},{"label":["date"],"name":[12],"type":["chr"],"align":["left"]},{"label":["jobDescription"],"name":[13],"type":["chr"],"align":["left"]},{"label":["applications"],"name":[14],"type":["int"],"align":["right"]},{"label":["jobUrl"],"name":[15],"type":["chr"],"align":["left"]}],"data":[{"1":"55395141","2":"451561","3":"Reed.co.uk","4":"NA","5":"NA","6":"Analyst","7":"WC2B5LX","8":"50000","9":"55000","10":"GBP","11":"21/08/2025","12":"10/07/2025","13":"Reed.ai is looking for an Analyst to join their team in Holborn, London. Overview We’re looking for an analytical problem solver who can support Reed.ai, a recruitment start up within the Reed Group, to analyse the product, marketing, commercial and customer functions to help fuel understanding and growth. New to the market, this is a rare opportunity to take a supporting a business to make the right decisions from Beta launch to full market rel...","14":"175","15":"https://www.reed.co.uk/jobs/analyst/55395141","_rn_":"1"},{"1":"55519339","2":"577426","3":"KSEYE Group","4":"NA","5":"NA","6":"Portfolio Analyst","7":"NW64RR","8":"30000","9":"40000","10":"GBP","11":"12/09/2025","12":"01/08/2025","13":"Location: Swiss Cottage, London Salary: Up to 40k DoE Hours: 9:30 – 17:30 Reporting To: Reporting Manager Job Type: Full Time The Company KSEYE Group is an established bridging finance company specialising within the bridging and short-term lending markets. Due to continued growth, the company is now looking to recruit an Analyst to provide high quality support, in depth analysis and management reporting, with the aim of maintaining and improvin...","14":"100","15":"https://www.reed.co.uk/jobs/portfolio-analyst/55519339","_rn_":"2"},{"1":"55572049","2":"471259","3":"MBDA","4":"NA","5":"NA","6":"SOC Analyst","7":"SG12DA","8":"60000","9":"60000","10":"GBP","11":"22/09/2025","12":"11/08/2025","13":"An exciting opportunity for a passionate SOC Analyst to join a unique, multi-national Information Management function.&nbsp; Ideal candidates should be committed to protecting our critical systems and ensuring the integrity and security of our network infrastructure. &nbsp; Salary : Circa 60,000 depending on experience plus Shift Premium Location: Stevenage, On Prem Shift pattern: consisting of days (including early shift) and nights (including ...","14":"16","15":"https://www.reed.co.uk/jobs/soc-analyst/55572049","_rn_":"3"},{"1":"55450701","2":"689777","3":"Ipsum","4":"NA","5":"NA","6":"Commercial Analyst","7":"Grantham","8":"NA","9":"NA","10":"NA","11":"22/09/2025","12":"21/07/2025","13":"Commercial Analyst - Grantham What's in it for you…&nbsp; We believe in looking after our people, and it shows. When you join Ipsum, you're not just taking a job — you're starting a career with real support behind it. &nbsp; 25 annual leave plus bank holidays with the option to buy more&nbsp; Hybrid working Group Personal Pension Plan&nbsp; Career development &amp; progression with the opportunity to earn professional qualifications&nbsp;&nbsp; ...","14":"20","15":"https://www.reed.co.uk/jobs/commercial-analyst/55450701","_rn_":"4"},{"1":"55410765","2":"516367","3":"Apogee Corporation","4":"NA","5":"NA","6":"Financial Analyst","7":"ME168PF","8":"NA","9":"NA","10":"NA","11":"18/09/2025","12":"14/07/2025","13":"This role is based in Allington, Maidstone on a hybrid working arrangement (3 days office and 2 days work from home) Are you a skilled Finance Analyst ready to play a critical role in driving transformation and innovation? Join Apogee , Europe’s largest multi-brand provider of managed services, and contribute to our mission of helping organisations achieve their digital transformation goals. As a Finance Analyst, you will be at the forefront of ...","14":"26","15":"https://www.reed.co.uk/jobs/financial-analyst/55410765","_rn_":"5"},{"1":"55572843","2":"686228","3":"Outserve","4":"NA","5":"NA","6":"Data Analyst","7":"Stafford","8":"35000","9":"40000","10":"GBP","11":"22/09/2025","12":"11/08/2025","13":"Data Analyst Location: Stafford Job Type: Full time Contract Type : Permanent Join Outserve as a Data Analyst Powering the World’s Most Exciting Ecommerce Brands Are you a data-driven problem solver with a passion for turning numbers into meaningful insights? Do you thrive in a collaborative environment where innovation and integrity are at the heart of everything you do? If so, Outserve invites you to be part of our dynamic team. About Outserve...","14":"94","15":"https://www.reed.co.uk/jobs/data-analyst/55572843","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["jobId"],"name":[1],"type":["int"],"align":["right"]},{"label":["employerId"],"name":[2],"type":["int"],"align":["right"]},{"label":["employerName"],"name":[3],"type":["chr"],"align":["left"]},{"label":["employerProfileId"],"name":[4],"type":["lgl"],"align":["right"]},{"label":["employerProfileName"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["jobTitle"],"name":[6],"type":["chr"],"align":["left"]},{"label":["locationName"],"name":[7],"type":["chr"],"align":["left"]},{"label":["minimumSalary"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["maximumSalary"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["currency"],"name":[10],"type":["chr"],"align":["left"]},{"label":["expirationDate"],"name":[11],"type":["chr"],"align":["left"]},{"label":["date"],"name":[12],"type":["chr"],"align":["left"]},{"label":["jobDescription"],"name":[13],"type":["chr"],"align":["left"]},{"label":["applications"],"name":[14],"type":["int"],"align":["right"]},{"label":["jobUrl"],"name":[15],"type":["chr"],"align":["left"]}],"data":[{"1":"56694555","2":"405054","3":"H&T Pawnbrokers","4":"NA","5":"NA","6":"Risk Analyst","7":"L304AB","8":"40000","9":"40000","10":"GBP","11":"28/05/2026","12":"24/03/2026","13":"Risk Analyst Job Title: Risk Analyst Job Type: Permanent Department: Risk &amp; Compliance Location: Liverpool Reports to: Head of Risk &amp; Compliance Direct reports: None We’re looking for a Risk Analyst to support our risk management framework by collecting and validating risk data, analysing trends, maintaining risk registers, and helping produce clear, accurate risk reports. You’ll work closely with the Risk &amp; Compliance team to suppor...","14":"34","15":"https://www.reed.co.uk/jobs/risk-analyst/56694555","_rn_":"1"},{"1":"56644574","2":"437172","3":"Matchtech","4":"NA","5":"NA","6":"Procurement Analyst","7":"Winchester","8":"40000","9":"43000","10":"GBP","11":"25/04/2026","12":"14/03/2026","13":"A market-leading FMCG/distribution business require a Procurement Analyst. Applicants should have expertise in MS Excel, Power BI and ideally Microsoft Dynamics and experience analysing data, presenting insights and storytelling. The Procurement Analyst will be responsible for developing procurement systems, reports, dashboards and KPIs to optimise inventory/stock holdings, and drive effective procurement and commercial decision-making. The busi...","14":"93","15":"https://www.reed.co.uk/jobs/procurement-analyst/56644574","_rn_":"2"},{"1":"56644573","2":"437172","3":"Matchtech","4":"NA","5":"NA","6":"Procurement Analyst","7":"Basingstoke","8":"40000","9":"43000","10":"GBP","11":"25/04/2026","12":"14/03/2026","13":"A market-leading FMCG/distribution business require a Procurement Analyst. Applicants should have expertise in MS Excel, Power BI and ideally Microsoft Dynamics and experience analysing data, presenting insights and storytelling. The Procurement Analyst will be responsible for developing procurement systems, reports, dashboards and KPIs to optimise inventory/stock holdings, and drive effective procurement and commercial decision-making. The busi...","14":"85","15":"https://www.reed.co.uk/jobs/procurement-analyst/56644573","_rn_":"3"},{"1":"56644116","2":"552190","3":"Dennis and Robinson T/A Paula Rosa Manhattan","4":"NA","5":"NA","6":"Sales Analyst","7":"BN158UH","8":"NA","9":"NA","10":"NA","11":"21/05/2026","12":"13/03/2026","13":"We are seeking a Sales Analyst to support data-driven decision-making across our sales function. The role combines detailed analysis with the ability to communicate findings clearly and persuasively. Working closely with Sales, Design, Commercial, Finance, and Operations, the Sales Analyst will present insight that helps guide sales strategy and improve pipeline quality. A key element of the role is the ability to create a coherent story from da...","14":"78","15":"https://www.reed.co.uk/jobs/sales-analyst/56644116","_rn_":"4"},{"1":"56722034","2":"437172","3":"Matchtech","4":"NA","5":"NA","6":"Finance Analyst","7":"Chertsey","8":"50000","9":"50000","10":"GBP","11":"12/05/2026","12":"31/03/2026","13":"Finance Analyst - Chertsey We are looking for a proactive Finance Analyst to support the financial management of our Client's project portfolio. This role will deliver accurate analysis, improve budgeting and forecasting processes, and provide key financial insight to support strategic decision-making. Key Responsibilities Lead the preparation and consolidation of annual budgets and monthly project forecasts Partner with project leads to build s...","14":"125","15":"https://www.reed.co.uk/jobs/finance-analyst/56722034","_rn_":"5"},{"1":"56810170","2":"377422","3":"FDM Group","4":"NA","5":"NA","6":"Business Analyst","7":"Edinburgh","8":"40000","9":"50000","10":"GBP","11":"02/06/2026","12":"21/04/2026","13":"About The Role FDM is a global business and technology consultancy seeking a Business Analyst to work for our client within the financial services sector. This is initially a 5 month contract with the potential to extend and will be a hybrid role that will be based in Edinburgh. Our client is seeking someone with 3-5 years’ experience in a BA role with a focus on data analysis to support two key deliverables (50/50 split): enhancements to monthl...","14":"8","15":"https://www.reed.co.uk/jobs/business-analyst/56810170","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -585,7 +589,7 @@ Tip
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -593,22 +597,22 @@ Tip
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://www.reed.co.uk/api/1.0/search?keywords=analyst&amp;location=london&amp;distancefromlocation=15"</span></span>
 <span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>api_key <span class="op">=</span> <span class="st">"replace with your own API key"</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>api_key <span class="op">=</span> <span class="st">"replace with your own API key"</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Based on the instructions in the API documentation, you will need to include your API key for all requests in a basic authentication http header as the username, leaving the password empty.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Send a GET request to the API endpoint</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Send a GET request to the API endpoint</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url, auth <span class="op">=</span> (api_key, <span class="st">''</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url, auth <span class="op">=</span> (api_key, <span class="st">''</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the request was successful</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the request was successful</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.status_code)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.status_code)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 200</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parse the response JSON data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parse the response JSON data</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>job_json <span class="op">=</span> response.json()</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -618,18 +622,18 @@ Tip
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>job_dataframe <span class="op">=</span> pd.json_normalize(job_json[<span class="st">"results"</span>])</span>
 <span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>job_dataframe.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>job_dataframe.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; (100, 15)</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>job_dataframe.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>job_dataframe.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;       jobId  ...                                             jobUrl
-#&gt; 0  55395141  ...       https://www.reed.co.uk/jobs/analyst/55395141
-#&gt; 1  55519339  ...  https://www.reed.co.uk/jobs/portfolio-analyst/...
-#&gt; 2  55572049  ...   https://www.reed.co.uk/jobs/soc-analyst/55572049
-#&gt; 3  55450701  ...  https://www.reed.co.uk/jobs/commercial-analyst...
-#&gt; 4  55410765  ...  https://www.reed.co.uk/jobs/financial-analyst/...
+#&gt; 0  56694555  ...  https://www.reed.co.uk/jobs/risk-analyst/56694555
+#&gt; 1  56644574  ...  https://www.reed.co.uk/jobs/procurement-analys...
+#&gt; 2  56644573  ...  https://www.reed.co.uk/jobs/procurement-analys...
+#&gt; 3  56644116  ...  https://www.reed.co.uk/jobs/sales-analyst/5664...
+#&gt; 4  56722034  ...  https://www.reed.co.uk/jobs/finance-analyst/56...
 #&gt; 
 #&gt; [5 rows x 15 columns]</code></pre>
 </div>
@@ -729,13 +733,14 @@ Tip
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1128,7 +1133,7 @@ Tip
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb33" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "How to fetch API data in R and Python"</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> | </span></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co">  This tutorial will teach you how to fetch data from an external source using HTTP requests and parse the data into a usable format.</span></span>
@@ -1560,7 +1565,7 @@ Tip
 <span id="cb33-464"><a href="#cb33-464" aria-hidden="true" tabindex="-1"></a>I hope you found this article informative.</span>
 <span id="cb33-465"><a href="#cb33-465" aria-hidden="true" tabindex="-1"></a>You can find its GitHub repository <span class="co">[</span><span class="ot">here</span><span class="co">](https://github.com/gbganalyst/API-in-R-and-Python)</span>.</span>
 <span id="cb33-466"><a href="#cb33-466" aria-hidden="true" tabindex="-1"></a>If you enjoyed reading this write-up, please follow me on <span class="co">[</span><span class="ot">Twitter</span><span class="co">](https://twitter.com/gbganalyst)</span> and <span class="co">[</span><span class="ot">Linkedin</span><span class="co">](https://linkedin.com/in/ezekiel-ogundepo)</span> for more updates on <span class="in">`R`</span>, <span class="in">`Python`</span>, and <span class="in">`Excel`</span> for data science.</span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
