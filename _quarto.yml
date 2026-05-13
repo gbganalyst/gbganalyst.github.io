@@ -89,7 +89,7 @@ website:
   announcement:
     icon: megaphone
     dismissable: true
-    content: "Our customised [Data Science](https://tauniversity.github.io/cohort2025webpage/) training, exclusively for the graduating students of Thomas Adewumi University is underway."
+    content: "Our customised [Data Science](https://tauniversity.github.io/tau-ds-webpage) training, designed exclusively for graduating students of Thomas Adewumi University, is currently underway."
     type: info
     position: above-navbar
     
