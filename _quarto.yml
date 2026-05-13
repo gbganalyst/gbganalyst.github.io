@@ -17,6 +17,7 @@ execute:
 
 website:
   title: "Ezekiel Ogundepo"
+  llms-txt: true # making your content more accessible to LLMS and AI-powered tools
   site-url: "gbganalyst.github.io"
   navbar:
     logo: /images/logo.png

@@ -1,0 +1,14 @@
+# Ezekiel Ogundepo
+
+## Pages
+
+- [index](gbganalyst.github.io/index.llms.md)
+- [Create Your Website with Quarto: Complete Tutorial and Template](gbganalyst.github.io/blog/website-tutorial-quarto/index.llms.md)
+- [Every Scientist Should Have a Website](gbganalyst.github.io/blog/scientists-should-have-a-website/index.llms.md)
+- [Export Multiple Data Frames to Different Excel Worksheets in R](gbganalyst.github.io/blog/export-r-dataframe-to-excel-workbook/index.llms.md)
+- [Data Consolidation: How to Efficiently Merge Multiple CSV Files in Python](gbganalyst.github.io/blog/data-consolidation-csv/index.llms.md)
+- [How to fetch API data in R and Python](gbganalyst.github.io/blog/api-in-r-and-python/index.llms.md)
+- [Data Consolidation: Automatically Merge Excel Sheets with Python](gbganalyst.github.io/blog/data-consolidation-excel/index.llms.md)
+- [Welcome to GBG Analytics Blog!](gbganalyst.github.io/blog/index.llms.md)
+- [Statistics for Data Science and Analytics](gbganalyst.github.io/blog/statistics-for-datascience-and-analytics/index.llms.md)
+- [Curriculum vitae](gbganalyst.github.io/cv/index.llms.md)
