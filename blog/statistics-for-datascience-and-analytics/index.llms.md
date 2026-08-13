@@ -12,7 +12,7 @@ Your task is to perform the following data analysis activities using R and Pytho
 
 To follow along with this tutorial, you can download the dataset in either Excel or CSV format by clicking the respective button.
 
-  
+\
 [Figure 1](#fig-datadico) shows the data dictionary for the child autism dataset.
 
 [![A table presenting the data dictionary for a child autism dataset. The table includes columns for the variable name, class, label, and possible values. Variables like 'score', 'age', and 'cost' are numeric, while factors include 'gender', 'ethnicity', 'jaundice', and 'autism'. The dataset contains 292 rows and 11 columns, with each variable providing specific information about the child and the test results.](data_description.png)](data_description.png "Figure 1: Data Dictionary for Child Autism Dataset")
@@ -633,22 +633,22 @@ print(summary_stats)
 
 **Interpretation of the Charts**
 
-1.  **Score**:  
+1.  **Score**:\
     The mean score for children in the dataset was 6.39 (SD = 2.39), with scores ranging from 0 to 9.7. The distribution of scores appears to be relatively uniform, with the majority of children scoring between 4 and 8. This suggests that the children in the sample exhibited mid-range scores, and there were no extreme outliers or significant deviations. The presence of a wide range of scores could indicate variability in the underlying factor being measured by the score.
 
-2.  **Age**:  
+2.  **Age**:\
     The mean age of the children in the dataset was 4.2 years (SD = 1.95), with ages ranging from 1 to 10 years. The distribution of ages was skewed towards younger children, with a concentration of children aged between 3 and 5 years. This skewness suggests that the dataset predominantly consists of younger children, with a possible overrepresentation of early childhood ages compared to older children.
 
-3.  **Cost**:  
+3.  **Cost**:\
     The cost data had a mean of 1951.24 (SD = 778.20), with a range from -30 to 5000. There were some negative values in the dataset, which may indicate data entry errors or special cases, requiring further investigation. The distribution also showed outliers at the higher end of the cost range, suggesting that some families may face significantly higher costs than the majority, indicating potential financial disparities.
 
-4.  **Gender**:  
+4.  **Gender**:\
     The gender distribution indicated that 61.6% of the children were male, and 38.4% were female. This imbalance suggests that there may be a slight overrepresentation of males in the dataset (e.g., male children = 61.6%, female children = 38.4%).
 
-5.  **Jaundice**:  
+5.  **Jaundice**:\
     In the dataset, 77.4% of children did not have a history of jaundice, while 22.6% had a history of jaundice. This distribution highlights that while the majority of children did not experience jaundice, a notable proportion did, indicating a possible area of concern for early childhood health.
 
-6.  **Autism**:  
+6.  **Autism**:\
     The dataset showed that 23.3% of children were diagnosed with autism, while 76.7% were not. This finding reveals that nearly one-quarter of the sample has an autism diagnosis, suggesting a substantial subset of the dataset requires specialized care or interventions. Further analysis could explore the relationships between autism and other variables like gender, age, or cost.
 
 These results provide a basic understanding of the sample’s characteristics and highlight potential areas for further research, such as the financial impact on families or demographic differences related to autism diagnosis.
@@ -954,7 +954,7 @@ model.fit(X, y)
 
     LinearRegression()
 
-**In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook.  
+**In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook.\
 On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.**
 
 LinearRegression

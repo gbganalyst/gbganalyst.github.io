@@ -16,7 +16,7 @@ As an active member of the Africa R programming community and a certified RStudi
 
 ## News
 
-- **March 27, 2025: Using Machine Learning to Model the Drivers of Cholera**  
+- **March 27, 2025: Using Machine Learning to Model the Drivers of Cholera**\
   As a CAN Fellow, I used data science and machine learning to assess and address cholera outbreaks in Yobe State, Nigeria. [Click here](https://unfoundation.us13.list-manage.com/track/click?u=6d0e0f41c3f080faa26e03822&id=fbd251d4f4&e=f15d4e2ed3) to read more about my work.
 
   ![](images/photoshoot-2.jpg)
