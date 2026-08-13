@@ -26,34 +26,45 @@ website:
     left:
       - text: Home
         href: index.qmd
-     # - talks.qmd
-     # - text: "More"
-     #   menu:
-     #   - talks.qmd
-    #    - about.qmd 
       - text: CV
         href: cv/index.qmd
       - text: Blog
         href: blog/index.qmd
-      - text: "Packages"
+      - text: "Resources"
         menu:
-          - text: "bulkreadr"
+          - text: "bulkreadr R Package"
             href: https://gbganalyst.github.io/bulkreadr
-          - text: "forstringr"
+          - text: "forstringr R Package"
             href: https://gbganalyst.github.io/forstringr
+          - text: "Data Science Training"
+            href: https://tauniversity.github.io/tau-ds-webpage
+
     right:
       - icon: twitter
+        text: "X"
+        aria-label: "X"
         href: https://twitter.com/gbganalyst
       - icon: youtube
+        text: "YouTube"
+        aria-label: "YouTube"
         href: https://www.youtube.com/@gbganalytics
       - icon: github
+        text: "GitHub"
+        aria-label: "GitHub"
         href: https://github.com/gbganalyst
       - icon: linkedin
+        text: "LinkedIn"
+        aria-label: "LinkedIn"
         href: https://www.linkedin.com/in/gbganalyst/
+      - icon: mortarboard-fill
+        text: "Google Scholar"
+        aria-label: "Google Scholar"
+        href: https://scholar.google.com/citations?user=4Lzit9EAAAAJ
       - icon: envelope
-        aria-label: email
+        text: "Email"
+        aria-label: "Email"
         href: "mailto:gbganalyst@gmail.com"
-        
+
 #  page-footer: 
 #    border: true
 #    background: dark
@@ -64,7 +75,7 @@ website:
 
   page-footer: 
     left: |
-      <span class="faux-block">{{< fa brands creative-commons >}} 2024 Ezekiel Ogundepo</span>
+      <span class="faux-block">{{< fa brands creative-commons >}} 2026 Ezekiel Ogundepo</span>
 #     <span class="faux-block"><a href="https://github.com/gbganalyst/gbganalyst.github.io">{{< fa brands github >}} Source Code</a></span>
     center: |
      <span class="faux-block">{{< fa brands orcid >}} <strong>ORCID</strong> [0000-0003-3974-2733](https://orcid.org/0000-0003-3974-2733)</span>
