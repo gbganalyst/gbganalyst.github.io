@@ -2,7 +2,7 @@
 
 CV last updated
 
-August 13, 2026
+October 9, 2026
 
 [ Download current CV](Ezekiel-Resume.pdf)
 
