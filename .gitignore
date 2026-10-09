@@ -10,3 +10,7 @@
 
 **/*.quarto_ipynb
 .positai
+
+# Microsoft Word temporary files
+~$*
+~WRL*.tmp
